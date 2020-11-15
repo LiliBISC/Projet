@@ -1,22 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package projet;
 
-/**
- *
- * @author trani
- */
+import java.sql.*;
+
+
+
+
 public class Projet {
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        System.out.println("ui");
-    }
+   
+    public static void main(String[] args) throws SQLException {
     
-}
+        try{Class.forName("com.mysql.jdbc.Driver");System.out.println("Driver initialisé");}
+        catch(Exception e){System.out.println("Erreur driver");}
+        
+        try {
+   
+  Connection connexion= DriverManager.getConnection( "jdbc:mysql://localhost:3306/projet8", "root", "A44fichaux" );
+System.out.println("Connection ok");
+Statement statement = connexion.createStatement();
+
+statement.executeUpdate("INSERT INTO Utilisateur (nom,prenom, mot_de_passe,date_inscription) VALUES ('merde', 'réussie',MD5('enculé'), NOW());");
+
+ 
+ connexion.close();
+} catch (Exception e ) {
+   System.out.println("Connection échoué");
+
+    
+    }}}
