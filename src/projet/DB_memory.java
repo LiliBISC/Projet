@@ -7,6 +7,7 @@ package projet;
 
 import java.sql.*;
 import java.util.ArrayList;
+import static projet.Sousprogrammes.motaleatoire;
 
 /**
  *
@@ -28,16 +29,17 @@ connexion= DriverManager.getConnection( "jdbc:mysql://localhost:3306/projet8", "
 System.out.println("CONNECTION établie");
 statement = connexion.createStatement();
 /////////////////////////////////////////////////////////////////////
-//ajouter_client(new Customer("ertervf","Marc","Fichou","78965"));
-//supprimer_client("erterv");
-statement.executeUpdate("DELETE FROM client WHERE identifiant='ertervf';");
+for(int i=0;i<50;i++)
+ajouter_client(new Customer(motaleatoire(8),motaleatoire(5),motaleatoire(5),motaleatoire(4)));
+
+supprimer_client("erf");
+
 
  /////////////////////////////////////////////////////////////////////
+
  connexion.close();
- statement.close();
- resultat.close();
 } catch (SQLException e ) {
-   //System.err.println(e.getMessage());
+   System.err.println(e.getMessage());
 }
         
         
@@ -50,8 +52,8 @@ statement.executeUpdate("DELETE FROM client WHERE identifiant='ertervf';");
     }
     
     public void supprimer_client(String identifiant) throws SQLException{
-        //statement.executeUpdate("DELETE FROM client WHERE identifiant='"+identifiant+"';");
-        
-    }
+       
+        statement.executeUpdate("DELETE FROM client WHERE identifiant='"+identifiant+"';");
+  }
     
 }
