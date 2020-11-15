@@ -36,7 +36,7 @@ statement = connexion.createStatement();
 
 
 /////////////////////////////////////////////////////////////////////
-for(int i=0;i<100;i++)ajouter_client(new Customer(motaleatoire(2),motaleatoire(5),motaleatoire(5),motaleatoire(4)));
+for(int i=0;i<100;i++)ajouter_client(new Customer(motaleatoire(5),motaleatoire(5),motaleatoire(5),motaleatoire(4)));
 //supprimer_client("erf");
 
 
@@ -48,9 +48,8 @@ for(int i=0;i<100;i++)ajouter_client(new Customer(motaleatoire(2),motaleatoire(5
 connexion.close();
  println("Deconnection de fin de programme",BLACK);
 } catch (SQLException e ) {
-   System.err.println(e.getMessage());
+   System.err.println("Connection a "+nom_database+" impossible. Vérifie que t'as activé le serveur mec. ");
 }
-        println("\n\n");
         
     }
     
