@@ -10,12 +10,20 @@ package projet;
  * @author trani
  */
 public class Customer {
-    protected String name;
-    protected String surname;
+    protected int id;
+    protected String nom;
+    protected String prenom;
+    protected String email;
+    protected String mdp;
+    
 
-    public Customer(String name,String surname){
-        this.name=name;
-        this.surname=surname;
+    public Customer(int id,String nom,String prenom,String email,String mdp){
+        this.id=id;
+        this.nom=nom;
+        this.prenom=prenom;
+        this.email=email;
+        this.mdp=mdp;
+        
     }
    
     
