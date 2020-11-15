@@ -10,6 +10,6 @@ public class Projet {
 
    
     public static void main(String[] args) throws SQLException {
-        DB_memory data=new DB_memory();
+        DB_memory data=new DB_memory("projet8","localhost","3306", "root", "A44fichaux");
         
    }}

@@ -16,6 +16,16 @@ import java.util.Random;
  */
 public class Sousprogrammes {
     
+    public static final String RESET = "\u001B[0m";
+public static final String BLACK = "\u001B[30m";
+public static final String RED = "\u001B[31m";
+public static final String GREEN = "\u001B[32m";
+public static final String YELLOW = "\u001B[33m";
+public static final String BLUE = "\u001B[34m";
+public static final String PURPLE = "\u001B[35m";
+public static final String CYAN = "\u001B[36m";
+public static final String WHITE = "\u001B[37m";
+    
     static String motaleatoire(int nlettre){
          Random rnd = new Random();
       String a="abcdefghijklmnopqrstuvwxyz123456789";
@@ -28,7 +38,15 @@ public class Sousprogrammes {
       
       return mot;
     }
+    static void println(String msg,String couleur){
+        System.out.println(couleur+msg);
+        System.out.print(RESET);
+    }
+    static void println(String msg){
+        System.out.println(msg+WHITE);
+        System.out.print(RESET);
+    }
     public static void main(String[] args) {
-        //System.out.println(motaleatoire());
+        println(motaleatoire(5));
     }
 }
