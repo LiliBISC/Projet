@@ -10,18 +10,18 @@ package projet;
  * @author trani
  */
 public class Customer {
-    protected int id;
+    protected String identifiant;
     protected String nom;
     protected String prenom;
-    protected String email;
     protected String mdp;
+    protected String date_inscription;
     
 
-    public Customer(int id,String nom,String prenom,String email,String mdp){
-        this.id=id;
+    public Customer(String identifiant,String nom,String prenom,String mdp){
+        this.identifiant=identifiant;
         this.nom=nom;
         this.prenom=prenom;
-        this.email=email;
+        
         this.mdp=mdp;
         
     }
