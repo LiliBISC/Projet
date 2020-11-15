@@ -16,6 +16,12 @@ import java.util.Random;
  */
 public class Sousprogrammes {
     
+    public static final String Ip="127.0.0.1";
+    public static final String Port="3306";
+   
+  
+    
+    
     public static final String RESET = "\u001B[0m";
 public static final String BLACK = "\u001B[30m";
 public static final String RED = "\u001B[31m";

@@ -5,6 +5,8 @@
  */
 package projet;
 
+import static projet.Sousprogrammes.*;
+
 /**
  *
  * @author lilia
@@ -114,7 +116,7 @@ public class jFrame2 extends javax.swing.JFrame  {
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         // TODO add your handling code here:
-        DB_memory data=new DB_memory("projet8","2.tcp.eu.ngrok.io","14126", "root", "A44fichaux");
+        DB_memory data=new DB_memory("projet8",Ip,Port, "root", "A44fichaux");
         String l=login.getText();
         String p=password.getText();
         //Customer c= new Customer(l,p);
