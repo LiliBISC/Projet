@@ -36,7 +36,7 @@ statement = connexion.createStatement();
 
 
 /////////////////////////////////////////////////////////////////////
-for(int i=0;i<100;i++)ajouter_client(new Customer(motaleatoire(5),motaleatoire(5),motaleatoire(5),motaleatoire(4)));
+//for(int i=0;i<20;i++)ajouter_client(new Customer(motaleatoire(5),motaleatoire(5),motaleatoire(5),motaleatoire(4)));
 //supprimer_client("erf");
 
 

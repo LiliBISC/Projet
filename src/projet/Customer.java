@@ -15,6 +15,7 @@ public class Customer {
     protected String prenom;
     protected String mdp;
     protected String date_inscription;
+    protected int age;
     
 
     public Customer(String identifiant,String nom,String prenom,String mdp){
@@ -25,6 +26,16 @@ public class Customer {
         this.mdp=mdp;
         
     }
-   
+   public Customer(String id, String mp)
+   {
+       this.mdp=mp;
+       this.identifiant=id;
+   }
+   public Customer(String nom, String prenom, int age)
+   {
+       this.nom=nom;
+       this.prenom=prenom;
+       this.age=age;
+   }
     
 }
