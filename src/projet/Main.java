@@ -6,7 +6,7 @@ import java.sql.*;
 
 
 
-public class Projet {
+public class Main {
 
    
     public static void main(String[] args) throws SQLException {

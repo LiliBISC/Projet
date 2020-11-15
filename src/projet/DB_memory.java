@@ -36,7 +36,7 @@ statement = connexion.createStatement();
 
 
 /////////////////////////////////////////////////////////////////////
-for(int i=0;i<10;i++)ajouter_client(new Customer(motaleatoire(8),motaleatoire(5),motaleatoire(5),motaleatoire(4)));
+for(int i=0;i<100;i++)ajouter_client(new Customer(motaleatoire(2),motaleatoire(5),motaleatoire(5),motaleatoire(4)));
 //supprimer_client("erf");
 
 
@@ -60,7 +60,7 @@ connexion.close();
         statement.executeUpdate("INSERT INTO client (identifiant,nom,prenom, mot_de_passe,date_inscription) VALUES ('"+c.identifiant+"','"+c.nom+"','"+c.prenom+"',"+"MD5('"+c.mdp+"'),"+"NOW());");
         resultat = statement.executeQuery("SELECT NOW();");
         
-        println(date_action(resultat)+" :  "+c.nom+" s'est inscrit   ");
+        println(date_action(resultat)+" :  "+c.nom+" s'est inscrit   ");///rapport de l'action
         }
         catch(SQLException e){
             println(e.getMessage(),RED);
@@ -80,6 +80,15 @@ resultat = statement.executeQuery("SELECT NOW();");
    resultat.next();     
 return resultat.getString(1);
 }
+    
+    public int nb_ligne(String table) throws SQLException{///retourne le nombre de ligne de la table rentrée en paramètre
+        resultat=statement.executeQuery("SELECT COUNT(*) FROM "+table+";");
+        resultat.next();
+        return resultat.getInt(1);
+        
+    }
+    
+    
     
 }
 

@@ -38,11 +38,13 @@ public static final String WHITE = "\u001B[37m";
       
       return mot;
     }
-    static void println(String msg,String couleur){
+    static void println(Object msg,String couleur){
+        msg=String.valueOf(msg);
         System.out.println(couleur+msg);
         System.out.print(RESET);
     }
-    static void println(String msg){
+    static void println(Object msg){
+        msg=String.valueOf(msg);
         System.out.println(msg+WHITE);
         System.out.print(RESET);
     }
