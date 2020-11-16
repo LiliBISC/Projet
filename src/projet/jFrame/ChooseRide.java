@@ -5,6 +5,7 @@
  */
 package projet.jFrame;
 
+import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import projet.Ride;
@@ -20,6 +21,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
      */
     public ChooseRide() {
         initComponents();
+        getContentPane().setBackground(Color.WHITE);
         ride1.addMouseListener(this);
         ride2.addMouseListener(this);
         ride3.addMouseListener(this);
@@ -46,6 +48,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 255));
         jLabel1.setText("Choose your ride");
 
         ride1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -95,12 +98,6 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
                 .addComponent(ride2)
                 .addGap(246, 246, 246))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(ride1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
-                .addComponent(ride8)
-                .addGap(121, 121, 121))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -110,9 +107,17 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
                         .addComponent(ride3)
                         .addGap(544, 544, 544))))
             .addGroup(layout.createSequentialGroup()
-                .addGap(483, 483, 483)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(449, 449, 449)
+                        .addComponent(jLabel1)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ride1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                        .addComponent(ride8)
+                        .addGap(121, 121, 121))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,17 +194,23 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         if(me.getSource()==ride1)
         {
             Ride r=new Ride(ride1.getText());
+            ChooseDate j=new ChooseDate();
+            j.setVisible(true);
             setVisible(false);
             
         }
         else if(me.getSource()==ride2)
         {
             Ride r=new Ride(ride2.getText());
+            ChooseDate j=new ChooseDate();
+            j.setVisible(true);
             setVisible(false);
         }
         else if(me.getSource()==ride3)
         {
             Ride r=new Ride(ride3.getText());
+            ChooseDate j=new ChooseDate();
+            j.setVisible(true);
             setVisible(false);
         }
         

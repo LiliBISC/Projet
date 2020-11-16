@@ -5,6 +5,9 @@
  */
 package projet.jFrame;
 
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import projet.DB_memory;
 import static projet.Sousprogrammes.*;
 
@@ -12,13 +15,15 @@ import static projet.Sousprogrammes.*;
  *
  * @author lilia
  */
-public class MemberPlace extends javax.swing.JFrame  {
+public class MemberPlace extends javax.swing.JFrame implements MouseListener  {
 
     /**
      * Creates new form jFrame2
      */
     public MemberPlace() {
         initComponents();
+        getContentPane().setBackground(Color.WHITE);
+        arrow.addMouseListener(this);
     }
 
     /**
@@ -36,21 +41,25 @@ public class MemberPlace extends javax.swing.JFrame  {
         password = new javax.swing.JPasswordField();
         jLabel4 = new javax.swing.JLabel();
         confirm = new javax.swing.JButton();
+        arrow = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         login.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        login.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        login.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(102, 153, 255));
         jLabel1.setText("Password :");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(102, 153, 255));
         jLabel2.setText("Login :");
 
-        password.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        password.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 102, 255));
         jLabel4.setText("Member Space");
 
         confirm.setBackground(new java.awt.Color(204, 204, 204));
@@ -64,6 +73,8 @@ public class MemberPlace extends javax.swing.JFrame  {
                 confirmActionPerformed(evt);
             }
         });
+
+        arrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/fleche sur la gauche.PNG"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -79,7 +90,9 @@ public class MemberPlace extends javax.swing.JFrame  {
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel1)))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(133, 133, 133)
+                                .addContainerGap()
+                                .addComponent(arrow, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(97, 97, 97)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -98,7 +111,9 @@ public class MemberPlace extends javax.swing.JFrame  {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
+                    .addComponent(arrow, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(51, 51, 51)
                 .addComponent(jLabel2)
                 .addGap(10, 10, 10)
@@ -164,6 +179,7 @@ public class MemberPlace extends javax.swing.JFrame  {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton arrow;
     private javax.swing.JButton confirm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -171,4 +187,34 @@ public class MemberPlace extends javax.swing.JFrame  {
     private javax.swing.JTextField login;
     private javax.swing.JPasswordField password;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void mouseClicked(MouseEvent me) {
+        if(me.getSource()==arrow)
+        {
+            jFrame j=new jFrame();
+            j.setVisible(true);
+            setVisible(false);
+        }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent me) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent me) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent me) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void mouseExited(MouseEvent me) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
