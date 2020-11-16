@@ -3,21 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet;
+package projet.jFrame;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import projet.Ride;
 
 /**
  *
  * @author lilia
  */
-public class jFrame4 extends javax.swing.JFrame implements MouseListener{
+public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
     /**
      * Creates new form jFrame4
      */
-    public jFrame4() {
+    public ChooseRide() {
         initComponents();
         ride1.addMouseListener(this);
         ride2.addMouseListener(this);
@@ -153,20 +154,21 @@ public class jFrame4 extends javax.swing.JFrame implements MouseListener{
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(jFrame4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChooseRide.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(jFrame4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChooseRide.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(jFrame4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChooseRide.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(jFrame4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChooseRide.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new jFrame4().setVisible(true);
+                new ChooseRide().setVisible(true);
             }
         });
     }
@@ -187,14 +189,18 @@ public class jFrame4 extends javax.swing.JFrame implements MouseListener{
         if(me.getSource()==ride1)
         {
             Ride r=new Ride(ride1.getText());
+            setVisible(false);
+            
         }
         else if(me.getSource()==ride2)
         {
             Ride r=new Ride(ride2.getText());
+            setVisible(false);
         }
         else if(me.getSource()==ride3)
         {
             Ride r=new Ride(ride3.getText());
+            setVisible(false);
         }
         
         

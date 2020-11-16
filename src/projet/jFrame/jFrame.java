@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet;
+package projet.jFrame;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -100,13 +100,13 @@ public class jFrame extends javax.swing.JFrame implements MouseListener {
         
         if(me.getSource()==lb1)
         {
-            jFrame2 j=new jFrame2();
+            MemberPlace j=new MemberPlace();
             j.setVisible(true);
             setVisible(false);
         }
         else if(me.getSource()==lb2)
         {
-            jFrame3 j= new jFrame3();
+            GuestPlace j= new GuestPlace();
             j.setVisible(true);
             setVisible(false);
         }
