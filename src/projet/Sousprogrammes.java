@@ -16,9 +16,7 @@ import java.util.Random;
  */
 public class Sousprogrammes {
     
-    public static final String ip="0.tcp.eu.ngrok.io";
-    public static final String port="12197";
-    public static final String nom_DB="BD_P8";
+    
    
   
     
@@ -45,12 +43,12 @@ public static final String WHITE = "\u001B[37m";
       
       return mot;
     }
-    static void println(Object msg,String couleur){
+    public static void println(Object msg,String couleur){
         msg=String.valueOf(msg);
         System.out.println(couleur+msg);
         System.out.print(RESET);
     }
-    static void println(Object msg){
+    public static void println(Object msg){
         msg=String.valueOf(msg);
         System.out.println(msg+WHITE);
         System.out.print(RESET);

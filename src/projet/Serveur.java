@@ -5,14 +5,19 @@
  */
 package projet;
 
-import static projet.Sousprogrammes.ip;
-import static projet.Sousprogrammes.nom_DB;
-import static projet.Sousprogrammes.port;
+
 
 /**
  *
  * @author trani
  */
 public interface Serveur {
-     final static DB_memory data=new DB_memory(nom_DB,ip,port, "root", "A44fichaux");;
+    public static final String ip="0.tcp.eu.ngrok.io";
+    public static final String port="12197";
+    public static final String nom_DB="BD_P8";
+    public static final String user="root";
+    public static final String mdp="A44fichaux";
+    
+     final static DB_memory data=new DB_memory(nom_DB,ip,port,user,mdp);
+     
 }

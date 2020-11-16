@@ -10,9 +10,9 @@ import static projet.Sousprogrammes.*;
 
 
 public final class DB_memory {
-    Connection connexion;
-    Statement statement;
-    ResultSet resultat;
+    public Connection connexion;
+    public Statement statement;
+    public ResultSet resultat;
     
     public DB_memory(String nom_database,String ip,String port,String user,String mdp){
         
@@ -80,7 +80,7 @@ statement = connexion.createStatement();
         
         
         
-        while(resultat.next()==false){
+        while(resultat.next()&&t==false){
              
            if( resultat.getString("email").compareTo(email)==0&&resultat.getString("mdp").compareTo(mdp)==0){
               
@@ -95,15 +95,15 @@ statement = connexion.createStatement();
             println(e.getMessage(),RED);
             }
         finally{
-            println(t);
+            
         return t;
         
         }
         
     }
     
-    public double recherche_age_client(String email,String mdp) {
-        double age=0;
+    public int recherche_age_client(String email,String mdp) {
+        int age=0;
         try{
         resultat = statement.executeQuery( "SELECT *FROM user;" );
         
@@ -113,7 +113,7 @@ statement = connexion.createStatement();
              
            if( resultat.getString("email").compareTo(email)==0&&resultat.getString("mdp").compareTo(mdp)==0){
               
-               age= resultat.getDouble("age");
+               age= resultat.getInt("age");
                
            }
         }
@@ -124,7 +124,7 @@ statement = connexion.createStatement();
             println(e.getMessage(),RED);
             }
         finally{ 
-            println(age);
+            //println(age);
         return age;
         
         

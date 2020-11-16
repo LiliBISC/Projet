@@ -10,8 +10,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import projet.DB_memory;
+import projet.Serveur;
 import static projet.Serveur.data;
 import static projet.Sousprogrammes.*;
 import static projet.Serveur.data;
@@ -21,7 +25,7 @@ import static sun.font.GlyphLayout.done;
  *
  * @author lilia
  */
-public class MemberPlace extends javax.swing.JFrame implements MouseListener  {
+public class MemberPlace extends javax.swing.JFrame implements MouseListener,Serveur  {
 
     /**
      * Creates new form jFrame2
@@ -144,13 +148,22 @@ public class MemberPlace extends javax.swing.JFrame implements MouseListener  {
         // TODO add your handling code here:
         String l=login.getText();
         String p=password.getText();
-        System.out.println(data.recherche_identifiants_client(l,p));
+       
         
         boolean result=data.recherche_identifiants_client(l, p);
+        int age=0;
+        try {
+            data.resultat.previous();
+            age = data.resultat.getInt("age");
+        } catch (SQLException ex) {
+            
+        }
         
         if(result==true)
         {
-            double age=data.recherche_age_client(l, p);
+            
+           
+            
             if(age<=12)
             {
                 discount=0.35;

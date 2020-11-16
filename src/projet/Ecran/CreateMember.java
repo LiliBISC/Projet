@@ -287,11 +287,11 @@ public class CreateMember extends javax.swing.JFrame implements MouseListener,Se
             j.setVisible(true);
             setVisible(false);
             }
-            else
+            else{
                 discount=1;
             ChooseRide j=new ChooseRide(discount);
             j.setVisible(true);
-            setVisible(false);
+            setVisible(false);}
         }
         
         
