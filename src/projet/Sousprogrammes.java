@@ -16,8 +16,8 @@ import java.util.Random;
  */
 public class Sousprogrammes {
     
-    public static final String ip="127.0.0.1";
-    public static final String port="3306";
+    public static final String ip="0.tcp.eu.ngrok.io";
+    public static final String port="12197";
     public static final String nom_DB="BD_P8";
    
   

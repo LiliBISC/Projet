@@ -152,7 +152,7 @@ public class MainMenu extends javax.swing.JFrame implements MouseListener ,Serve
         
     }//GEN-LAST:event_formWindowClosed
 
-
+    private double discount;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel createMember;
     private javax.swing.JLabel jLabel1;

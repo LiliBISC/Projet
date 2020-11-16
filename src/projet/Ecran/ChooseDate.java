@@ -10,7 +10,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import static java.sql.DriverManager.println;
+import java.text.SimpleDateFormat;
 import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
 import static projet.Serveur.data;
 
 /**
@@ -22,7 +25,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     /**
      * Creates new form ChooseDate
      */
-    public ChooseDate() {
+    public ChooseDate(double d) {
         initComponents();
         getContentPane().setBackground(Color.WHITE);setLocationRelativeTo(null);
         ButtonGroup group=new ButtonGroup();
@@ -43,6 +46,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         group1.add(C6);
         
         arrow.addMouseListener(this);
+        this.discount_=d;
         
         double prix_manège=10;//A la place faut une fonction qui prend le prix du manege
         double reduction=0.5;//A la place il faut un fonction qui prend la reduction du client
@@ -51,7 +55,11 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         title.setText("The price of this ride is : "+prix_manège+"$ by head");
 
         //Affichage de la réduction si le client
-        discount.setText("The discount is : -"+reduction*100+"% for each children");
+        if(discount_==1)
+        {
+            discount.setText("You have not discount !");
+        }
+        discount.setText("The discount is : -"+discount_*100+"% for each children");
         
         
     addWindowListener(new WindowAdapter(){///close serv if close jframe
@@ -71,7 +79,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
+        date = new com.toedter.calendar.JCalendar();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         A0 = new javax.swing.JToggleButton();
@@ -329,7 +337,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(266, 266, 266)
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -400,7 +408,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addGap(37, 37, 37)
-                .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(83, 83, 83)
                 .addComponent(done)
                 .addGap(38, 38, 38))
@@ -411,7 +419,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
 
     private void doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneActionPerformed
         // TODO add your handling code here:
-        
+        SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
+        String date_ = date_format.format(date.getDate());
 
     }//GEN-LAST:event_doneActionPerformed
 
@@ -436,9 +445,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C1ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client
         double nbChild=Double.parseDouble(C1.getText());
-        price_child=nbChild*prix_manège*reduction;
+        price_child=nbChild*prix_manège*discount_;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C1ActionPerformed
@@ -446,9 +454,9 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void C3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C3ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client
+
         double nbChild=Double.parseDouble(C3.getText());
-        price_child=nbChild*prix_manège*reduction;
+        price_child=nbChild*prix_manège*discount_;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C3ActionPerformed
@@ -501,9 +509,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void C0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C0ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client
         double nbChild=Double.parseDouble(C0.getText());
-        price_child=nbChild*prix_manège*reduction;
+        price_child=nbChild*prix_manège*discount_;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C0ActionPerformed
@@ -511,9 +518,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void C2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C2ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client
         double nbChild=Double.parseDouble(C2.getText());
-        price_child=nbChild*prix_manège*reduction;
+        price_child=nbChild*prix_manège*discount_;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C2ActionPerformed
@@ -521,9 +527,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void C4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C4ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client
         double nbChild=Double.parseDouble(C4.getText());
-        price_child=nbChild*prix_manège*reduction;
+        price_child=nbChild*prix_manège*discount_;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C4ActionPerformed
@@ -531,9 +536,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void C5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C5ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client
         double nbChild=Double.parseDouble(C5.getText());
-        price_child=nbChild*prix_manège*reduction;
+        price_child=nbChild*prix_manège*discount_;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C5ActionPerformed
@@ -541,9 +545,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C6ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client
         double nbChild=Double.parseDouble(C6.getText());
-        price_child=nbChild*prix_manège*reduction;
+        price_child=nbChild*prix_manège*discount_;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C6ActionPerformed
@@ -551,6 +554,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     
     private double price_adult;
     private double price_child;
+    private final double discount_;
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton A0;
@@ -571,9 +575,9 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private javax.swing.JTextField Cprice;
     private javax.swing.JTextField Tprice;
     private javax.swing.JButton arrow;
+    private com.toedter.calendar.JCalendar date;
     private javax.swing.JLabel discount;
     private javax.swing.JButton done;
-    private com.toedter.calendar.JCalendar jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -587,7 +591,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==arrow)
         {
-            ChooseRide j=new ChooseRide();
+            ChooseRide j=new ChooseRide(discount_);
             j.setVisible(true);
             setVisible(false);
         }

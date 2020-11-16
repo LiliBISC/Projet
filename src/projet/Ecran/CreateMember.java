@@ -280,7 +280,16 @@ public class CreateMember extends javax.swing.JFrame implements MouseListener,Se
         else if(em.equals(cem) && pw.equals(cpw))
         {   
             data.ajouter_client(em, pw,surn,nam,a);//ajoute le client
-            ChooseRide j=new ChooseRide();
+            if(a<=12)
+                    {
+                discount=0.35;
+                ChooseRide j=new ChooseRide(discount);
+            j.setVisible(true);
+            setVisible(false);
+            }
+            else
+                discount=1;
+            ChooseRide j=new ChooseRide(discount);
             j.setVisible(true);
             setVisible(false);
         }
@@ -293,7 +302,7 @@ public class CreateMember extends javax.swing.JFrame implements MouseListener,Se
     }//GEN-LAST:event_passwordActionPerformed
 
    
-
+    private double discount;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField age;
     private javax.swing.JButton arrow;

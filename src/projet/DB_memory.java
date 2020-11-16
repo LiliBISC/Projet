@@ -80,7 +80,7 @@ statement = connexion.createStatement();
         
         
         
-        while(resultat.next()){
+        while(resultat.next()==false){
              
            if( resultat.getString("email").compareTo(email)==0&&resultat.getString("mdp").compareTo(mdp)==0){
               
@@ -95,7 +95,38 @@ statement = connexion.createStatement();
             println(e.getMessage(),RED);
             }
         finally{
+            println(t);
         return t;
+        
+        }
+        
+    }
+    
+    public double recherche_age_client(String email,String mdp) {
+        double age=0;
+        try{
+        resultat = statement.executeQuery( "SELECT *FROM user;" );
+        
+        
+        
+        while(resultat.next()){
+             
+           if( resultat.getString("email").compareTo(email)==0&&resultat.getString("mdp").compareTo(mdp)==0){
+              
+               age= resultat.getDouble("age");
+               
+           }
+        }
+        
+       
+        }
+        catch(SQLException e){
+            println(e.getMessage(),RED);
+            }
+        finally{ 
+            println(age);
+        return age;
+        
         
         }
         

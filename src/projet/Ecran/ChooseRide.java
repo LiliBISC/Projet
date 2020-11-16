@@ -22,14 +22,17 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     /**
      * Creates new form jFrame4
      */
-    public ChooseRide() {
+    public ChooseRide(double d) {
         initComponents();
         getContentPane().setBackground(Color.WHITE);
         ride7.addMouseListener(this);
         ride2.addMouseListener(this);
         ride3.addMouseListener(this);
+        this.discount=d;
         setLocationRelativeTo(null);
-   addWindowListener(new WindowAdapter(){///close serv if close jframe
+        addWindowListener(new WindowAdapter(){///close serv if close jframe
+            
+    @Override
     public void windowClosing(WindowEvent e){data.deconnection();}});
     }
 
@@ -146,7 +149,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     }// </editor-fold>//GEN-END:initComponents
 
    
-
+    private final double discount;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel ride1;
@@ -162,20 +165,20 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         
         if(me.getSource()==ride7)
         {
-            ChooseDate j=new ChooseDate();
+            ChooseDate j=new ChooseDate(discount);
             j.setVisible(true);
             setVisible(false);
             
         }
         else if(me.getSource()==ride2)
         {
-            ChooseDate j=new ChooseDate();
+            ChooseDate j=new ChooseDate(discount);
             j.setVisible(true);
             setVisible(false);
         }
         else if(me.getSource()==ride3)
         {
-            ChooseDate j=new ChooseDate();
+            ChooseDate j=new ChooseDate(discount);
             j.setVisible(true);
             setVisible(false);
         }

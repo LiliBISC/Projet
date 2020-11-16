@@ -10,9 +10,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.JOptionPane;
 import projet.DB_memory;
 import static projet.Serveur.data;
 import static projet.Sousprogrammes.*;
+import static projet.Serveur.data;
+import static sun.font.GlyphLayout.done;
 
 /**
  *
@@ -143,14 +146,34 @@ public class MemberPlace extends javax.swing.JFrame implements MouseListener  {
         String p=password.getText();
         System.out.println(data.recherche_identifiants_client(l,p));
         
+        boolean result=data.recherche_identifiants_client(l, p);
+        
+        if(result==true)
+        {
+            double age=data.recherche_age_client(l, p);
+            if(age<=12)
+            {
+                discount=0.35;
+                ChooseRide j=new ChooseRide(discount);
+                j.setVisible(true);
+                setVisible(false);
+            }
+            discount=1;
+            
+            ChooseRide j=new ChooseRide(discount);
+            j.setVisible(true);
+            setVisible(false);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "The login or the password are false");
+        }
         //Customer c= new Customer(l,p);
-        ChooseRide j=new ChooseRide();
-        j.setVisible(true);
-        setVisible(false);
+        
     }//GEN-LAST:event_confirmActionPerformed
 
     
-
+    private double discount;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton arrow;
     private javax.swing.JButton confirm;
