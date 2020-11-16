@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet.jFrame;
+package projet.Ecran;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -132,7 +132,7 @@ public class MemberPlace extends javax.swing.JFrame implements MouseListener  {
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         // TODO add your handling code here:
-        DB_memory data=new DB_memory("projet8",Ip,Port, "root", "A44fichaux");
+        DB_memory data=new DB_memory(nom_DB,ip,port, "root", "A44fichaux");
         String l=login.getText();
         String p=password.getText();
         //Customer c= new Customer(l,p);

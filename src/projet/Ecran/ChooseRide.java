@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet.jFrame;
+package projet.Ecran;
 
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -53,7 +53,6 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
         ride1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ride1.setForeground(new java.awt.Color(109, 133, 250));
-        ride1.setIcon(new javax.swing.ImageIcon("C:\\Users\\lilia\\OneDrive\\Images\\Capture1.PNG")); // NOI18N
         ride1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ride1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -77,13 +76,11 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
         ride8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ride8.setForeground(new java.awt.Color(109, 133, 250));
-        ride8.setIcon(new javax.swing.ImageIcon("C:\\Users\\lilia\\OneDrive\\Images\\Capture2.PNG")); // NOI18N
         ride8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ride8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         ride9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ride9.setForeground(new java.awt.Color(109, 133, 250));
-        ride9.setIcon(new javax.swing.ImageIcon("C:\\Users\\lilia\\OneDrive\\Images\\Capture3.PNG")); // NOI18N
         ride9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ride9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
