@@ -414,9 +414,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void A1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A1ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client 
         double nbAdult=Double.parseDouble(A1.getText());
-        price_adult=nbAdult*prix_manège*reduction;
+        price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_A1ActionPerformed
@@ -424,9 +423,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void A3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A3ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client 
         double nbAdult=Double.parseDouble(A3.getText());
-        price_adult=nbAdult*prix_manège*reduction;
+        price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_A3ActionPerformed
@@ -454,9 +452,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void A0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A0ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client 
         double nbAdult=Double.parseDouble(A0.getText());
-        price_adult=nbAdult*prix_manège*reduction;
+        price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_A0ActionPerformed
@@ -464,9 +461,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void A2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A2ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client 
         double nbAdult=Double.parseDouble(A2.getText());
-        price_adult=nbAdult*prix_manège*reduction;
+        price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_A2ActionPerformed
@@ -474,9 +470,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void A4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A4ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client 
         double nbAdult=Double.parseDouble(A4.getText());
-        price_adult=nbAdult*prix_manège*reduction;
+        price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_A4ActionPerformed
@@ -484,9 +479,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void A5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A5ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client 
         double nbAdult=Double.parseDouble(A5.getText());
-        price_adult=nbAdult*prix_manège*reduction;
+        price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_A5ActionPerformed
@@ -494,9 +488,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private void A6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A6ActionPerformed
         // TODO add your handling code here:
         double prix_manège=10;
-        double reduction=0.5;//Faire après fonction qui permet de trouver la reduction d'un client 
         double nbAdult=Double.parseDouble(A6.getText());
-        price_adult=nbAdult*prix_manège*reduction;
+        price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_A6ActionPerformed
