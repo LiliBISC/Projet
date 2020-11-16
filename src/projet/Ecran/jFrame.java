@@ -26,6 +26,7 @@ public class jFrame extends javax.swing.JFrame implements MouseListener {
         lb2.addMouseListener(this);
         lb3.addMouseListener(this);
         createMember.addMouseListener(this);
+        setLocationRelativeTo(null);
     }
 
     /**

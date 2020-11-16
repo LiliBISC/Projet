@@ -25,6 +25,7 @@ public class GuestPlace extends javax.swing.JFrame implements MouseListener {
         initComponents();
         getContentPane().setBackground(Color.WHITE);
         arrow.addMouseListener(this);
+        setLocationRelativeTo(null);
     }
 
     /**

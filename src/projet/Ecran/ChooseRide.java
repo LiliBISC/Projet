@@ -25,6 +25,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         ride7.addMouseListener(this);
         ride2.addMouseListener(this);
         ride3.addMouseListener(this);
+        setLocationRelativeTo(null);
     }
 
     /**

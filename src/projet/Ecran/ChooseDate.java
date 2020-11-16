@@ -21,7 +21,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
      */
     public ChooseDate() {
         initComponents();
-        getContentPane().setBackground(Color.WHITE);
+        getContentPane().setBackground(Color.WHITE);setLocationRelativeTo(null);
         ButtonGroup group=new ButtonGroup();
         ButtonGroup group1=new ButtonGroup();
         group.add(A0);
