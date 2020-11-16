@@ -12,12 +12,15 @@ package projet;
 public class Ride {
     
     protected String name;
+    protected double price;
     protected float reduction;
     
     public Ride(String name)
     {
         this.name=name;
+        
     }
     
     ///Faire un fonction qui permet de trouver la réduction du manège en fonction de son nom
+    
 }

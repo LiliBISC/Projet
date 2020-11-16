@@ -22,7 +22,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     public ChooseRide() {
         initComponents();
         getContentPane().setBackground(Color.WHITE);
-        ride1.addMouseListener(this);
+        ride7.addMouseListener(this);
         ride2.addMouseListener(this);
         ride3.addMouseListener(this);
     }
@@ -53,18 +53,19 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
         ride1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ride1.setForeground(new java.awt.Color(109, 133, 250));
+        ride1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/Capture1.PNG"))); // NOI18N
         ride1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ride1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         ride2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ride2.setForeground(new java.awt.Color(109, 133, 250));
-        ride2.setText("The flying chairs");
+        ride2.setText("The Boat");
         ride2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ride2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         ride3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ride3.setForeground(new java.awt.Color(109, 133, 250));
-        ride3.setText("The Boat");
+        ride3.setText("The Flying Chairs");
         ride3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ride3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -76,11 +77,13 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
         ride8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ride8.setForeground(new java.awt.Color(109, 133, 250));
+        ride8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/Capture3.PNG"))); // NOI18N
         ride8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ride8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         ride9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         ride9.setForeground(new java.awt.Color(109, 133, 250));
+        ride9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/Capture2.PNG"))); // NOI18N
         ride9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ride9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -94,27 +97,24 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ride2)
                 .addGap(246, 246, 246))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(ride9)
-                        .addGap(362, 362, 362))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(ride3)
-                        .addGap(544, 544, 544))))
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
+                .addComponent(ride1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+                .addComponent(ride8)
+                .addGap(42, 42, 42))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(449, 449, 449)
-                        .addComponent(jLabel1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(314, 314, 314)
+                        .addComponent(ride9))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(ride1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
-                        .addComponent(ride8)
-                        .addGap(121, 121, 121))))
+                        .addGap(429, 429, 429)
+                        .addComponent(ride3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(419, 419, 419)
+                        .addComponent(jLabel1)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,52 +128,18 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ride1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ride8, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                    .addComponent(ride8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(ride3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(ride9)
-                .addGap(66, 66, 66))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ChooseRide.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ChooseRide.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ChooseRide.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ChooseRide.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ChooseRide().setVisible(true);
-            }
-        });
-    }
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -188,9 +154,8 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     @Override
     public void mouseClicked(MouseEvent me) {
         
-        if(me.getSource()==ride1)
+        if(me.getSource()==ride7)
         {
-            Ride r=new Ride(ride1.getText());
             ChooseDate j=new ChooseDate();
             j.setVisible(true);
             setVisible(false);
@@ -198,14 +163,12 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         }
         else if(me.getSource()==ride2)
         {
-            Ride r=new Ride(ride2.getText());
             ChooseDate j=new ChooseDate();
             j.setVisible(true);
             setVisible(false);
         }
         else if(me.getSource()==ride3)
         {
-            Ride r=new Ride(ride3.getText());
             ChooseDate j=new ChooseDate();
             j.setVisible(true);
             setVisible(false);

@@ -24,6 +24,8 @@ public class jFrame extends javax.swing.JFrame implements MouseListener {
         getContentPane().setBackground(Color.WHITE);
         lb1.addMouseListener(this);
         lb2.addMouseListener(this);
+        lb3.addMouseListener(this);
+        createMember.addMouseListener(this);
     }
 
     /**
@@ -39,6 +41,8 @@ public class jFrame extends javax.swing.JFrame implements MouseListener {
         lb1 = new javax.swing.JLabel();
         lb2 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        createMember = new javax.swing.JLabel();
+        lb3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -66,42 +70,66 @@ public class jFrame extends javax.swing.JFrame implements MouseListener {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/logo.PNG"))); // NOI18N
         jLabel2.setToolTipText("");
 
+        createMember.setFont(new java.awt.Font("Times New Roman", 3, 16)); // NOI18N
+        createMember.setForeground(new java.awt.Color(255, 0, 0));
+        createMember.setText("Create a member account ");
+        createMember.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        lb3.setBackground(new java.awt.Color(204, 204, 204));
+        lb3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        lb3.setForeground(new java.awt.Color(109, 133, 250));
+        lb3.setText("Employee Space");
+        lb3.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        lb3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(140, 140, 140))
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(lb1)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lb2)
-                .addGap(0, 25, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lb1)
+                            .addComponent(lb2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addGap(140, 140, 140))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lb3)
+                                .addContainerGap())))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(createMember)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addContainerGap()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lb1)
-                                .addGap(124, 124, 124))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(94, 94, 94)
+                                .addComponent(lb3))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(119, 119, 119)
-                        .addComponent(lb2)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(101, 101, 101)
+                        .addComponent(lb1)
+                        .addGap(66, 66, 66)
+                        .addComponent(lb2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addComponent(createMember)
+                .addContainerGap())
         );
 
         pack();
@@ -109,10 +137,12 @@ public class jFrame extends javax.swing.JFrame implements MouseListener {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel createMember;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lb1;
     private javax.swing.JLabel lb2;
+    private javax.swing.JLabel lb3;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -130,6 +160,20 @@ public class jFrame extends javax.swing.JFrame implements MouseListener {
             j.setVisible(true);
             setVisible(false);
         }
+        else if(me.getSource()==createMember)
+        {
+            CreateMember j=new CreateMember();
+            j.setVisible(true);
+            setVisible(false);
+            
+        }
+        else if(me.getSource()==lb3)
+        {
+            EmployeeSpace j=new EmployeeSpace();
+            j.setVisible(true);
+            setVisible(false);
+        }
+            
     }
 
     @Override
