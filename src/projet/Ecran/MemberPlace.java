@@ -8,7 +8,10 @@ package projet.Ecran;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import projet.DB_memory;
+import static projet.Serveur.data;
 import static projet.Sousprogrammes.*;
 
 /**
@@ -21,10 +24,13 @@ public class MemberPlace extends javax.swing.JFrame implements MouseListener  {
      * Creates new form jFrame2
      */
     public MemberPlace() {
+        
         initComponents();
         getContentPane().setBackground(Color.WHITE);
         arrow.addMouseListener(this);
         setLocationRelativeTo(null);
+       addWindowListener(new WindowAdapter(){///close serv if close jframe
+    public void windowClosing(WindowEvent e){data.deconnection();}});
     }
 
     /**
@@ -135,7 +141,7 @@ public class MemberPlace extends javax.swing.JFrame implements MouseListener  {
         // TODO add your handling code here:
         String l=login.getText();
         String p=password.getText();
-        
+        System.out.println(data.recherche_identifiants_client(l,p));
         
         //Customer c= new Customer(l,p);
         ChooseRide j=new ChooseRide();
@@ -159,7 +165,7 @@ public class MemberPlace extends javax.swing.JFrame implements MouseListener  {
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==arrow)
         {
-            jFrame j=new jFrame();
+            MainMenu j=new MainMenu();
             j.setVisible(true);
             setVisible(false);
         }

@@ -8,6 +8,9 @@ package projet.Ecran;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import static projet.Serveur.data;
 import projet.Ride;
 
 /**
@@ -26,6 +29,8 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         ride2.addMouseListener(this);
         ride3.addMouseListener(this);
         setLocationRelativeTo(null);
+   addWindowListener(new WindowAdapter(){///close serv if close jframe
+    public void windowClosing(WindowEvent e){data.deconnection();}});
     }
 
     /**

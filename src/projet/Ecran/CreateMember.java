@@ -8,13 +8,17 @@ package projet.Ecran;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
+import projet.Serveur;
+import static projet.Serveur.data;
 
 /**
  *
  * @author lilia
  */
-public class CreateMember extends javax.swing.JFrame implements MouseListener {
+public class CreateMember extends javax.swing.JFrame implements MouseListener,Serveur {
 
     /**
      * Creates new form CreateMember
@@ -24,6 +28,8 @@ public class CreateMember extends javax.swing.JFrame implements MouseListener {
         getContentPane().setBackground(Color.WHITE);
         arrow.addMouseListener(this);
         setLocationRelativeTo(null);
+        addWindowListener(new WindowAdapter(){///close serv if close jframe
+    public void windowClosing(WindowEvent e){data.deconnection();}});
     }
 
     /**
@@ -257,7 +263,7 @@ public class CreateMember extends javax.swing.JFrame implements MouseListener {
         // TODO add your handling code here:
         String nam=name.getText();
         String surn=surname.getText();
-        double a=Double.parseDouble(age.getText());
+        int a=Integer.parseInt(age.getText());
         String pw=password.getText();
         String cpw=confirmPassword.getText();
         String em=email.getText();
@@ -272,7 +278,8 @@ public class CreateMember extends javax.swing.JFrame implements MouseListener {
             JOptionPane.showMessageDialog(done, "The passwords are not the same");
         }
         else if(em.equals(cem) && pw.equals(cpw))
-        {
+        {   
+            data.ajouter_client(em, pw,surn,nam,a);//ajoute le client
             ChooseRide j=new ChooseRide();
             j.setVisible(true);
             setVisible(false);
@@ -319,7 +326,7 @@ public class CreateMember extends javax.swing.JFrame implements MouseListener {
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==arrow)
         {
-            jFrame j=new jFrame();
+            MainMenu j=new MainMenu();
             j.setVisible(true);
             setVisible(false);
         }

@@ -8,15 +8,19 @@ package projet.Ecran;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import projet.DB_memory;
+import projet.Serveur;
+import static projet.Serveur.data;
 import static projet.Sousprogrammes.*;
 
 /**
  *
  * @author lilia
  */
-public class GuestPlace extends javax.swing.JFrame implements MouseListener {
+public class GuestPlace extends javax.swing.JFrame implements MouseListener,Serveur {
 
     /**
      * Creates new form jFrame3
@@ -26,6 +30,8 @@ public class GuestPlace extends javax.swing.JFrame implements MouseListener {
         getContentPane().setBackground(Color.WHITE);
         arrow.addMouseListener(this);
         setLocationRelativeTo(null);
+        addWindowListener(new WindowAdapter(){///close serv if close jframe
+    public void windowClosing(WindowEvent e){data.deconnection();}});
     }
 
     /**
@@ -134,10 +140,10 @@ public class GuestPlace extends javax.swing.JFrame implements MouseListener {
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         // TODO add your handling code here:
-        //DB_memory data=new DB_memory("projet8",Ip,Port, "root", "A44fichaux");
+        
         String n=name.getText();
         String sn=surname.getText();
-       
+       data.ajouter_invite(n, sn);
         
         //Customer c= new Customer("",n,sn,"");
         //data.ajouter_client(c);
@@ -167,7 +173,7 @@ public class GuestPlace extends javax.swing.JFrame implements MouseListener {
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==arrow)
         {
-            jFrame j=new jFrame();
+            MainMenu j=new MainMenu();
             j.setVisible(true);
             setVisible(false);
         }

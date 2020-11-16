@@ -1,23 +1,24 @@
 
 package projet;
 
-import projet.Ecran.jFrame;
+import projet.Ecran.MainMenu;
 import java.sql.*;
 import static projet.Sousprogrammes.*;
 
 
 
 
-public class Main {
+public class Main implements Serveur{
 
    
-    public static void main(String[] args) throws SQLException {
-        //DB_memory data=new DB_memory(nom_DB,ip,port, "root", "A44fichaux");
+    public static void main(String[] args)  {
+       
+       
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new jFrame().setVisible(true);
+                new MainMenu().setVisible(true);
             }
         });
-        
+       
    }}

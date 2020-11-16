@@ -8,6 +8,9 @@ package projet.Ecran;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import static projet.Serveur.data;
 
 /**
  *
@@ -23,6 +26,8 @@ public class EmployeeSpace extends javax.swing.JFrame implements MouseListener{
         getContentPane().setBackground(Color.WHITE);
         arrow.addMouseListener(this);
         setLocationRelativeTo(null);
+       addWindowListener(new WindowAdapter(){///close serv if close jframe
+    public void windowClosing(WindowEvent e){data.deconnection();}});
     }
 
     /**
@@ -156,7 +161,7 @@ public class EmployeeSpace extends javax.swing.JFrame implements MouseListener{
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==arrow)
         {
-            jFrame j=new jFrame();
+            MainMenu j=new MainMenu();
             j.setVisible(true);
             setVisible(false);
         }

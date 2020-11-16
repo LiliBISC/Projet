@@ -8,7 +8,10 @@ package projet.Ecran;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.ButtonGroup;
+import static projet.Serveur.data;
 
 /**
  *
@@ -51,7 +54,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         discount.setText("The discount is : -"+reduction*100+"% for each children");
         
         
-        
+    addWindowListener(new WindowAdapter(){///close serv if close jframe
+    public void windowClosing(WindowEvent e){data.deconnection();}});
         
     }
 

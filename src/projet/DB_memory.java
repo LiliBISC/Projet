@@ -31,22 +31,7 @@ println("CONNECTION établie a "+nom_database,GREEN);
 statement = connexion.createStatement();
 
 
-
-
-
-
-/////////////////////////////////////////////////////////////////////
-for(int i=0;i<20;i++)ajouter_client(motaleatoire(3)+"@gmail.com",motaleatoire(5),motaleatoire(5),motaleatoire(4),14);
-//supprimer_client("erf");
-
-
- /////////////////////////////////////////////////////////////////////
-
-
-
-
-connexion.close();
- println("Deconnection de fin de programme",BLACK);
+ 
 } catch (SQLException e ) {
    System.err.println("Connection a "+nom_database+" impossible. Vérifie que t'as activé le serveur mec. ");
 }
@@ -56,8 +41,21 @@ connexion.close();
     
     public void ajouter_client(String email,String mdp,String nom,String prenom,int age) {///ajoute le customer dans la base de donnée mémoire vive et sql
         try{
-        statement.executeUpdate("INSERT INTO user (user_type,email,mdp,nom,prenom,age,date_inscription) VALUES ('Client_Membre','"+email+"'"+",MD5('"+mdp+"'),"+"'"+nom+"','"+prenom+"','"+age+"',"+"NOW());");
+        statement.executeUpdate("INSERT INTO user (user_type,email,mdp,nom,prenom,age,date_inscription) VALUES ('Client_Membre','"+email+"'"+",'"+mdp+"',"+"'"+nom+"','"+prenom+"','"+age+"',"+"NOW());");
         resultat = statement.executeQuery("SELECT NOW();");
+        
+        println(date_action(resultat)+" :  "+nom+" s'est inscrit   ");///rapport de l'action
+        }
+        catch(SQLException e){
+            println(e.getMessage(),RED);
+        }
+    }
+    
+    public void ajouter_invite(String nom,String prenom) {///ajoute le customer dans la base de donnée mémoire vive et sql
+        try{
+        //statement.executeUpdate("INSERT INTO user (user_type,email,mdp,nom,prenom,age,date_inscription) VALUES ('Client_Invité','"+null+"'"+",MD5('"+null+"'),"+"'"+nom+"','"+prenom+"','"+-1+"',"+"NOW());");
+        statement.executeUpdate("INSERT INTO user (user_type,nom,prenom,date_inscription) VALUES ('Client_Invité','"+nom+"','"+prenom+"',"+"NOW());");
+            resultat = statement.executeQuery("SELECT NOW();");
         
         println(date_action(resultat)+" :  "+nom+" s'est inscrit   ");///rapport de l'action
         }
@@ -75,18 +73,32 @@ connexion.close();
             }
         }
   
-    public boolean recherche_identifiants_client(String email,String mdp){
+    public boolean recherche_identifiants_client(String email,String mdp) {
+      boolean t=false;
         try{
-        resultat = statement.executeQuery( "SELECT COUNT(*) FROM user;" );
-        resultat.next();
-        do {
- 
- }while (resultat.getString("email").compareTo(email)!=0&&resultat.getString("mdp").compareTo(mdp)!=0&&resultat.next());
+        resultat = statement.executeQuery( "SELECT *FROM user;" );
+        
+        
+        
+        while(resultat.next()){
+             
+           if( resultat.getString("email").compareTo(email)==0&&resultat.getString("mdp").compareTo(mdp)==0){
+              
+               t= true;
+               
+           }
+        }
+        
+       
         }
         catch(SQLException e){
             println(e.getMessage(),RED);
             }
-        return true;
+        finally{
+        return t;
+        
+        }
+        
     }
     
     
@@ -105,7 +117,18 @@ return resultat.getString(1);
         
     }
     
+    public void deconnection() {
+        try{
+            println("DECONNECTION",WHITE);
+        connexion.close();
+        }catch(SQLException e){
+            
+        }
+    }
     
+    public void activation(){
+        //println("Appel du serveur");
+    }
     
 }
 
