@@ -158,7 +158,7 @@ public class MemberPlace extends javax.swing.JFrame implements MouseListener,Ser
         } catch (SQLException ex) {
             
         }
-        
+        println(age);
         if(result==true)
         {
             
