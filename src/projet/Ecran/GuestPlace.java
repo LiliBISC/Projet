@@ -29,7 +29,7 @@ public class GuestPlace extends javax.swing.JFrame implements MouseListener,Serv
         initComponents();
         getContentPane().setBackground(Color.WHITE);
         arrow.addMouseListener(this);
-        this.discount=1;
+        this.discount_child=1;
         setLocationRelativeTo(null);
         addWindowListener(new WindowAdapter(){///close serv if close jframe
     public void windowClosing(WindowEvent e){data.deconnection();}});
@@ -148,7 +148,7 @@ public class GuestPlace extends javax.swing.JFrame implements MouseListener,Serv
         //Customer c= new Customer("",n,sn,"");
         //data.ajouter_client(c);
         
-        ChooseRide j=new ChooseRide(discount);
+        ChooseRide j=new ChooseRide(discount_child);
         j.setVisible(true);
         setVisible(false);
         
@@ -158,7 +158,7 @@ public class GuestPlace extends javax.swing.JFrame implements MouseListener,Serv
      * @param args the command line arguments
      */
     
-    private double discount;
+    private double discount_child;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton arrow;
     private javax.swing.JButton confirm;

@@ -13,6 +13,7 @@ public class Main implements Serveur{
    
     public static void main(String[] args)  {
       
+        
         data.activation();///lance la base
       
         if(data.connexion!=null){

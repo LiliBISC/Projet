@@ -24,6 +24,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
 
     /**
      * Creates new form ChooseDate
+     * @param d
      */
     public ChooseDate(double d) {
         initComponents();
@@ -46,20 +47,20 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         group1.add(C6);
         
         arrow.addMouseListener(this);
-        this.discount_=d;
+        this.discount_child=d;
         
         double prix_manège=10;//A la place faut une fonction qui prend le prix du manege
-        double reduction=0.5;//A la place il faut un fonction qui prend la reduction du client
         
         //Affichage du prix du manège
         title.setText("The price of this ride is : "+prix_manège+"$ by head");
 
         //Affichage de la réduction si le client
-        if(discount_==1)
+        if(this.discount_child>=1)
         {
-            discount.setText("You have not discount !");
+            this.discount.setText("You don't have discount !");
         }
-        discount.setText("The discount is : -"+discount_*100+"% for each children");
+        else
+            this.discount.setText("The discount is : -"+discount_child*100+"% for each children");
         
         
     addWindowListener(new WindowAdapter(){///close serv if close jframe
@@ -446,7 +447,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         // TODO add your handling code here:
         double prix_manège=10;
         double nbChild=Double.parseDouble(C1.getText());
-        price_child=nbChild*prix_manège*discount_;
+        price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C1ActionPerformed
@@ -456,7 +457,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         double prix_manège=10;
 
         double nbChild=Double.parseDouble(C3.getText());
-        price_child=nbChild*prix_manège*discount_;
+        price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C3ActionPerformed
@@ -510,7 +511,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         // TODO add your handling code here:
         double prix_manège=10;
         double nbChild=Double.parseDouble(C0.getText());
-        price_child=nbChild*prix_manège*discount_;
+        price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C0ActionPerformed
@@ -519,7 +520,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         // TODO add your handling code here:
         double prix_manège=10;
         double nbChild=Double.parseDouble(C2.getText());
-        price_child=nbChild*prix_manège*discount_;
+        price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C2ActionPerformed
@@ -528,7 +529,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         // TODO add your handling code here:
         double prix_manège=10;
         double nbChild=Double.parseDouble(C4.getText());
-        price_child=nbChild*prix_manège*discount_;
+        price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C4ActionPerformed
@@ -537,7 +538,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         // TODO add your handling code here:
         double prix_manège=10;
         double nbChild=Double.parseDouble(C5.getText());
-        price_child=nbChild*prix_manège*discount_;
+        price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C5ActionPerformed
@@ -546,7 +547,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         // TODO add your handling code here:
         double prix_manège=10;
         double nbChild=Double.parseDouble(C6.getText());
-        price_child=nbChild*prix_manège*discount_;
+        price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
     }//GEN-LAST:event_C6ActionPerformed
@@ -554,7 +555,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     
     private double price_adult;
     private double price_child;
-    private final double discount_;
+    private double discount_child;
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton A0;
@@ -591,7 +592,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==arrow)
         {
-            ChooseRide j=new ChooseRide(discount_);
+            ChooseRide j=new ChooseRide(discount_child);
             j.setVisible(true);
             setVisible(false);
         }
