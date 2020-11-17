@@ -167,9 +167,7 @@ public class MemberPlace extends javax.swing.JFrame implements MouseListener,Ser
             if(age<=12)
             {
                 discount=0.35;
-                ChooseRide j=new ChooseRide(discount);
-                j.setVisible(true);
-                setVisible(false);
+                
             }
             discount=1;
             

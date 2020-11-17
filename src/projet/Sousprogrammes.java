@@ -50,8 +50,8 @@ public static final String WHITE = "\u001B[37m";
     }
     public static void println(Object msg){
         msg=String.valueOf(msg);
-        System.out.println(msg+WHITE);
-        System.out.print(RESET);
+        System.out.println(msg+RESET);
+        
     }
     public static void main(String[] args) {
         println(motaleatoire(5));

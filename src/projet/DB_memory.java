@@ -18,7 +18,7 @@ public final class DB_memory {
         
         try{
             Class.forName("com.mysql.jdbc.Driver");
-            println("Driver initialisé",CYAN);
+            println("Driver initialisé");
         }
         catch(Exception e){
             println("Erreur driver",RED);
@@ -33,7 +33,7 @@ statement = connexion.createStatement();
 
  
 } catch (SQLException e ) {
-   System.err.println("Connection a "+nom_database+" impossible. Vérifie que t'as activé le serveur mec. ");
+   System.err.println("Connection a "+nom_database+" impossible.");
 }
         
     }

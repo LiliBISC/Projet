@@ -20,7 +20,7 @@ public class MainMenu extends javax.swing.JFrame implements MouseListener ,Serve
      * Creates new form NewJFrame
      */
     public MainMenu() {
-        data.activation();///lance la base
+        
         
         initComponents();
         getContentPane().setBackground(Color.WHITE);
