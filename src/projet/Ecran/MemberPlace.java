@@ -161,19 +161,20 @@ public class MemberPlace extends javax.swing.JFrame implements MouseListener,Ser
         println(age);
         if(result==true)
         {
-            
-           
-            
             if(age<=12)
             {
-                discount=0.35;
+                discount_child=0.35;
+                ChooseRide j=new ChooseRide(discount_child);
+                j.setVisible(true);
+                setVisible(false);
                 
             }
-            discount=1;
+            else{
+            discount_child=1;
             
-            ChooseRide j=new ChooseRide(discount);
+            ChooseRide j=new ChooseRide(discount_child);
             j.setVisible(true);
-            setVisible(false);
+            setVisible(false);}
         }
         else
         {
@@ -184,7 +185,7 @@ public class MemberPlace extends javax.swing.JFrame implements MouseListener,Ser
     }//GEN-LAST:event_confirmActionPerformed
 
     
-    private double discount;
+    private double discount_child;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton arrow;
     private javax.swing.JButton confirm;

@@ -141,7 +141,9 @@ public class EmployeeSpace extends javax.swing.JFrame implements MouseListener{
         //DB_memory data=new DB_memory(nom_DB,ip,port, "root", "A44fichaux");
         String l=login.getText();
         String p=password.getText();
-    
+        
+        EmployeeOption j=new EmployeeOption();
+        j.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_confirmActionPerformed
 

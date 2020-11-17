@@ -28,7 +28,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         ride7.addMouseListener(this);
         ride2.addMouseListener(this);
         ride3.addMouseListener(this);
-        this.discount=d;
+        this.discount_child=d;
         setLocationRelativeTo(null);
         addWindowListener(new WindowAdapter(){///close serv if close jframe
             
@@ -149,7 +149,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     }// </editor-fold>//GEN-END:initComponents
 
    
-    private final double discount;
+    private final double discount_child;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel ride1;
@@ -165,20 +165,20 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         
         if(me.getSource()==ride7)
         {
-            ChooseDate j=new ChooseDate(discount);
+            ChooseDate j=new ChooseDate(discount_child);
             j.setVisible(true);
             setVisible(false);
             
         }
         else if(me.getSource()==ride2)
         {
-            ChooseDate j=new ChooseDate(discount);
+            ChooseDate j=new ChooseDate(discount_child);
             j.setVisible(true);
             setVisible(false);
         }
         else if(me.getSource()==ride3)
         {
-            ChooseDate j=new ChooseDate(discount);
+            ChooseDate j=new ChooseDate(discount_child);
             j.setVisible(true);
             setVisible(false);
         }
