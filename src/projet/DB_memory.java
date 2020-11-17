@@ -41,7 +41,7 @@ statement = connexion.createStatement();
     
     public void ajouter_client(String email,String mdp,String nom,String prenom,int age) {///ajoute le customer dans la base de donnée mémoire vive et sql
         try{
-        statement.executeUpdate("INSERT INTO user (user_type,email,mdp,nom,prenom,age,date_inscription) VALUES ('Client_Membre','"+email+"'"+",'"+mdp+"',"+"'"+nom+"','"+prenom+"','"+age+"',"+"NOW());");
+        statement.executeUpdate("INSERT INTO User (user_type,email,mdp,nom,prenom,age,date_inscription) VALUES ('Client_Membre','"+email+"'"+",'"+mdp+"',"+"'"+nom+"','"+prenom+"','"+age+"',"+"NOW());");
         resultat = statement.executeQuery("SELECT NOW();");
         
         println(date_action(resultat)+" :  "+nom+" s'est inscrit   ");///rapport de l'action
@@ -54,7 +54,7 @@ statement = connexion.createStatement();
     public void ajouter_invite(String nom,String prenom) {///ajoute le customer dans la base de donnée mémoire vive et sql
         try{
         //statement.executeUpdate("INSERT INTO user (user_type,email,mdp,nom,prenom,age,date_inscription) VALUES ('Client_Invité','"+null+"'"+",MD5('"+null+"'),"+"'"+nom+"','"+prenom+"','"+-1+"',"+"NOW());");
-        statement.executeUpdate("INSERT INTO user (user_type,nom,prenom,date_inscription) VALUES ('Client_Invité','"+nom+"','"+prenom+"',"+"NOW());");
+        statement.executeUpdate("INSERT INTO User (user_type,nom,prenom,date_inscription) VALUES ('Client_Invité','"+nom+"','"+prenom+"',"+"NOW());");
             resultat = statement.executeQuery("SELECT NOW();");
         
         println(date_action(resultat)+" :  "+nom+" s'est inscrit   ");///rapport de l'action
@@ -64,9 +64,9 @@ statement = connexion.createStatement();
         }
     }
     
-    public void supprimer_client(String identifiant) {
+    public void supprimer_client(String email) {
         try{
-        statement.executeUpdate("DELETE FROM client WHERE identifiant='"+identifiant+"';");
+        statement.executeUpdate("DELETE FROM User WHERE email='"+email+"';");
         }
         catch(SQLException e){
             println(e.getMessage(),RED);
@@ -76,7 +76,7 @@ statement = connexion.createStatement();
     public boolean recherche_identifiants_client(String email,String mdp) {
       boolean t=false;
         try{
-        resultat = statement.executeQuery( "SELECT *FROM user;" );
+        resultat = statement.executeQuery( "SELECT *FROM User;" );
         
         
         
@@ -102,35 +102,7 @@ statement = connexion.createStatement();
         
     }
     
-    public int recherche_age_client(String email,String mdp) {
-        int age=0;
-        try{
-        resultat = statement.executeQuery( "SELECT *FROM user;" );
-        
-        
-        
-        while(resultat.next()){
-             
-           if( resultat.getString("email").compareTo(email)==0&&resultat.getString("mdp").compareTo(mdp)==0){
-              
-               age= resultat.getInt("age");
-               
-           }
-        }
-        
-       
-        }
-        catch(SQLException e){
-            println(e.getMessage(),RED);
-            }
-        finally{ 
-            //println(age);
-        return age;
-        
-        
-        }
-        
-    }
+    
     
     
     
