@@ -5,6 +5,8 @@
  */
 package projet.Ecran;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Vector;
@@ -25,6 +27,10 @@ public class EmployeeOption extends javax.swing.JFrame {
      */
     public EmployeeOption() {
         initComponents();
+        setLocationRelativeTo(null);
+        
+        addWindowListener(new WindowAdapter(){///close serv if close jframe
+    public void windowClosing(WindowEvent e){data.deconnection();}});
     }
 
     /**
@@ -177,8 +183,8 @@ public class EmployeeOption extends javax.swing.JFrame {
                 .addGap(58, 58, 58)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(276, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         pack();
@@ -194,22 +200,15 @@ public class EmployeeOption extends javax.swing.JFrame {
             data.resultat = data.statement.executeQuery( "SELECT *FROM User;" );
             
             
-            
             while(data.resultat.next())
             {
-                v.add(data.resultat.getString("id"));
-                v.add(data.resultat.getString("user_type"));
-                v.add(data.resultat.getString("email"));
-                v.add(data.resultat.getString("mdp"));
-                v.add(data.resultat.getString("nom"));
-                v.add(data.resultat.getString("prenom"));
-                v.add(data.resultat.getString("age"));
-                v.add(data.resultat.getString("date_inscription"));
-                for(int i=0;i<5;i++){
-                d.setRowCount(i);
-                d.addRow(v);}
+               //on ajoute les colonnes
+               Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
+                data.resultat.getString("prenom"),data.resultat.getString("age"),data.resultat.getString("date_inscription")};
+            d.addRow(newRowData);///on ajoute la ligne
                 
             }
+             
         }
             catch(SQLException e){
             println(e.getMessage(),RED);
@@ -271,9 +270,10 @@ public class EmployeeOption extends javax.swing.JFrame {
 
     private void DeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerActionPerformed
         // TODO add your handling code here:
-        String id = null;
-        JOptionPane.showInputDialog("Enter his id : ",id);
-        data.supprimer_client(id);
+        String email ="";
+        email=JOptionPane.showInputDialog("Enter his email : ");
+     
+        data.supprimer_client(email);
     }//GEN-LAST:event_DeleteCustomerActionPerformed
 
     private void AdultDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdultDiscountActionPerformed

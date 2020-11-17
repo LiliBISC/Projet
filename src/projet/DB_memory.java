@@ -65,13 +65,30 @@ statement = connexion.createStatement();
         }
     }
     
-    public void supprimer_client(String email) {
-        try{
+    public void supprimer_client(String email)  {
+        /*try{
+            
         statement.executeUpdate("DELETE FROM User WHERE email='"+email+"';");
+        println(email+" supprimé");
         }
         catch(SQLException e){
             println(e.getMessage(),RED);
-            }
+            }*/
+       
+        boolean b=recherche_client("email",email);
+        if(b==true){
+           try{
+              statement.executeUpdate("DELETE FROM User WHERE email='"+email+"';");
+            println("Supprimé",GREEN);}
+           catch(SQLException e){
+               println(e.getMessage(),RED);
+           }
+           
+        }
+        else{
+            println("N'existe pas",RED);
+        }
+        
         }
   
     public boolean recherche_identifiants_client(String email,String mdp) {
@@ -103,7 +120,33 @@ statement = connexion.createStatement();
         
     }
     
-    
+      public boolean recherche_client(String nom_colonne,String champ) {
+      boolean t=false;
+        try{
+        resultat = statement.executeQuery( "SELECT *FROM User;" );
+        
+        
+        
+        while(resultat.next()&&t==false){
+             
+           if( resultat.getString(nom_colonne).compareTo(champ)==0){
+              
+               t= true;
+               
+           }
+        }
+        
+       
+        }
+        catch(SQLException e){
+            println(e.getMessage(),RED);
+            }
+        finally{
+           return t;
+        
+        }
+        
+    }
        
     
     
