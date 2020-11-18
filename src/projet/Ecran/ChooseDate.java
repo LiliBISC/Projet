@@ -6,8 +6,6 @@
 package projet.Ecran;
 
 import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import static java.sql.DriverManager.println;
@@ -20,7 +18,7 @@ import static projet.Serveur.data;
  *
  * @author lilia
  */
-public class ChooseDate extends javax.swing.JFrame implements MouseListener {
+public class ChooseDate extends javax.swing.JFrame {
 
     /**
      * Creates new form ChooseDate
@@ -46,8 +44,8 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         group1.add(C5);
         group1.add(C6);
         
-        arrow.addMouseListener(this);
         this.discount_child=d;
+        
         
         double prix_manège=10;//A la place faut une fonction qui prend le prix du manege
         
@@ -59,8 +57,14 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         {
             this.discount.setText("You don't have discount !");
         }
-        else
-            this.discount.setText("The discount is : -"+discount_child*100+"% for each children");
+        else if(this.discount_child<1)
+                {
+            this.discount.setText("The discount is : -"+discount_child*100+"% for each children");}
+        else if(this.discount_child==0)
+        {
+            this.discount_child=1;
+        }
+        
         
         
     addWindowListener(new WindowAdapter(){///close serv if close jframe
@@ -79,7 +83,6 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         date = new com.toedter.calendar.JCalendar();
         jLabel4 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -105,23 +108,21 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         discount = new javax.swing.JLabel();
         title = new javax.swing.JLabel();
         arrow = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(102, 153, 255));
         jLabel1.setText("Adult (+12) :");
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(102, 153, 255));
         jLabel2.setText("Child (3-12) :");
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(51, 102, 255));
-        jLabel3.setText(" --------------------------------------------------------------------------------------------------------------------------");
+        date.setBackground(new java.awt.Color(0, 153, 204));
+        date.setDecorationBackgroundColor(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(51, 102, 255));
         jLabel4.setText("Choose your date of visit : ");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -327,92 +328,102 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         discount.setText("jLabel6");
 
         title.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        title.setForeground(new java.awt.Color(51, 102, 255));
         title.setText("jLabel6");
 
-        arrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/fleche sur la gauche.PNG"))); // NOI18N
+        arrow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/bouton menu.PNG"))); // NOI18N
+        arrow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                arrowActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setBackground(new java.awt.Color(215, 215, 235));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/peinture-pour-artiste-bleu-ciel.jpg"))); // NOI18N
+
+        jLabel6.setBackground(new java.awt.Color(215, 215, 235));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/peinture-pour-artiste-bleu-ciel.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(266, 266, 266)
-                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(done)
-                .addGap(138, 138, 138))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(arrow, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(title))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
+                            .addComponent(title)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(62, 62, 62)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(arrow, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(Aprice, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(323, 323, 323)
+                                        .addComponent(Aprice, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel1))
+                                .addGap(66, 66, 66)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(Cprice, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(discount)
-                                        .addGap(197, 197, 197))))
-                            .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(discount))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(Cprice, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(406, 406, 406)
-                                .addComponent(Tprice, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4))))
-                .addGap(0, 60, Short.MAX_VALUE))
+                                .addGap(243, 243, 243)
+                                .addComponent(Tprice, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 469, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(done)
+                        .addGap(40, 40, 40))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(arrow, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(title))
-                .addGap(53, 53, 53)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(title)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(discount)
+                        .addComponent(jLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Aprice, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Cprice, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Aprice, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Tprice, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addComponent(jLabel4)
+                        .addGap(28, 28, 28)
+                        .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(discount))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(Cprice, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
-                .addComponent(Tprice, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(done)))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addGap(37, 37, 37)
-                .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83)
-                .addComponent(done)
-                .addGap(38, 38, 38))
+                .addComponent(arrow, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
 
         pack();
@@ -422,6 +433,12 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         // TODO add your handling code here:
         SimpleDateFormat date_format = new SimpleDateFormat("yyyy-MM-dd");
         String date_ = date_format.format(date.getDate());
+        
+        int a=JOptionPane.showConfirmDialog(this,"Are you sure you want to book on this date : "+date_);  
+        if(a==JOptionPane.YES_OPTION){  
+        Bill j=new Bill(total_price);
+        j.setVisible(true);
+        setVisible(false);}
 
     }//GEN-LAST:event_doneActionPerformed
 
@@ -432,6 +449,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_A1ActionPerformed
 
     private void A3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A3ActionPerformed
@@ -441,6 +459,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_A3ActionPerformed
 
     private void C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C1ActionPerformed
@@ -450,6 +469,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_C1ActionPerformed
 
     private void C3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C3ActionPerformed
@@ -460,6 +480,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_C3ActionPerformed
 
     private void A0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A0ActionPerformed
@@ -469,6 +490,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_A0ActionPerformed
 
     private void A2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A2ActionPerformed
@@ -478,6 +500,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_A2ActionPerformed
 
     private void A4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A4ActionPerformed
@@ -487,6 +510,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_A4ActionPerformed
 
     private void A5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A5ActionPerformed
@@ -496,6 +520,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_A5ActionPerformed
 
     private void A6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A6ActionPerformed
@@ -505,6 +530,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_adult=nbAdult*prix_manège;
         Aprice.setText("Price : "+price_adult+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_A6ActionPerformed
 
     private void C0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C0ActionPerformed
@@ -514,6 +540,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_C0ActionPerformed
 
     private void C2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C2ActionPerformed
@@ -523,6 +550,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_C2ActionPerformed
 
     private void C4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C4ActionPerformed
@@ -532,6 +560,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_C4ActionPerformed
 
     private void C5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C5ActionPerformed
@@ -541,6 +570,7 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_C5ActionPerformed
 
     private void C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C6ActionPerformed
@@ -550,11 +580,20 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
         price_child=nbChild*prix_manège*discount_child;
         Cprice.setText("Price : "+price_child+"$");
         Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        total_price=price_adult+price_child;
     }//GEN-LAST:event_C6ActionPerformed
+
+    private void arrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arrowActionPerformed
+        // TODO add your handling code here:
+        ChooseRide j=new ChooseRide(discount_child);
+            j.setVisible(true);
+            setVisible(false);
+    }//GEN-LAST:event_arrowActionPerformed
 
     
     private double price_adult;
     private double price_child;
+    private double total_price;
     private double discount_child;
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -581,42 +620,13 @@ public class ChooseDate extends javax.swing.JFrame implements MouseListener {
     private javax.swing.JButton done;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JLabel title;
     // End of variables declaration//GEN-END:variables
-
-    @Override
-    public void mouseClicked(MouseEvent me) {
-        if(me.getSource()==arrow)
-        {
-            ChooseRide j=new ChooseRide(discount_child);
-            j.setVisible(true);
-            setVisible(false);
-        }
-    }
-
-    @Override
-    public void mousePressed(MouseEvent me) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent me) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent me) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void mouseExited(MouseEvent me) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     
 }

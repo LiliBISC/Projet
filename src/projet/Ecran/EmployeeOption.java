@@ -5,6 +5,9 @@
  */
 package projet.Ecran;
 
+import java.awt.Color;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.ResultSetMetaData;
@@ -13,6 +16,7 @@ import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import projet.Serveur;
 import static projet.Serveur.data;
 import static projet.Sousprogrammes.RED;
 import static projet.Sousprogrammes.println;
@@ -28,9 +32,11 @@ public class EmployeeOption extends javax.swing.JFrame {
      */
     public EmployeeOption() {
         initComponents();
+        getContentPane().setBackground(Color.WHITE);
+       
         setLocationRelativeTo(null);
-        
         addWindowListener(new WindowAdapter(){///close serv if close jframe
+    @Override
     public void windowClosing(WindowEvent e){data.deconnection();}});
     }
 
@@ -38,7 +44,7 @@ public class EmployeeOption extends javax.swing.JFrame {
     public void init_tableau_client(){
         String[] columnNames = {"id","type","email","nom","prenom","age","date_inscription"};
         DefaultTableModel d = (DefaultTableModel)Table.getModel();
-      d.setRowCount(0);
+        d.setRowCount(0);
 
        // d.setColumnCount(7);
         d.setColumnIdentifiers(columnNames);///titre des colonnes
@@ -51,9 +57,9 @@ public class EmployeeOption extends javax.swing.JFrame {
             while(data.resultat.next())
             {
                //on ajoute les colonnes
-               Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
+                Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
                 data.resultat.getString("prenom"),data.resultat.getString("age"),data.resultat.getString("date_inscription")};
-            d.addRow(newRowData);///on ajoute la ligne
+                d.addRow(newRowData);///on ajoute la ligne
                 
             }
             
@@ -67,7 +73,7 @@ public class EmployeeOption extends javax.swing.JFrame {
     public void init_tableau_contact(){
           String[] columnNames = {"id","type","email","nom","prenom"};
         DefaultTableModel d = (DefaultTableModel)Table.getModel();
-      d.setRowCount(0);
+        d.setRowCount(0);
 
        // d.setColumnCount(7);
         d.setColumnIdentifiers(columnNames);///titre des colonnes
@@ -82,7 +88,7 @@ public class EmployeeOption extends javax.swing.JFrame {
                //on ajoute les colonnes
                Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
                 data.resultat.getString("prenom")};
-            d.addRow(newRowData);///on ajoute la ligne
+                d.addRow(newRowData);///on ajoute la ligne
                 
             }
             
@@ -104,6 +110,7 @@ public class EmployeeOption extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Table = new javax.swing.JTable();
+        boutonMenu = new javax.swing.JButton();
         menu = new javax.swing.JMenuBar();
         customers = new javax.swing.JMenu();
         AllDisplayCustomer = new javax.swing.JMenuItem();
@@ -118,17 +125,25 @@ public class EmployeeOption extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
         jLabel1.setText("Employee Panel");
 
-        Table.setBackground(new java.awt.Color(204, 255, 204));
+        Table.setBackground(new java.awt.Color(0, 204, 204));
         Table.setFocusable(false);
-        Table.setGridColor(new java.awt.Color(0, 0, 0));
+        Table.setGridColor(new java.awt.Color(255, 0, 51));
         Table.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 TableMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(Table);
+
+        boutonMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/bouton menu.PNG"))); // NOI18N
+        boutonMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boutonMenuActionPerformed(evt);
+            }
+        });
 
         menu.setBackground(new java.awt.Color(0, 153, 204));
         menu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204)));
@@ -137,6 +152,7 @@ public class EmployeeOption extends javax.swing.JFrame {
 
         customers.setText("Customers");
 
+        AllDisplayCustomer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         AllDisplayCustomer.setText("Display all the customer");
         AllDisplayCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -145,6 +161,7 @@ public class EmployeeOption extends javax.swing.JFrame {
         });
         customers.add(AllDisplayCustomer);
 
+        ShowContact.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         ShowContact.setText("Show contact");
         ShowContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +170,7 @@ public class EmployeeOption extends javax.swing.JFrame {
         });
         customers.add(ShowContact);
 
+        DeleteCustomer.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         DeleteCustomer.setText("Delete a customer");
         DeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,22 +228,28 @@ public class EmployeeOption extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(349, 349, 349)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(267, 267, 267)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 684, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(26, 26, 26))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(boutonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(328, 328, 328))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(boutonMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -269,6 +293,13 @@ public class EmployeeOption extends javax.swing.JFrame {
     private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_TableMouseClicked
+
+    private void boutonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boutonMenuActionPerformed
+        // TODO add your handling code here:
+        MainMenu j=new MainMenu();
+        j.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_boutonMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -314,6 +345,7 @@ public class EmployeeOption extends javax.swing.JFrame {
     private javax.swing.JMenuItem DeleteCustomer;
     private javax.swing.JMenuItem ShowContact;
     private javax.swing.JTable Table;
+    private javax.swing.JButton boutonMenu;
     private javax.swing.JMenu customers;
     private javax.swing.JMenu discounts;
     private javax.swing.JLabel jLabel1;
@@ -321,4 +353,5 @@ public class EmployeeOption extends javax.swing.JFrame {
     private javax.swing.JMenuBar menu;
     private javax.swing.JMenu rides;
     // End of variables declaration//GEN-END:variables
+
 }

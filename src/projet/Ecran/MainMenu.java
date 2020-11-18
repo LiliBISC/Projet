@@ -144,7 +144,7 @@ public class MainMenu extends javax.swing.JFrame implements MouseListener ,Serve
         
     }//GEN-LAST:event_formWindowClosed
 
-    private double discount;
+    private double discount=1;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel createMember;
     private javax.swing.JLabel jLabel1;
@@ -166,7 +166,7 @@ public class MainMenu extends javax.swing.JFrame implements MouseListener ,Serve
         }
         else if(me.getSource()==lb2)
         {
-            GuestPlace j= new GuestPlace();
+            ChooseRide j= new ChooseRide(discount);
             j.setVisible(true);
             setVisible(false);
         }
