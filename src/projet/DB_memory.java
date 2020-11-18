@@ -42,10 +42,22 @@ statement = connexion.createStatement();
     
     public void ajouter_client(String email,String mdp,String nom,String prenom,int age) {///ajoute le customer dans la base de donnée mémoire vive et sql
         try{
-        statement.executeUpdate("INSERT INTO User (user_type,email,mdp,nom,prenom,age,date_inscription) VALUES ('Client_Membre','"+email+"'"+",'"+mdp+"',"+"'"+nom+"','"+prenom+"','"+age+"',"+"NOW());");
+        statement.executeUpdate("INSERT INTO User (user_type,email,mdp,nom,prenom,age,date_inscription) VALUES ('Client','"+email+"'"+",'"+mdp+"',"+"'"+nom+"','"+prenom+"','"+age+"',"+"NOW());");
         resultat = statement.executeQuery("SELECT NOW();");
         
         println(date_action(resultat)+" :  "+nom+" s'est inscrit   ");///rapport de l'action
+        }
+        catch(SQLException e){
+            println(e.getMessage(),RED);
+        }
+    }
+    
+    public void ajouter_employe(String email,String mdp,String nom,String prenom) {///ajoute le customer dans la base de donnée mémoire vive et sql
+        try{
+        statement.executeUpdate("INSERT INTO Employe (user_type,email,mdp,nom,prenom) VALUES ('Employe','"+email+"','"+mdp+"','"+nom+"','"+prenom+"');");
+        resultat = statement.executeQuery("SELECT NOW();");
+        
+        println("Employe :  "+nom+" ajouté");///rapport de l'action
         }
         catch(SQLException e){
             println(e.getMessage(),RED);
@@ -66,20 +78,13 @@ statement = connexion.createStatement();
     }
     
     public void supprimer_client(String email)  {
-        /*try{
-            
-        statement.executeUpdate("DELETE FROM User WHERE email='"+email+"';");
-        println(email+" supprimé");
-        }
-        catch(SQLException e){
-            println(e.getMessage(),RED);
-            }*/
+       
        
         boolean b=recherche_client("email",email);
         if(b==true){
            try{
               statement.executeUpdate("DELETE FROM User WHERE email='"+email+"';");
-            println("Supprimé",GREEN);}
+            println(email+" a été supprimé",GREEN);}
            catch(SQLException e){
                println(e.getMessage(),RED);
            }
@@ -98,9 +103,9 @@ statement = connexion.createStatement();
         
         
         
-        while(resultat.next()&&t==false){
+        while(resultat.next()&&t==false){//parcourt
              
-           if( resultat.getString("email").compareTo(email)==0&&resultat.getString("mdp").compareTo(mdp)==0){
+           if( resultat.getString("email").compareTo(email)==0&&resultat.getString("mdp").compareTo(mdp)==0){//si trouve
               
                t= true;
                
@@ -114,7 +119,36 @@ statement = connexion.createStatement();
             }
         finally{
             
-        return t;
+        return t;//retourne le boléen de la recherche
+        
+        }
+        
+    }
+    
+     public boolean recherche_identifiants_employe(String email,String mdp) {
+      boolean t=false;
+        try{
+        resultat = statement.executeQuery( "SELECT *FROM Employe;" );
+        
+        
+        
+        while(resultat.next()&&t==false){//parcourt
+             
+           if( resultat.getString("email").compareTo(email)==0&&resultat.getString("mdp").compareTo(mdp)==0){//si trouve
+              
+               t= true;
+               
+           }
+        }
+        
+       
+        }
+        catch(SQLException e){
+            println(e.getMessage(),RED);
+            }
+        finally{
+            
+        return t;//retourne le boléen de la recherche
         
         }
         
@@ -175,8 +209,8 @@ return resultat.getString(1);
         }
     }
     
-    public void activation(){
-        //println("Appel du serveur");
+    public void activation(){//méthode vide pour initialisé le serveur déclaré dans l'interface
+        
     }
     
 }

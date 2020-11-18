@@ -11,6 +11,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import static projet.Serveur.data;
+import static projet.Sousprogrammes.println;
 
 /**
  *
@@ -141,10 +142,14 @@ public class EmployeeSpace extends javax.swing.JFrame implements MouseListener{
         //DB_memory data=new DB_memory(nom_DB,ip,port, "root", "A44fichaux");
         String l=login.getText();
         String p=password.getText();
-        
+        if(data.recherche_identifiants_employe(l, p)==true){
+            println(l+" s'est connecté(Employe)");
         EmployeeOption j=new EmployeeOption();
         j.setVisible(true);
-        setVisible(false);
+        setVisible(false);}
+        else{
+            
+        }
     }//GEN-LAST:event_confirmActionPerformed
 
     

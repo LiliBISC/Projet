@@ -11,7 +11,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import static projet.Serveur.data;
-import projet.Ride;
+
 
 /**
  *
@@ -31,9 +31,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         this.discount_child=d;
         setLocationRelativeTo(null);
         addWindowListener(new WindowAdapter(){///close serv if close jframe
-            
-    @Override
-    public void windowClosing(WindowEvent e){data.deconnection();}});
+        public void windowClosing(WindowEvent e){data.deconnection();}});
     }
 
     /**

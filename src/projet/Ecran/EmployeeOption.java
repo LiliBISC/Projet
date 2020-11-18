@@ -11,6 +11,7 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import static projet.Serveur.data;
 import static projet.Sousprogrammes.RED;
@@ -33,6 +34,64 @@ public class EmployeeOption extends javax.swing.JFrame {
     public void windowClosing(WindowEvent e){data.deconnection();}});
     }
 
+    
+    public void init_tableau_client(){
+        String[] columnNames = {"id","type","email","nom","prenom","age","date_inscription"};
+        DefaultTableModel d = (DefaultTableModel)Table.getModel();
+      d.setRowCount(0);
+
+       // d.setColumnCount(7);
+        d.setColumnIdentifiers(columnNames);///titre des colonnes
+       
+        
+        try{
+            data.resultat = data.statement.executeQuery( "SELECT *FROM User;" );
+            
+            
+            while(data.resultat.next())
+            {
+               //on ajoute les colonnes
+               Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
+                data.resultat.getString("prenom"),data.resultat.getString("age"),data.resultat.getString("date_inscription")};
+            d.addRow(newRowData);///on ajoute la ligne
+                
+            }
+            
+        }
+            catch(SQLException e){
+            println(e.getMessage(),RED);
+            }
+        
+    }
+    
+    public void init_tableau_contact(){
+          String[] columnNames = {"id","type","email","nom","prenom"};
+        DefaultTableModel d = (DefaultTableModel)Table.getModel();
+      d.setRowCount(0);
+
+       // d.setColumnCount(7);
+        d.setColumnIdentifiers(columnNames);///titre des colonnes
+       
+        
+        try{
+            data.resultat = data.statement.executeQuery( "SELECT *FROM Employe;" );
+            
+            
+            while(data.resultat.next())
+            {
+               //on ajoute les colonnes
+               Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
+                data.resultat.getString("prenom")};
+            d.addRow(newRowData);///on ajoute la ligne
+                
+            }
+            
+        }
+            catch(SQLException e){
+            println(e.getMessage(),RED);
+            }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,10 +106,8 @@ public class EmployeeOption extends javax.swing.JFrame {
         Table = new javax.swing.JTable();
         menu = new javax.swing.JMenuBar();
         customers = new javax.swing.JMenu();
-        AllCustomer = new javax.swing.JMenuItem();
-        CustomerMember = new javax.swing.JMenuItem();
-        CustomerGuest = new javax.swing.JMenuItem();
-        ResearchCustomer = new javax.swing.JMenuItem();
+        AllDisplayCustomer = new javax.swing.JMenuItem();
+        ShowContact = new javax.swing.JMenuItem();
         DeleteCustomer = new javax.swing.JMenuItem();
         discounts = new javax.swing.JMenu();
         ChildDiscount = new javax.swing.JMenuItem();
@@ -61,16 +118,16 @@ public class EmployeeOption extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Welcome to the Employee Option Space");
+        jLabel1.setText("Employee Panel");
 
-        Table.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8"
+        Table.setBackground(new java.awt.Color(204, 255, 204));
+        Table.setFocusable(false);
+        Table.setGridColor(new java.awt.Color(0, 0, 0));
+        Table.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TableMouseClicked(evt);
             }
-        ));
+        });
         jScrollPane1.setViewportView(Table);
 
         menu.setBackground(new java.awt.Color(0, 153, 204));
@@ -80,37 +137,21 @@ public class EmployeeOption extends javax.swing.JFrame {
 
         customers.setText("Customers");
 
-        AllCustomer.setText("Display all the customer");
-        AllCustomer.addActionListener(new java.awt.event.ActionListener() {
+        AllDisplayCustomer.setText("Display all the customer");
+        AllDisplayCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AllCustomerActionPerformed(evt);
+                AllDisplayCustomerActionPerformed(evt);
             }
         });
-        customers.add(AllCustomer);
+        customers.add(AllDisplayCustomer);
 
-        CustomerMember.setText("Display all the member customer");
-        CustomerMember.addActionListener(new java.awt.event.ActionListener() {
+        ShowContact.setText("Show contact");
+        ShowContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CustomerMemberActionPerformed(evt);
+                ShowContactActionPerformed(evt);
             }
         });
-        customers.add(CustomerMember);
-
-        CustomerGuest.setText("Display all the guest customer");
-        CustomerGuest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CustomerGuestActionPerformed(evt);
-            }
-        });
-        customers.add(CustomerGuest);
-
-        ResearchCustomer.setText("Research a customer");
-        ResearchCustomer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ResearchCustomerActionPerformed(evt);
-            }
-        });
-        customers.add(ResearchCustomer);
+        customers.add(ShowContact);
 
         DeleteCustomer.setText("Delete a customer");
         DeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -169,52 +210,32 @@ public class EmployeeOption extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(148, 148, 148)
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 797, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(349, 349, 349)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
-                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel1)
+                .addGap(15, 15, 15)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void AllCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllCustomerActionPerformed
+    private void AllDisplayCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllDisplayCustomerActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel d = (DefaultTableModel)Table.getModel();
-        
-        Vector v= new Vector();
-        
-        try{
-            data.resultat = data.statement.executeQuery( "SELECT *FROM User;" );
-            
-            
-            while(data.resultat.next())
-            {
-               //on ajoute les colonnes
-               Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
-                data.resultat.getString("prenom"),data.resultat.getString("age"),data.resultat.getString("date_inscription")};
-            d.addRow(newRowData);///on ajoute la ligne
-                
-            }
-             
-        }
-            catch(SQLException e){
-            println(e.getMessage(),RED);
-            }
+        init_tableau_client();
      
-    }//GEN-LAST:event_AllCustomerActionPerformed
+    }//GEN-LAST:event_AllDisplayCustomerActionPerformed
 
     private void ChildDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChildDiscountActionPerformed
         // TODO add your handling code here:
@@ -224,56 +245,13 @@ public class EmployeeOption extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CheckPopularActionPerformed
 
-    private void ResearchCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResearchCustomerActionPerformed
-        // TODO add your handling code here:
-        DefaultTableModel d = (DefaultTableModel)Table.getModel();
-        d.setRowCount(0);
-        String id="";
-        String mdp="";
-        Vector v= new Vector();
-        JOptionPane.showInputDialog("Enter his login : ",id);
-        JOptionPane.showInputDialog("Enter his password : ",mdp);
-        //boolean result=data.recherche_identifiants_client(id, mdp);
-        boolean result=true;
-        if(result==true)
-        {
-            try{
-            data.resultat.previous();
-            while(data.resultat.next())
-            {
-                
-                if( data.resultat.getString("email").compareTo(id)==0)
-                {v.add(data.resultat.getString("id"));
-                v.add(data.resultat.getString("user_type"));
-                v.add(data.resultat.getString("email"));
-                v.add(data.resultat.getString("mdp"));
-                v.add(data.resultat.getString("nom"));
-                v.add(data.resultat.getString("prenom"));
-                v.add(data.resultat.getString("age"));
-                v.add(data.resultat.getString("date_inscription"));
-                }
-                
-                
-            }
-            d.addRow(v);
-        }
-            catch(SQLException e){
-            println(e.getMessage(),RED);
-            }
-        }
-        else
-            JOptionPane.showMessageDialog(this, "The login or the password are false","",JOptionPane.WARNING_MESSAGE);
-            
-        
-        
-    }//GEN-LAST:event_ResearchCustomerActionPerformed
-
     private void DeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerActionPerformed
         // TODO add your handling code here:
         String email ="";
         email=JOptionPane.showInputDialog("Enter his email : ");
      
         data.supprimer_client(email);
+        
     }//GEN-LAST:event_DeleteCustomerActionPerformed
 
     private void AdultDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdultDiscountActionPerformed
@@ -284,13 +262,13 @@ public class EmployeeOption extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AvailableRidesActionPerformed
 
-    private void CustomerGuestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerGuestActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CustomerGuestActionPerformed
+    private void ShowContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowContactActionPerformed
+      init_tableau_contact();
+    }//GEN-LAST:event_ShowContactActionPerformed
 
-    private void CustomerMemberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CustomerMemberActionPerformed
+    private void TableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TableMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_CustomerMemberActionPerformed
+    }//GEN-LAST:event_TableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -329,14 +307,12 @@ public class EmployeeOption extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem AdultDiscount;
-    private javax.swing.JMenuItem AllCustomer;
+    private javax.swing.JMenuItem AllDisplayCustomer;
     private javax.swing.JMenuItem AvailableRides;
     private javax.swing.JMenuItem CheckPopular;
     private javax.swing.JMenuItem ChildDiscount;
-    private javax.swing.JMenuItem CustomerGuest;
-    private javax.swing.JMenuItem CustomerMember;
     private javax.swing.JMenuItem DeleteCustomer;
-    private javax.swing.JMenuItem ResearchCustomer;
+    private javax.swing.JMenuItem ShowContact;
     private javax.swing.JTable Table;
     private javax.swing.JMenu customers;
     private javax.swing.JMenu discounts;

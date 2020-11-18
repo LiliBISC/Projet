@@ -160,7 +160,7 @@ public class MemberPlace extends javax.swing.JFrame implements MouseListener,Ser
         }
         println(age);
         if(result==true)
-        {
+        {println(l+" s'est connecte(Client)");
             if(age<=12)
             {
                 discount_child=0.35;
