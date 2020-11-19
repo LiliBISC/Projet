@@ -25,7 +25,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     /**
      * Creates new form jFrame4
      */
-    public ChooseRide(double d) {
+    public ChooseRide(double dC, double dA) {
         initComponents();
         getContentPane().setBackground(Color.WHITE);
         ride3.addMouseListener(this);
@@ -34,11 +34,13 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         ride4.addMouseListener(this);
         ride6.addMouseListener(this);
         photo.addMouseListener(this);
-        this.discount_child=d;
+        this.discount_child=dC;
+        this.discount_adult=dA;
         setLocationRelativeTo(null);
         addWindowListener(new WindowAdapter(){///close serv if close jframe
         public void windowClosing(WindowEvent e){data.deconnection();}});
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -185,7 +187,8 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     }//GEN-LAST:event_menueActionPerformed
 
 
-    private final double discount_child;
+    protected double discount_child;
+    protected double discount_adult;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -205,7 +208,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==photo)
         {
-            ChooseDate j=new ChooseDate(discount_child);
+            ChooseDate j=new ChooseDate(discount_child,discount_adult);
             j.setVisible(true);
             setVisible(false);
         }

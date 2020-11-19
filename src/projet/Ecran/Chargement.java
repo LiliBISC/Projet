@@ -108,7 +108,7 @@ public class Chargement extends javax.swing.JFrame {
         }
             
        
-            //setVisible(false);
+           
         
     }
 

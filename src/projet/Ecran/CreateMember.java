@@ -288,22 +288,24 @@ public class CreateMember extends javax.swing.JFrame  {
         }
         else if(em.equals(cem) && pw.equals(cpw))
         {   
+            
             data.ajouter_client(em, pw,surn,nam,a);//ajoute le client
+            
+            new Thread(new Runnable() {
+        public void run(){
             Chargement c=new Chargement();
+            c.setVisible(true);
             c.charg();
-            if(a<=12 && c.loading.getValue()==100)
-                    {
-                discount_child=0.35;
-                ChooseRide j=new ChooseRide(discount_child);
-            j.setVisible(true);
-            setVisible(false);
+            c.setVisible(false);
+            if( c.loading.getValue()==100)
+            {
+                ChooseRide j=new ChooseRide(data.get_reduc("enfant"),data.get_reduc("adulte"));
+                j.setVisible(true);
+                setVisible(false);
             }
-            else if(a>12 && c.loading.getValue()==100){
-                discount_child=1;
-            ChooseRide j=new ChooseRide(discount_child);
-            j.setVisible(true);
-            setVisible(false);}
+           } }).start();
         }
+         
         
         
     }//GEN-LAST:event_doneActionPerformed
@@ -320,7 +322,6 @@ public class CreateMember extends javax.swing.JFrame  {
     }//GEN-LAST:event_arrowActionPerformed
 
    
-    private double discount_child;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField age;
     private javax.swing.JButton arrow;

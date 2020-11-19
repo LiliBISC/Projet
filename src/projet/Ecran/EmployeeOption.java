@@ -6,17 +6,11 @@
 package projet.Ecran;
 
 import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.Vector;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import projet.Serveur;
 import static projet.Serveur.data;
 import static projet.Sousprogrammes.RED;
 import static projet.Sousprogrammes.println;
@@ -263,6 +257,9 @@ public class EmployeeOption extends javax.swing.JFrame {
 
     private void ChildDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChildDiscountActionPerformed
         // TODO add your handling code here:
+        String b=JOptionPane.showInputDialog(this, "Enter the new discount :");
+        double r_e=Double.parseDouble(b);
+        data.set_reduction_enfant(r_e);
     }//GEN-LAST:event_ChildDiscountActionPerformed
 
     private void CheckPopularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckPopularActionPerformed
@@ -280,6 +277,10 @@ public class EmployeeOption extends javax.swing.JFrame {
 
     private void AdultDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdultDiscountActionPerformed
         // TODO add your handling code here:
+        String b=JOptionPane.showInputDialog(this, "Enter the new discount :");
+        double r_a=Double.parseDouble(b);
+        data.set_reduction_adulte(r_a);
+        
     }//GEN-LAST:event_AdultDiscountActionPerformed
 
     private void AvailableRidesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvailableRidesActionPerformed

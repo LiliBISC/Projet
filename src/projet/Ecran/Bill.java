@@ -29,11 +29,13 @@ public class Bill extends javax.swing.JFrame implements MouseListener,Serveur {
     /**
      * Creates new form jFrame3
      */
-    public Bill(Double b) {
+    public Bill(double b, double c, double a) {
         initComponents();
         getContentPane().setBackground(Color.WHITE);
         ButtonGroup g=new ButtonGroup();
         this.total_price=b;
+        this.discount_adult=a;
+        this.discount_child=c;
         g.add(J1);
         g.add(J2);
         g.add(J3);
@@ -332,22 +334,21 @@ public class Bill extends javax.swing.JFrame implements MouseListener,Serveur {
         public void run(){
            Chargement j=new Chargement();
             j.setVisible(true);
-             j.setDefaultCloseOperation(j.DO_NOTHING_ON_CLOSE);
-             j.charg();
-            JOptionPane.showMessageDialog(null, "Thanks for your order mr "+name.getText()+" !");
+            j.setDefaultCloseOperation(j.DO_NOTHING_ON_CLOSE);
+            j.charg();
+            int a=JOptionPane.showConfirmDialog(null, "Thanks for your order mr "+name.getText()+" ! Do you want to book an other ride ?");
             j.setVisible(false);
+            if(a==JOptionPane.YES_OPTION){
+                ChooseRide c=new ChooseRide(discount_child,discount_adult);
+                c.setVisible(true);
+                setVisible(false);
+            }
+            setVisible(false);
+            MainMenu c=new MainMenu();
+            c.setVisible(true);
              } }).start();
-            
-           
                
         }
-        
-        
-        
-       
-            
-        
-   
     }//GEN-LAST:event_confirmActionPerformed
 
     private void J1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J1ActionPerformed
@@ -374,6 +375,8 @@ public class Bill extends javax.swing.JFrame implements MouseListener,Serveur {
      * @param args the command line arguments
      */
     private double total_price;
+    private double discount_adult;
+    private double discount_child;
     private String card;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane Area;
@@ -404,6 +407,19 @@ public class Bill extends javax.swing.JFrame implements MouseListener,Serveur {
     private javax.swing.JLabel show;
     // End of variables declaration//GEN-END:variables
 
+    public String type_customer()
+    {
+        String type="";
+        if(discount_child==1 && discount_adult==1)
+        {type="Guest";
+        return type;}
+        else
+        {type="Member";
+            return type;
+        }      
+    }
+    
+    
     @Override
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==arrow)
@@ -423,7 +439,7 @@ public class Bill extends javax.swing.JFrame implements MouseListener,Serveur {
             billTicket.setText(billTicket.getText()+"********************************************************************************************************\n");
             billTicket.setText(billTicket.getText()+"\n");
             billTicket.setText(billTicket.getText()+"\n");
-            billTicket.setText(billTicket.getText()+"Customer type : \n");
+            billTicket.setText(billTicket.getText()+"Customer type : "+"\t"+type_customer()+"\n");
             billTicket.setText(billTicket.getText()+"\n");
             billTicket.setText(billTicket.getText()+"Name : "+"\t"+name.getText()+"\n");
             billTicket.setText(billTicket.getText()+"\n");

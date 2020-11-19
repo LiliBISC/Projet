@@ -24,7 +24,7 @@ public class ChooseDate extends javax.swing.JFrame {
      * Creates new form ChooseDate
      * @param d
      */
-    public ChooseDate(double d) {
+    public ChooseDate(double d, double d2) {
         initComponents();
         getContentPane().setBackground(Color.WHITE);setLocationRelativeTo(null);
         ButtonGroup group=new ButtonGroup();
@@ -45,6 +45,7 @@ public class ChooseDate extends javax.swing.JFrame {
         group1.add(C6);
         
         this.discount_child=d;
+        this.discount_adult=d2;
         
         
         double prix_manège=10;//A la place faut une fonction qui prend le prix du manege
@@ -55,14 +56,20 @@ public class ChooseDate extends javax.swing.JFrame {
         //Affichage de la réduction si le client
         if(this.discount_child>=1)
         {
-            this.discount.setText("You don't have discount !");
+            discount.setText("You don't have discount !");
         }
         else if(this.discount_child<1)
-                {
-            this.discount.setText("The discount is : -"+discount_child*100+"% for each children");}
-        else if(this.discount_child==0)
         {
-            this.discount_child=1;
+            discount.setText("The discount is : -"+discount_child*100+"% for each children");
+        }
+        
+        if(this.discount_adult>=1)
+        {
+            dsc.setText("You don't have discount !");
+        }
+        else if(this.discount_adult<1)
+        {
+            dsc.setText("The discount is : -"+discount_adult*100+"% for each adult");
         }
         
         
@@ -110,6 +117,7 @@ public class ChooseDate extends javax.swing.JFrame {
         arrow = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        dsc = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -343,6 +351,10 @@ public class ChooseDate extends javax.swing.JFrame {
         jLabel6.setBackground(new java.awt.Color(215, 215, 235));
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/peinture-pour-artiste-bleu-ciel.jpg"))); // NOI18N
 
+        dsc.setFont(new java.awt.Font("Times New Roman", 2, 12)); // NOI18N
+        dsc.setForeground(new java.awt.Color(255, 0, 0));
+        dsc.setText("jLabel3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -369,7 +381,10 @@ public class ChooseDate extends javax.swing.JFrame {
                                         .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
                                         .addComponent(Aprice, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel1))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(dsc)))
                                 .addGap(66, 66, 66)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -396,12 +411,14 @@ public class ChooseDate extends javax.swing.JFrame {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(title)
-                .addGap(26, 26, 26)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(discount)
-                        .addComponent(jLabel2)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(dsc))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(discount)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -413,7 +430,7 @@ public class ChooseDate extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Tprice, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addGap(28, 28, 28)
                         .addComponent(date, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -436,7 +453,7 @@ public class ChooseDate extends javax.swing.JFrame {
         
         int a=JOptionPane.showConfirmDialog(this,"Are you sure you want to book on this date : "+date_);  
         if(a==JOptionPane.YES_OPTION){  
-        Bill j=new Bill(total_price);
+        Bill j=new Bill(total_price,discount_child, discount_adult);
         j.setVisible(true);
         setVisible(false);}
 
@@ -585,7 +602,7 @@ public class ChooseDate extends javax.swing.JFrame {
 
     private void arrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arrowActionPerformed
         // TODO add your handling code here:
-        ChooseRide j=new ChooseRide(discount_child);
+        ChooseRide j=new ChooseRide(discount_child, discount_adult);
             j.setVisible(true);
             setVisible(false);
     }//GEN-LAST:event_arrowActionPerformed
@@ -595,6 +612,7 @@ public class ChooseDate extends javax.swing.JFrame {
     private double price_child;
     private double total_price;
     private double discount_child;
+    private double discount_adult;
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton A0;
@@ -618,6 +636,7 @@ public class ChooseDate extends javax.swing.JFrame {
     private com.toedter.calendar.JCalendar date;
     private javax.swing.JLabel discount;
     private javax.swing.JButton done;
+    private javax.swing.JLabel dsc;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;

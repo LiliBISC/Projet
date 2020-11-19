@@ -7,6 +7,8 @@ package projet;
 
 import java.sql.*;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import static projet.Sousprogrammes.*;
 
 
@@ -180,11 +182,7 @@ statement = connexion.createStatement();
         
         }
         
-    }
-       
-    
-    
-    
+    }   
     
     public String date_action(ResultSet resultat) throws SQLException{/// retourne la date du dernier résultat
 
@@ -228,6 +226,21 @@ return resultat.getString(1);
             println(e.getMessage());
         }
     }
+    
+    public double get_reduc(String nom){
+       double a=0;
+          try {
+            resultat = statement.executeQuery( "SELECT *FROM Reduction;" );
+            resultat.next();
+            a=resultat.getDouble(nom);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(DB_memory.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           
+           return a;
+          
+      }
     
 }
 

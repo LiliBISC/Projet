@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import projet.DB_memory;
 import projet.Serveur;
-import static projet.Serveur.data;
 import static projet.Sousprogrammes.*;
 import static projet.Serveur.data;
 import static sun.font.GlyphLayout.done;
@@ -183,20 +182,11 @@ public class MemberPlace extends javax.swing.JFrame   {
         }
         if(result==true)
         {println(l+" s'est connecte(Client)");
-            if(age<=12)
-            {
-                discount_child=0.35;
-                ChooseRide j=new ChooseRide(discount_child);
-                j.setVisible(true);
-                setVisible(false);
-                
-            }
-            else{
-            discount_child=1;
-            
-            ChooseRide j=new ChooseRide(discount_child);
+            discount_child_member=data.get_reduc("enfant");
+            discount_adult_member=data.get_reduc("adulte");
+            ChooseRide j=new ChooseRide(discount_child_member,discount_adult_member);
             j.setVisible(true);
-            setVisible(false);}
+            setVisible(false);
         }
         if(result==false)
         {
@@ -215,7 +205,8 @@ public class MemberPlace extends javax.swing.JFrame   {
     }//GEN-LAST:event_arrowActionPerformed
 
     
-    private double discount_child;
+    protected double discount_child_member;
+    protected double discount_adult_member;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Erreur;
     private javax.swing.JButton arrow;
