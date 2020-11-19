@@ -8,7 +8,11 @@ package projet.Ecran;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import static projet.Serveur.data;
+import static projet.Sousprogrammes.println;
 
 /**
  *
@@ -22,9 +26,10 @@ public class Chargement extends javax.swing.JFrame {
     public Chargement() {
         initComponents();
         setLocationRelativeTo(null);
+       
         getContentPane().setBackground(Color.WHITE);
-        addWindowListener(new WindowAdapter(){///close serv if close jframe
-    public void windowClosing(WindowEvent e){data.deconnection();}});
+        
+       
     }
     
 
@@ -86,18 +91,25 @@ public class Chargement extends javax.swing.JFrame {
     public void charg()
     {
         
-        try{
-            setVisible(true);
+       
+          
             for(int i=0;i<=100;i++)
         {
-            Thread.sleep(30);
-            Chargement.pourcentage.setText(Integer.toString(i)+"%");
-            Chargement.loading.setValue(i);
+        try {
+                 
+                    Thread.sleep(30);
+                } catch (InterruptedException ex) {
+                    println(ex.getMessage());
+                }
+                
+            pourcentage.setText(Integer.toString(i)+"%");
+            loading.setValue(i);
+               
         }
-            setVisible(false);
-        }catch(Exception e){
             
-        }
+       
+            //setVisible(false);
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

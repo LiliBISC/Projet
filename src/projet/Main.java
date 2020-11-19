@@ -31,10 +31,8 @@ public class Main implements Serveur{
             public void run() {
                 new MainMenu().setVisible(true);
             }
-        });
-      }
-        //Chargement j= new Chargement();
-        //j.charg();
+        });}
+     
         
-        
-   }}
+    }}
+   

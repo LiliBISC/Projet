@@ -213,5 +213,21 @@ return resultat.getString(1);
         
     }
     
+    public void set_reduction_adulte(double reduction){
+        try{
+       statement.executeUpdate(" UPDATE Reduction SET adulte = '"+reduction+"';");
+        }catch(SQLException e){
+            println(e.getMessage());
+        }
+    }
+    
+    public void set_reduction_enfant(double reduction){
+        try{
+       statement.executeUpdate(" UPDATE Reduction SET enfant = '"+reduction+"';");
+        }catch(SQLException e){
+            println(e.getMessage());
+        }
+    }
+    
 }
 

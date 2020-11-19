@@ -321,22 +321,33 @@ public class Bill extends javax.swing.JFrame implements MouseListener,Serveur {
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         // TODO add your handling code here:
+       
         if(name.getText().equals("") || cardNumber.getText().equals("")|| cryptogram.getText().equals("")||expiry.getText().equals("") )
         {
             error.setText("One of the fields is empty !");
         }
         else
         {
-            Chargement j=new Chargement();
-            j.charg();
+            new Thread(new Runnable() {
+        public void run(){
+           Chargement j=new Chargement();
+            j.setVisible(true);
+             j.setDefaultCloseOperation(j.DO_NOTHING_ON_CLOSE);
+             j.charg();
+            JOptionPane.showMessageDialog(null, "Thanks for your order mr "+name.getText()+" !");
+            j.setVisible(false);
+             } }).start();
             
-            if(j.loading.getValue()==100)
-            {
-                JOptionPane.showMessageDialog(this, "Thanks for your order mr "+name.getText()+" !");
-                System.exit(0);
-            }
+           
                
         }
+        
+        
+        
+       
+            
+        
+   
     }//GEN-LAST:event_confirmActionPerformed
 
     private void J1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_J1ActionPerformed

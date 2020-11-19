@@ -209,9 +209,9 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
             j.setVisible(true);
             setVisible(false);
         }
-        String imgUrl_ride3="/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/build/classes/projet/ImageFrame/Capture1.PNG";
-        String imgUrl_ride1="/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/build/classes/projet/ImageFrame/Capture3.PNG";
-        String imgUrl_ride2="/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/build/classes/projet/ImageFrame/Capture2.PNG";
+        String imgUrl_ride3="build/classes/projet/ImageFrame/Capture1.PNG";
+        String imgUrl_ride1="build/classes/projet/ImageFrame/Capture3.PNG";
+        String imgUrl_ride2="build/classes/projet/ImageFrame/Capture2.PNG";
 
         if(me.getSource()==ride1)
         {
