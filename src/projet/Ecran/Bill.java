@@ -327,8 +327,15 @@ public class Bill extends javax.swing.JFrame implements MouseListener,Serveur {
         }
         else
         {
-            JOptionPane.showMessageDialog(this, "Thanks for your order mr "+name.getText()+" !");
-            System.exit(0);   
+            Chargement j=new Chargement();
+            j.charg();
+            
+            if(j.loading.getValue()==100)
+            {
+                JOptionPane.showMessageDialog(this, "Thanks for your order mr "+name.getText()+" !");
+                System.exit(0);
+            }
+               
         }
     }//GEN-LAST:event_confirmActionPerformed
 

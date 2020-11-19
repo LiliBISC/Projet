@@ -289,14 +289,16 @@ public class CreateMember extends javax.swing.JFrame  {
         else if(em.equals(cem) && pw.equals(cpw))
         {   
             data.ajouter_client(em, pw,surn,nam,a);//ajoute le client
-            if(a<=12)
+            Chargement c=new Chargement();
+            c.charg();
+            if(a<=12 && c.loading.getValue()==100)
                     {
                 discount_child=0.35;
                 ChooseRide j=new ChooseRide(discount_child);
             j.setVisible(true);
             setVisible(false);
             }
-            else{
+            else if(a>12 && c.loading.getValue()==100){
                 discount_child=1;
             ChooseRide j=new ChooseRide(discount_child);
             j.setVisible(true);
