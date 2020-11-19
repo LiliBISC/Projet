@@ -10,7 +10,10 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import static projet.Serveur.data;
+import static projet.Sousprogrammes.println;
 
 
 /**
@@ -25,9 +28,12 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     public ChooseRide(double d) {
         initComponents();
         getContentPane().setBackground(Color.WHITE);
-        ride7.addMouseListener(this);
-        ride2.addMouseListener(this);
         ride3.addMouseListener(this);
+        ride1.addMouseListener(this);
+        ride2.addMouseListener(this);
+        ride4.addMouseListener(this);
+        ride6.addMouseListener(this);
+        photo.addMouseListener(this);
         this.discount_child=d;
         setLocationRelativeTo(null);
         addWindowListener(new WindowAdapter(){///close serv if close jframe
@@ -43,145 +49,204 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSpinner1 = new javax.swing.JSpinner();
         jLabel1 = new javax.swing.JLabel();
         ride1 = new javax.swing.JLabel();
         ride2 = new javax.swing.JLabel();
         ride3 = new javax.swing.JLabel();
-        ride7 = new javax.swing.JLabel();
-        ride8 = new javax.swing.JLabel();
-        ride9 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        ride4 = new javax.swing.JLabel();
+        ride5 = new javax.swing.JLabel();
+        ride6 = new javax.swing.JLabel();
+        menue = new javax.swing.JButton();
+        photo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 255));
         jLabel1.setText("Choose your ride");
 
         ride1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride1.setForeground(new java.awt.Color(109, 133, 250));
-        ride1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/Capture1.PNG"))); // NOI18N
+        ride1.setForeground(new java.awt.Color(51, 51, 51));
+        ride1.setText("The Boat");
         ride1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ride1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         ride2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride2.setForeground(new java.awt.Color(109, 133, 250));
-        ride2.setText("The Boat");
+        ride2.setText("The Flying Chairs");
         ride2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ride2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         ride3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride3.setForeground(new java.awt.Color(109, 133, 250));
-        ride3.setText("The Flying Chairs");
+        ride3.setText("Roller Coaster");
         ride3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         ride3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ride7.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride7.setForeground(new java.awt.Color(109, 133, 250));
-        ride7.setText("Roller Coaster");
-        ride7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ride7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.setBackground(new java.awt.Color(215, 215, 235));
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/peinture-pour-artiste-bleu-ciel.jpg"))); // NOI18N
 
-        ride8.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride8.setForeground(new java.awt.Color(109, 133, 250));
-        ride8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/Capture3.PNG"))); // NOI18N
-        ride8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ride8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel3.setBackground(new java.awt.Color(215, 215, 235));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/peinture-pour-artiste-bleu-ciel.jpg"))); // NOI18N
 
-        ride9.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride9.setForeground(new java.awt.Color(109, 133, 250));
-        ride9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/Capture2.PNG"))); // NOI18N
-        ride9.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ride9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ride4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ride4.setText("The Flying Chairs");
+        ride4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ride4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        ride5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ride5.setText("The Flying Chairs");
+        ride5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ride5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        ride6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        ride6.setText("The Flying Chairs");
+        ride6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        ride6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        menue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/bouton menu.PNG"))); // NOI18N
+        menue.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menueActionPerformed(evt);
+            }
+        });
+
+        photo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(172, 172, 172)
-                .addComponent(ride7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ride2)
-                .addGap(246, 246, 246))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(ride1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
-                .addComponent(ride8)
-                .addGap(42, 42, 42))
-            .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(314, 314, 314)
-                        .addComponent(ride9))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(244, 244, 244)
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ride5)
+                                    .addComponent(ride6)
+                                    .addComponent(ride4)
+                                    .addComponent(ride3)
+                                    .addComponent(ride1)
+                                    .addComponent(ride2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(92, 92, 92))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(429, 429, 429)
-                        .addComponent(ride3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(419, 419, 419)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(352, 352, 352)
+                        .addComponent(menue, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ride7)
-                    .addComponent(ride2))
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ride1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ride8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addComponent(ride3)
+            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(ride9)
-                .addContainerGap())
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(ride1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ride2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ride3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ride4)
+                        .addGap(20, 20, 20)
+                        .addComponent(ride5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ride6)))
+                .addGap(67, 67, 67)
+                .addComponent(menue, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-   
+    private void menueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menueActionPerformed
+        // TODO add your handling code here:
+        MainMenu j=new MainMenu();
+        j.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_menueActionPerformed
+
+
     private final double discount_child;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JButton menue;
+    private javax.swing.JLabel photo;
     private javax.swing.JLabel ride1;
     private javax.swing.JLabel ride2;
     private javax.swing.JLabel ride3;
-    private javax.swing.JLabel ride7;
-    private javax.swing.JLabel ride8;
-    private javax.swing.JLabel ride9;
+    private javax.swing.JLabel ride4;
+    private javax.swing.JLabel ride5;
+    private javax.swing.JLabel ride6;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        
-        if(me.getSource()==ride7)
+        if(me.getSource()==photo)
         {
             ChooseDate j=new ChooseDate(discount_child);
             j.setVisible(true);
             setVisible(false);
-            
+        }
+        String imgUrl_ride3="/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/build/classes/projet/ImageFrame/Capture1.PNG";
+        String imgUrl_ride1="/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/build/classes/projet/ImageFrame/Capture3.PNG";
+        String imgUrl_ride2="/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/build/classes/projet/ImageFrame/Capture2.PNG";
+
+        if(me.getSource()==ride1)
+        {
+            Icon icone=new ImageIcon(imgUrl_ride1);
+            photo.setIcon(icone);
+
         }
         else if(me.getSource()==ride2)
         {
-            ChooseDate j=new ChooseDate(discount_child);
-            j.setVisible(true);
-            setVisible(false);
+            Icon icone=new ImageIcon(imgUrl_ride2);
+            photo.setIcon(icone);
+
         }
         else if(me.getSource()==ride3)
         {
-            ChooseDate j=new ChooseDate(discount_child);
-            j.setVisible(true);
-            setVisible(false);
+            Icon icone=new ImageIcon(imgUrl_ride3);
+            photo.setIcon(icone);
         }
-        
-        
+        else if(me.getSource()==ride4)
+        {
+            //Icon icone=new ImageIcon(imgUrl_ride4);
+            //photo.setIcon(icone);
+
+        }
+        else if(me.getSource()==ride5)
+        {
+            //Icon icone=new ImageIcon(imgUrl_ride5);
+            //photo.setIcon(icone);
+
+        }
+        else if(me.getSource()==ride6)
+        {
+            //Icon icone=new ImageIcon(imgUrl_ride6);
+            //photo.setIcon(icone);
+        }
     }
 
     @Override
@@ -191,7 +256,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
     @Override
     public void mouseReleased(MouseEvent me) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     @Override
