@@ -49,10 +49,15 @@ public class Chargement extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         loading.setBackground(new java.awt.Color(255, 255, 255));
+        loading.setForeground(new java.awt.Color(0, 153, 255));
+        loading.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        pourcentage.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
+        pourcentage.setFont(new java.awt.Font("Verdana", 2, 12)); // NOI18N
+        pourcentage.setForeground(new java.awt.Color(0, 153, 255));
         pourcentage.setText("100%");
 
+        l.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        l.setForeground(new java.awt.Color(0, 153, 255));
         l.setText("Loading...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -75,7 +80,7 @@ public class Chargement extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(21, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(l)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loading, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)

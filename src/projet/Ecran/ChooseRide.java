@@ -52,128 +52,150 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     private void initComponents() {
 
         jSpinner1 = new javax.swing.JSpinner();
+        jPanel1 = new javax.swing.JPanel();
+        photo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        menue = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         ride1 = new javax.swing.JLabel();
-        ride2 = new javax.swing.JLabel();
         ride3 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        ride2 = new javax.swing.JLabel();
         ride4 = new javax.swing.JLabel();
         ride5 = new javax.swing.JLabel();
         ride6 = new javax.swing.JLabel();
-        menue = new javax.swing.JButton();
-        photo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        photo.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 153, 255), 2));
+        photo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 153, 255));
         jLabel1.setText("Choose your ride");
 
-        ride1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride1.setForeground(new java.awt.Color(51, 51, 51));
-        ride1.setText("The Boat");
-        ride1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ride1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        ride2.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride2.setText("The Flying Chairs");
-        ride2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ride2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        ride3.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride3.setText("Roller Coaster");
-        ride3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ride3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        jLabel2.setBackground(new java.awt.Color(215, 215, 235));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/peinture-pour-artiste-bleu-ciel.jpg"))); // NOI18N
-
-        jLabel3.setBackground(new java.awt.Color(215, 215, 235));
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/peinture-pour-artiste-bleu-ciel.jpg"))); // NOI18N
-
-        ride4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride4.setText("The Flying Chairs");
-        ride4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ride4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        ride5.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride5.setText("The Flying Chairs");
-        ride5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ride5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        ride6.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        ride6.setText("The Flying Chairs");
-        ride6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        ride6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
         menue.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/bouton menu.PNG"))); // NOI18N
+        menue.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         menue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menueActionPerformed(evt);
             }
         });
 
-        photo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(139, 139, 139)
+                        .addComponent(menue, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(60, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(91, 91, 91)
+                .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addComponent(menue, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(51, 153, 255));
+
+        ride1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        ride1.setForeground(new java.awt.Color(255, 255, 255));
+        ride1.setText("The Boat");
+        ride1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        ride1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        ride3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        ride3.setForeground(new java.awt.Color(255, 255, 255));
+        ride3.setText("Roller Coaster");
+        ride3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        ride3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        ride2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        ride2.setForeground(new java.awt.Color(255, 255, 255));
+        ride2.setText("The Flying Chairs");
+        ride2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        ride2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        ride4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        ride4.setForeground(new java.awt.Color(255, 255, 255));
+        ride4.setText("The Flying Chairs");
+        ride4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        ride4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        ride5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        ride5.setForeground(new java.awt.Color(255, 255, 255));
+        ride5.setText("The Flying Chairs");
+        ride5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        ride5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        ride6.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        ride6.setForeground(new java.awt.Color(255, 255, 255));
+        ride6.setText("The Flying Chairs");
+        ride6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
+        ride6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(ride1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ride2)
+                    .addComponent(ride3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ride4)
+                    .addComponent(ride5)
+                    .addComponent(ride6))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(156, 156, 156)
+                .addComponent(ride1)
+                .addGap(18, 18, 18)
+                .addComponent(ride2)
+                .addGap(18, 18, 18)
+                .addComponent(ride3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ride4)
+                .addGap(18, 18, 18)
+                .addComponent(ride5)
+                .addGap(18, 18, 18)
+                .addComponent(ride6)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(63, 63, 63)
-                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(244, 244, 244)
-                                .addComponent(jLabel1))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ride5)
-                                    .addComponent(ride6)
-                                    .addComponent(ride4)
-                                    .addComponent(ride3)
-                                    .addComponent(ride1)
-                                    .addComponent(ride2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(92, 92, 92))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(352, 352, 352)
-                        .addComponent(menue, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(photo, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(75, 75, 75)
-                        .addComponent(ride1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ride2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ride3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ride4)
-                        .addGap(20, 20, 20)
-                        .addComponent(ride5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(ride6)))
-                .addGap(67, 67, 67)
-                .addComponent(menue, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -191,8 +213,8 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     protected double discount_adult;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JButton menue;
     private javax.swing.JLabel photo;
