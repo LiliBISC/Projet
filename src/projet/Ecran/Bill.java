@@ -331,18 +331,23 @@ public class Bill extends javax.swing.JFrame implements MouseListener,Serveur {
         public void run(){
            Chargement j=new Chargement();
             j.setVisible(true);
-            j.setDefaultCloseOperation(j.DO_NOTHING_ON_CLOSE);
-            j.charg();
-            int a=JOptionPane.showConfirmDialog(null, "Thanks for your order mr "+name.getText()+" ! Do you want to book an other ride ?");
+           
+            j.charg();//charge jauge
+            
+            
+            
+            int a=JOptionPane.showConfirmDialog(null, "Thanks for your order mr "+name.getText()+" ! Do you want to book an other ride ?");///si c'est un membre
             j.setVisible(false);
             if(a==JOptionPane.YES_OPTION){
                 ChooseRide c=new ChooseRide(discount_child,discount_adult);
                 c.setVisible(true);
                 setVisible(false);
             }
+            else{
             setVisible(false);
             MainMenu c=new MainMenu();
             c.setVisible(true);
+            }
              } }).start();
                
         }

@@ -28,7 +28,7 @@ public class Chargement extends javax.swing.JFrame {
         setLocationRelativeTo(null);
        
         getContentPane().setBackground(Color.WHITE);
-        
+         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);/// il ne se passe rien quand on la ferme
        
     }
     

@@ -25,6 +25,8 @@ public class Main implements Serveur{
         //data.supprimer_client("20");
       //for(int i=0;i<25;i++)data.ajouter_client(motaleatoire(5)+"@gmail.com",motaleatoire(4),motaleatoire(4),motaleatoire(8),5);
         //for(int i=0;i<5;i++)data.ajouter_employe(motaleatoire(5)+"@gmail.com",motaleatoire(4),motaleatoire(4),motaleatoire(8));
+        //data.SetChampTable("Reduction","id","0","adulte",0.5);
+        //println(data.GetChampTable("Reduction","id","0","adulte"));
         if(data.connexion!=null){
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override

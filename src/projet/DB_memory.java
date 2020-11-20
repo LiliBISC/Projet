@@ -156,7 +156,7 @@ statement = connexion.createStatement();
         
     }
     
-      public boolean recherche_client(String nom_colonne,String champ) {
+      public boolean recherche_client(String nom_colonne,String champ) {//retourne vrai si le client avec cette valeur de colonne éxiste
       boolean t=false;
         try{
         resultat = statement.executeQuery( "SELECT *FROM User;" );
@@ -183,7 +183,67 @@ statement = connexion.createStatement();
         }
         
     }   
-    
+      
+      public double get_prix_manege(String nom){///tu mets le nom du manege ça retourne son prix
+          double prix=-1; 
+          try{
+        resultat = statement.executeQuery( "SELECT *FROM Manege;" );
+        
+        
+        
+        while(resultat.next()&&prix==-1){
+             
+           if( resultat.getString("nom").compareTo(nom)==0){
+              
+               prix=resultat.getDouble("prix");
+               
+           }
+        }
+        
+       
+        }
+        catch(SQLException e){
+            println(e.getMessage(),RED);
+            }
+        finally{
+           return prix;
+        
+        }
+      }
+      
+      public Object GetChampTable(String nom_table,String champ_indentification,String valeur_champ_identification,String nom_type_colonne){///
+          Object var = null; 
+          try{
+        resultat = statement.executeQuery( "SELECT *FROM "+nom_table+";" );
+        
+        
+        
+        while(resultat.next()&&var==null){
+             
+          
+              if(resultat.getString(champ_indentification).compareTo(valeur_champ_identification)==0)
+               var=resultat.getObject(nom_type_colonne);
+               
+           
+        }
+        
+       
+        }
+        catch(SQLException e){
+            println(e.getMessage(),RED);
+            }
+        finally{
+           return var;
+        
+        }
+      }
+    public void SetChampTable(String nom_table,String champ_indentification,String valeur_champ_identification,String nom_colonne,Object var_set){
+        try{
+       statement.executeUpdate(" UPDATE "+nom_table+" SET "+nom_colonne+" = '"+var_set+"' WHERE "+champ_indentification+" = '"+valeur_champ_identification+"';");
+        }catch(SQLException e){
+            println(e.getMessage());
+        }
+    }
     public String date_action(ResultSet resultat) throws SQLException{/// retourne la date du dernier résultat
 
 resultat = statement.executeQuery("SELECT NOW();");
