@@ -32,6 +32,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         ride1.addMouseListener(this);
         ride2.addMouseListener(this);
         ride4.addMouseListener(this);
+        ride5.addMouseListener(this);
         ride6.addMouseListener(this);
         photo.addMouseListener(this);
         this.discount_child=dC;
@@ -116,37 +117,43 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
         ride1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         ride1.setForeground(new java.awt.Color(255, 255, 255));
+        ride1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ride1.setText("The Boat");
         ride1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         ride1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         ride3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         ride3.setForeground(new java.awt.Color(255, 255, 255));
+        ride3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ride3.setText("Roller Coaster");
         ride3.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         ride3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         ride2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         ride2.setForeground(new java.awt.Color(255, 255, 255));
+        ride2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ride2.setText("The Flying Chairs");
         ride2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         ride2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         ride4.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         ride4.setForeground(new java.awt.Color(255, 255, 255));
-        ride4.setText("The Flying Chairs");
+        ride4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ride4.setText("Roue");
         ride4.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         ride4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         ride5.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         ride5.setForeground(new java.awt.Color(255, 255, 255));
-        ride5.setText("The Flying Chairs");
+        ride5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ride5.setText("Megatron");
         ride5.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         ride5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         ride6.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         ride6.setForeground(new java.awt.Color(255, 255, 255));
-        ride6.setText("The Flying Chairs");
+        ride6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        ride6.setText("Poney");
         ride6.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 2, true));
         ride6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
@@ -156,13 +163,13 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ride1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ride2)
-                    .addComponent(ride3, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ride4)
-                    .addComponent(ride5)
-                    .addComponent(ride6))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ride1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ride2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ride3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ride5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ride6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ride4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -211,6 +218,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
     protected double discount_child;
     protected double discount_adult;
+    private String manege;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -230,47 +238,57 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
     public void mouseClicked(MouseEvent me) {
         if(me.getSource()==photo)
         {
-            ChooseDate j=new ChooseDate(discount_child,discount_adult);
+            ChooseDate j=new ChooseDate(discount_child,discount_adult, manege);
             j.setVisible(true);
             setVisible(false);
         }
         String imgUrl_ride3="build/classes/projet/ImageFrame/Capture1.PNG";
         String imgUrl_ride1="build/classes/projet/ImageFrame/Capture3.PNG";
         String imgUrl_ride2="build/classes/projet/ImageFrame/Capture2.PNG";
+        String imgUrl_ride4="build/classes/projet/ImageFrame/OIP (1).jpg";
+        String imgUrl_ride6="build/classes/projet/ImageFrame/OIP (2).jpg";
+        String imgUrl_ride5="build/classes/projet/ImageFrame/Capture.JPG";
+
 
         if(me.getSource()==ride1)
         {
             Icon icone=new ImageIcon(imgUrl_ride1);
+            manege="Boat";
             photo.setIcon(icone);
 
         }
         else if(me.getSource()==ride2)
         {
             Icon icone=new ImageIcon(imgUrl_ride2);
+            manege="The Flying Chairs";
             photo.setIcon(icone);
 
         }
         else if(me.getSource()==ride3)
         {
             Icon icone=new ImageIcon(imgUrl_ride3);
+            manege="Roller Coaster";
             photo.setIcon(icone);
         }
         else if(me.getSource()==ride4)
         {
-            //Icon icone=new ImageIcon(imgUrl_ride4);
-            //photo.setIcon(icone);
+            Icon icone=new ImageIcon(imgUrl_ride4);
+            manege="Roue";
+            photo.setIcon(icone);
 
         }
         else if(me.getSource()==ride5)
         {
-            //Icon icone=new ImageIcon(imgUrl_ride5);
-            //photo.setIcon(icone);
+            Icon icone=new ImageIcon(imgUrl_ride5);
+            manege="MegaTron";
+            photo.setIcon(icone);
 
         }
         else if(me.getSource()==ride6)
         {
-            //Icon icone=new ImageIcon(imgUrl_ride6);
-            //photo.setIcon(icone);
+            Icon icone=new ImageIcon(imgUrl_ride6);
+            manege="Poney";
+            photo.setIcon(icone);
         }
     }
 

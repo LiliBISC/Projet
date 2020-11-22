@@ -24,7 +24,7 @@ public class ChooseDate extends javax.swing.JFrame {
      * Creates new form ChooseDate
      * @param d
      */
-    public ChooseDate(double d, double d2) {
+    public ChooseDate(double d, double d2, String m) {
         initComponents();
         setLocationRelativeTo(null);
         getContentPane().setBackground(Color.WHITE);
@@ -47,10 +47,10 @@ public class ChooseDate extends javax.swing.JFrame {
         
         this.discount_child=d;
         this.discount_adult=d2;
+        this.manege=m;
         
-        
-        double prix_manège=10;//A la place faut une fonction qui prend le prix du manege
-        
+        //double prix_manège=10;//A la place faut une fonction qui prend le prix du manege
+        Object prix_manège=data.GetChampTable("Manege", "nom", manege, "prix");
         //Affichage du prix du manège
         title.setText("The price of this ride is : "+prix_manège+"$ by head");
 
@@ -662,7 +662,7 @@ public class ChooseDate extends javax.swing.JFrame {
     private double total_price;
     private double discount_child;
     private double discount_adult;
- 
+    private String manege;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton A0;
     private javax.swing.JToggleButton A1;
