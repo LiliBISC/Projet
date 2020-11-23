@@ -568,11 +568,11 @@ public class ChooseDate extends javax.swing.JFrame {
         SimpleDateFormat date_format = new SimpleDateFormat("yyyy/MM/dd");
         String date_ = date_format.format(date.getDate());
         
-        //date.getDayChooser().ColoDay(date_);
+        
         int a=JOptionPane.showConfirmDialog(this,"Are you sure you want to book on this date : "+date_);  
         if(a==JOptionPane.YES_OPTION){  
             Bill j=new Bill(total_price,discount_child, discount_adult);
-           j.setVisible(true);
+            j.setVisible(true);
             setVisible(false);
         }
 
