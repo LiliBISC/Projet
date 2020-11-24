@@ -77,7 +77,7 @@ public class ChooseDate extends javax.swing.JFrame {
         
     addWindowListener(new WindowAdapter(){///close serv if close jframe
     public void windowClosing(WindowEvent e){data.deconnection();}});
-        
+        date.setSundayForeground(Color.yellow);
     }
 
     /**
