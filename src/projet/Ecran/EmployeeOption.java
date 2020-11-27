@@ -9,6 +9,7 @@ import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
@@ -294,14 +295,23 @@ public class EmployeeOption extends javax.swing.JFrame {
         barchart_ride.setValue("Roller Coaster", new Integer((int)data.GetChampTable("Manege", "nom","Roller Coaster" , "n_res")));
         barchart_ride.setValue("Roue", new Integer((int)data.GetChampTable("Manege", "nom","Roue" , "n_res")));         
         barchart_ride.setValue("The Flying Chairs", new Integer((int)data.GetChampTable("Manege", "nom","The Flying Chairs" , "n_res")));         
-
-        JFreeChart b= ChartFactory.createPieChart3D("Popularity", barchart_ride, true,true, true);
+        
+        JFreeChart b= ChartFactory.createPieChart3D("Popularity", barchart_ride, true,true, false);
         
         PiePlot P=(PiePlot)b.getPlot();
+        P.setSectionPaint("Boat", Color.gray);
+        P.setSectionPaint("MegaTron",Color.BLUE );
+        P.setSectionPaint("Roller Coaster",Color.CYAN);
+        P.setSectionPaint("Roue",Color.darkGray);
+        P.setSectionPaint("The Flying Chairs", Color.LIGHT_GRAY);
+        P.setBackgroundAlpha(TOP_ALIGNMENT);
         ChartFrame frame=new ChartFrame("Popularity", b);
-        frame.setVisible(true);
+        frame.setSize(684,489);
         frame.setLocationRelativeTo(null);
-        frame.setSize(500,500);
+        frame.setBackground(Color.white);
+        frame.setVisible(true);
+        
+       
     }//GEN-LAST:event_CheckPopularActionPerformed
 
     private void DeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerActionPerformed
