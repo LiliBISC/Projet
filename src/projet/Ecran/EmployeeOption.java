@@ -9,8 +9,14 @@ import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
+import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.data.general.DefaultPieDataset;
 import static projet.Serveur.data;
 import static projet.Sousprogrammes.RED;
 import static projet.Sousprogrammes.println;
@@ -40,7 +46,6 @@ public class EmployeeOption extends javax.swing.JFrame {
         DefaultTableModel d = (DefaultTableModel)Table.getModel();
         d.setRowCount(0);
 
-       // d.setColumnCount(7);
         d.setColumnIdentifiers(columnNames);///titre des colonnes
        
         
@@ -283,6 +288,30 @@ public class EmployeeOption extends javax.swing.JFrame {
 
     private void CheckPopularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckPopularActionPerformed
         // TODO add your handling code here:
+        DefaultPieDataset barchart_ride=new DefaultPieDataset();
+        barchart_ride.setValue("Boat", new Integer((int)data.GetChampTable("Manege", "nom", "Boat", "n_res")));
+        barchart_ride.setValue("MegaTron", new Integer((int)data.GetChampTable("Manege", "nom","MegaTron" , "n_res")));
+        //barchart_ride.setValue("Poney", new Integer((int)data.GetChampTable("Manege", "nom","Poney" , "n_res")));
+        barchart_ride.setValue("Roller Coaster", new Integer((int)data.GetChampTable("Manege", "nom","Roller Coaster" , "n_res")));
+        barchart_ride.setValue("Roue", new Integer((int)data.GetChampTable("Manege", "nom","Roue" , "n_res")));         
+        barchart_ride.setValue("The Flying Chairs", new Integer((int)data.GetChampTable("Manege", "nom","The Flying Chairs" , "n_res")));         
+        
+        JFreeChart b= ChartFactory.createPieChart3D("Popularity", barchart_ride, true,true, false);
+        
+        PiePlot P=(PiePlot)b.getPlot();
+        P.setSectionPaint("Boat", Color.gray);
+        P.setSectionPaint("MegaTron",Color.BLUE );
+        P.setSectionPaint("Roller Coaster",Color.CYAN);
+        P.setSectionPaint("Roue",Color.darkGray);
+        P.setSectionPaint("The Flying Chairs", Color.LIGHT_GRAY);
+        P.setBackgroundAlpha(TOP_ALIGNMENT);
+        ChartFrame frame=new ChartFrame("Popularity", b);
+        frame.setSize(684,489);
+        frame.setLocationRelativeTo(null);
+        frame.setBackground(Color.white);
+        frame.setVisible(true);
+        
+       
     }//GEN-LAST:event_CheckPopularActionPerformed
 
     private void DeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerActionPerformed

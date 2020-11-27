@@ -29,13 +29,14 @@ public class Bill extends javax.swing.JFrame implements MouseListener,Serveur {
     /**
      * Creates new form jFrame3
      */
-    public Bill(double b, double c, double a) {
+    public Bill(double b, double c, double a, String m) {
         initComponents();
         getContentPane().setBackground(Color.WHITE);
         ButtonGroup g=new ButtonGroup();
         this.total_price=b;
         this.discount_adult=a;
         this.discount_child=c;
+        this.manege=m;
         g.add(J1);
         g.add(J2);
         g.add(J3);
@@ -380,6 +381,7 @@ public class Bill extends javax.swing.JFrame implements MouseListener,Serveur {
     private double discount_adult;
     private double discount_child;
     private String card;
+    private String manege;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane Area;
     private javax.swing.JRadioButton J1;
@@ -445,7 +447,7 @@ public class Bill extends javax.swing.JFrame implements MouseListener,Serveur {
             billTicket.setText(billTicket.getText()+"\n");
             billTicket.setText(billTicket.getText()+"Name : "+"\t"+name.getText()+"\n");
             billTicket.setText(billTicket.getText()+"\n");
-            billTicket.setText(billTicket.getText()+"Ride : "+"\t"+"\n");
+            billTicket.setText(billTicket.getText()+"Ride : "+"\t"+manege+"\n");
             billTicket.setText(billTicket.getText()+"\n");
             billTicket.setText(billTicket.getText()+"Date/Hour of payment: "+"\t"+mediumDateFormat.format(aujourdhui)+"\n");
             billTicket.setText(billTicket.getText()+"\n");
