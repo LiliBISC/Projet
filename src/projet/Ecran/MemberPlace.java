@@ -5,20 +5,12 @@
  */
 package projet.Ecran;
 
-import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import projet.DB_memory;
-import projet.Serveur;
 import static projet.Sousprogrammes.*;
 import static projet.Serveur.data;
-import static sun.font.GlyphLayout.done;
+
 
 /**
  *

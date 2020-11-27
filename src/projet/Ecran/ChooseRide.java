@@ -218,7 +218,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
     protected double discount_child;
     protected double discount_adult;
-    private String manege;
+    protected String manege;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

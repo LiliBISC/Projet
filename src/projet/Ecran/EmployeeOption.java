@@ -5,12 +5,18 @@
  */
 package projet.Ecran;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.PiePlot;
+import org.jfree.data.general.DefaultPieDataset;
 import static projet.Serveur.data;
 import static projet.Sousprogrammes.RED;
 import static projet.Sousprogrammes.println;
@@ -283,6 +289,17 @@ public class EmployeeOption extends javax.swing.JFrame {
 
     private void CheckPopularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckPopularActionPerformed
         // TODO add your handling code here:
+        DefaultPieDataset barchart_ride=new DefaultPieDataset();
+        barchart_ride.setValue("one", new Integer(10));
+        barchart_ride.setValue("two", new Integer(20));
+        barchart_ride.setValue("three", new Integer(30));
+        barchart_ride.setValue("four", new Integer(40));         
+        JFreeChart b= ChartFactory.createPieChart("Popularity", barchart_ride, true,true, true);
+        PiePlot P=(PiePlot)b.getPlot();
+        ChartFrame frame=new ChartFrame("Popularity", b);
+        frame.setVisible(true);
+        frame.setLocationRelativeTo(null);
+        frame.setSize(1000,1000);
     }//GEN-LAST:event_CheckPopularActionPerformed
 
     private void DeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerActionPerformed

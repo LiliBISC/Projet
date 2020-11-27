@@ -5,12 +5,9 @@
  */
 package projet.Ecran;
 
-import com.toedter.calendar.JDayChooser;
-import java.awt.Color;
+
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import static java.sql.DriverManager.println;
-import java.text.DateFormatSymbols;
 import java.text.SimpleDateFormat;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
@@ -26,6 +23,8 @@ public class ChooseDate extends javax.swing.JFrame {
     /**
      * Creates new form ChooseDate
      * @param d
+     * @param d2
+     * @param m
      */
     public ChooseDate(double d, double d2, String m) {
         initComponents();
@@ -33,12 +32,11 @@ public class ChooseDate extends javax.swing.JFrame {
         
         ButtonGroup group=new ButtonGroup();
         ButtonGroup group1=new ButtonGroup();
-        for(int i=0; i<31;i++)
-        {
-            String a=""+i+"";
-            if(a.equals(a))
-            date.getDayChooser().ColoDay(a);
-        }
+        
+        date.getDayChooser().ColoDay("10");
+        date.getDayChooser().ColoDay("15");
+        date.getDayChooser().ColoDay("20");
+        date.getDayChooser().ColoDay("25");
         
         group.add(A0);
         group.add(A1);
@@ -86,6 +84,7 @@ public class ChooseDate extends javax.swing.JFrame {
         
         
     addWindowListener(new WindowAdapter(){///close serv if close jframe
+    @Override
     public void windowClosing(WindowEvent e){data.deconnection();}});
         
     }
@@ -571,7 +570,7 @@ public class ChooseDate extends javax.swing.JFrame {
         
         int a=JOptionPane.showConfirmDialog(this,"Are you sure you want to book on this date : "+date_);  
         if(a==JOptionPane.YES_OPTION){  
-            Bill j=new Bill(total_price,discount_child, discount_adult);
+            Bill j=new Bill(total_price,discount_child, discount_adult, manege);
             j.setVisible(true);
             setVisible(false);
         }
