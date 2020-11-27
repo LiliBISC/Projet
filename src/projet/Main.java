@@ -28,6 +28,7 @@ public class Main implements Serveur{
         //data.SetChampTable("User","id","125","email","");
         //data.SetChampTable("User","id","125","mdp","");
         //println(data.GetChampTable("Reduction","id","0","adulte"));
+        data.SetChampTable("Manege","nom","The Flying Chairs","n_res",2);
         if(data.connexion!=null){
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
