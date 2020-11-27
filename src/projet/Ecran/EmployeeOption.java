@@ -5,7 +5,6 @@
  */
 package projet.Ecran;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -46,7 +45,6 @@ public class EmployeeOption extends javax.swing.JFrame {
         DefaultTableModel d = (DefaultTableModel)Table.getModel();
         d.setRowCount(0);
 
-       // d.setColumnCount(7);
         d.setColumnIdentifiers(columnNames);///titre des colonnes
        
         
@@ -290,16 +288,20 @@ public class EmployeeOption extends javax.swing.JFrame {
     private void CheckPopularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckPopularActionPerformed
         // TODO add your handling code here:
         DefaultPieDataset barchart_ride=new DefaultPieDataset();
-        barchart_ride.setValue("one", new Integer(10));
-        barchart_ride.setValue("two", new Integer(20));
-        barchart_ride.setValue("three", new Integer(30));
-        barchart_ride.setValue("four", new Integer(40));         
-        JFreeChart b= ChartFactory.createPieChart("Popularity", barchart_ride, true,true, true);
+        barchart_ride.setValue("Boat", new Integer((int)data.GetChampTable("Manege", "nom", "Boat", "n_res")));
+        barchart_ride.setValue("MegaTron", new Integer((int)data.GetChampTable("Manege", "nom","MegaTron" , "n_res")));
+        //barchart_ride.setValue("Poney", new Integer((int)data.GetChampTable("Manege", "nom","Poney" , "n_res")));
+        barchart_ride.setValue("Roller Coaster", new Integer((int)data.GetChampTable("Manege", "nom","Roller Coaster" , "n_res")));
+        barchart_ride.setValue("Roue", new Integer((int)data.GetChampTable("Manege", "nom","Roue" , "n_res")));         
+        barchart_ride.setValue("The Flying Chairs", new Integer((int)data.GetChampTable("Manege", "nom","The Flying Chairs" , "n_res")));         
+
+        JFreeChart b= ChartFactory.createPieChart3D("Popularity", barchart_ride, true,true, true);
+        
         PiePlot P=(PiePlot)b.getPlot();
         ChartFrame frame=new ChartFrame("Popularity", b);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
-        frame.setSize(1000,1000);
+        frame.setSize(500,500);
     }//GEN-LAST:event_CheckPopularActionPerformed
 
     private void DeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerActionPerformed
