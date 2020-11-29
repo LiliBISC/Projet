@@ -26,7 +26,7 @@ public class Main implements Serveur{
       //for(int i=0;i<25;i++)data.ajouter_client(motaleatoire(5)+"@gmail.com",motaleatoire(4),motaleatoire(4),motaleatoire(8),5);
         //for(int i=0;i<5;i++)data.ajouter_employe(motaleatoire(5)+"@gmail.com",motaleatoire(4),motaleatoire(4),motaleatoire(8));
         //data.SetChampTable("User","id","125","email","");
-        //data.SetChampTable("User","id","125","mdp","");
+        //data.SetChampTable("Manege","nom","Roue","n_res",2);
         //println(data.GetChampTable("Reduction","id","0","adulte"));
         if(data.connexion!=null){
         java.awt.EventQueue.invokeLater(new Runnable() {
