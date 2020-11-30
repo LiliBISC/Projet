@@ -574,7 +574,7 @@ public class ChooseDate extends javax.swing.JFrame {
         
         int a=JOptionPane.showConfirmDialog(this,"Are you sure you want to book on this date : "+date_);  
         if(a==JOptionPane.YES_OPTION){ 
-            data.ajouter_manege_date(manege, date_1);
+            data.ajouter_manege_date(manege, date1);
             Bill j=new Bill(total_price,discount_child, discount_adult, manege);
             j.setVisible(true);
             setVisible(false);

@@ -6,6 +6,7 @@
 package projet;
 
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -302,7 +303,7 @@ return resultat.getString(1);
           
       }
     
-    public void ajouter_manege_date(String nom_manege,String date) {///ajoute le customer dans la base de donnée mémoire vive et sql
+    public void ajouter_manege_date(String nom_manege,SimpleDateFormat date) {///ajoute le customer dans la base de donnée mémoire vive et sql
         try{
         statement.executeUpdate("INSERT INTO Ticket (Nom_manege,date) VALUES ('nom_manege','date');");
         resultat = statement.executeQuery("SELECT NOW();");
