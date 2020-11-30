@@ -9,7 +9,6 @@ import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
-import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
@@ -305,13 +304,12 @@ public class EmployeeOption extends javax.swing.JFrame {
         P.setSectionPaint("Roue",Color.darkGray);
         P.setSectionPaint("The Flying Chairs", Color.LIGHT_GRAY);
         P.setBackgroundAlpha(TOP_ALIGNMENT);
+        
         ChartFrame frame=new ChartFrame("Popularity", b);
         frame.setSize(684,489);
         frame.setLocationRelativeTo(null);
         frame.setBackground(Color.white);
         frame.setVisible(true);
-        
-       
     }//GEN-LAST:event_CheckPopularActionPerformed
 
     private void DeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerActionPerformed

@@ -302,5 +302,16 @@ return resultat.getString(1);
           
       }
     
+    public void ajouter_manege_date(String nom_manege,String date) {///ajoute le customer dans la base de donnée mémoire vive et sql
+        try{
+        statement.executeUpdate("INSERT INTO Ticket (Nom_manege,date) VALUES ('nom_manege','date');");
+        resultat = statement.executeQuery("SELECT NOW();");
+        
+        println(date_action(resultat)+" :  "+nom_manege+" est réservé   ");///rapport de l'action
+        }
+        catch(SQLException e){
+            println(e.getMessage(),RED);
+        }
+    }
 }
 

@@ -567,9 +567,14 @@ public class ChooseDate extends javax.swing.JFrame {
         SimpleDateFormat date_format = new SimpleDateFormat("yyyy/MM/dd");
         String date_ = date_format.format(date.getDate());
         
+        SimpleDateFormat date1 = new SimpleDateFormat("dd");
+        String date_1 = date1.format(date.getDate());
+        
+        
         
         int a=JOptionPane.showConfirmDialog(this,"Are you sure you want to book on this date : "+date_);  
-        if(a==JOptionPane.YES_OPTION){  
+        if(a==JOptionPane.YES_OPTION){ 
+            data.ajouter_manege_date(manege, date_1);
             Bill j=new Bill(total_price,discount_child, discount_adult, manege);
             j.setVisible(true);
             setVisible(false);
