@@ -36,18 +36,19 @@ public class MainMenu extends javax.swing.JFrame implements MouseListener ,Serve
         
         new Thread(new Runnable() {
         public void run(){
-        ArrayList url= new ArrayList<>();
+       
         ArrayList icones= new ArrayList<>();
         for(int i=1; i<50; i++)
         {
-            url.add("build/classes/projet/ImageFrame/frame-0"+i+".gif");
-            icones.add(new ImageIcon((String) url.get(i)));
+            
+            icones.add(new ImageIcon("build/classes/projet/ImageFrame/frame-0"+i+".gif"));
+             
         }
         int i=0;
         while(true)
         {
         i=i+1;
-        
+       
             try {
                  
                     Thread.sleep(100);
@@ -118,7 +119,6 @@ public class MainMenu extends javax.swing.JFrame implements MouseListener ,Serve
 
         jLabel5.setBackground(new java.awt.Color(215, 215, 235));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projet/ImageFrame/logo.PNG"))); // NOI18N
 
         createMember.setFont(new java.awt.Font("Verdana", 3, 12)); // NOI18N
         createMember.setForeground(new java.awt.Color(255, 0, 0));
