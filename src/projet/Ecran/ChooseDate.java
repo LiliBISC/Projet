@@ -13,7 +13,11 @@ import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static projet.Serveur.data;
+<<<<<<< HEAD
 import static projet.Sousprogrammes.println;
+=======
+import static projet.Sousprogrammes.*;
+>>>>>>> gras
 
 /**
  *
@@ -34,6 +38,7 @@ public class ChooseDate extends javax.swing.JFrame {
         
         ButtonGroup group=new ButtonGroup();
         ButtonGroup group1=new ButtonGroup();
+<<<<<<< HEAD
         ArrayList vect= new ArrayList<>();
         vect=data.get_dates(manege);
         println(vect);
@@ -43,6 +48,18 @@ public class ChooseDate extends javax.swing.JFrame {
             println(a);
             date.getDayChooser().ColoDay((String) a); 
            
+=======
+        
+        date.getDayChooser().ColoDay("10");
+        date.getDayChooser().ColoDay("15");
+        date.getDayChooser().ColoDay("20");
+        date.getDayChooser().ColoDay("25");
+        
+        ArrayList dates=data.get_dates(m);
+      
+        for(int i=0;i<dates.size();i++){
+            println(dates.get(i));
+>>>>>>> gras
         }
         
         group.add(A0);
