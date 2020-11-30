@@ -306,13 +306,13 @@ return resultat.getString(1);
     public ArrayList get_dates(String manege){
         ArrayList date=new ArrayList<>(); 
         try{
-        resultat = statement.executeQuery( "SELECT *FROM Ticket;" );
+        resultat = statement.executeQuery( "SELECT *FROM Manege;" );
         
-       
+        
         
         while(resultat.next()){
              
-          if(resultat.getString("Nom_manege").compareTo(manege)==0){
+          if(resultat.getString("date").compareTo(manege)==0){
               date.add(resultat.getString("date"));
           }
               
