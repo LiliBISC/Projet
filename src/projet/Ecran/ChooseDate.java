@@ -34,14 +34,22 @@ public class ChooseDate extends javax.swing.JFrame {
         
         ButtonGroup group=new ButtonGroup();
         ButtonGroup group1=new ButtonGroup();
+<<<<<<< HEAD
         ArrayList dates=new ArrayList<>();
         dates=data.get_dates(m);
+=======
+        ArrayList dates=data.get_dates(m);
+>>>>>>> aie
         
         for(int i=0;i<dates.size();i++)
         {  
             
             println(dates.get(i));
+<<<<<<< HEAD
             
+=======
+        
+>>>>>>> aie
            
         }
         
