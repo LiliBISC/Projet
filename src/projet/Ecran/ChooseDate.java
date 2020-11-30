@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static projet.Serveur.data;
+import static projet.Sousprogrammes.println;
 
 /**
  *
@@ -33,15 +34,15 @@ public class ChooseDate extends javax.swing.JFrame {
         
         ButtonGroup group=new ButtonGroup();
         ButtonGroup group1=new ButtonGroup();
-        
-        date.getDayChooser().ColoDay("10");
-        date.getDayChooser().ColoDay("15");
-        date.getDayChooser().ColoDay("20");
-        date.getDayChooser().ColoDay("25");
-        
-        ArrayList dates=data.get_dates(manege);
-        for(int i=0;i<dates.size();i++){
-            
+        ArrayList vect= new ArrayList<>();
+        vect=data.get_dates(manege);
+        println(vect);
+        for(int i=0;i<vect.size();i++)
+        {  
+            Object a=vect.get(i);
+            println(a);
+            date.getDayChooser().ColoDay((String) a); 
+           
         }
         
         group.add(A0);
