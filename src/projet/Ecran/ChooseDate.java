@@ -9,6 +9,7 @@ package projet.Ecran;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static projet.Serveur.data;
@@ -37,6 +38,11 @@ public class ChooseDate extends javax.swing.JFrame {
         date.getDayChooser().ColoDay("15");
         date.getDayChooser().ColoDay("20");
         date.getDayChooser().ColoDay("25");
+        
+        ArrayList dates=data.get_dates(manege);
+        for(int i=0;i<dates.size();i++){
+            
+        }
         
         group.add(A0);
         group.add(A1);
@@ -574,7 +580,7 @@ public class ChooseDate extends javax.swing.JFrame {
         
         int a=JOptionPane.showConfirmDialog(this,"Are you sure you want to book on this date : "+date_);  
         if(a==JOptionPane.YES_OPTION){ 
-            data.ajouter_manege_date(manege, date1);
+            data.ajouter_manege_date(manege, date_1);
             Bill j=new Bill(total_price,discount_child, discount_adult, manege);
             j.setVisible(true);
             setVisible(false);

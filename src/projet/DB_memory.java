@@ -7,6 +7,7 @@ package projet;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -302,10 +303,38 @@ return resultat.getString(1);
            return a;
           
       }
-    
-    public void ajouter_manege_date(String nom_manege,SimpleDateFormat date) {///ajoute le customer dans la base de donnée mémoire vive et sql
+    public ArrayList get_dates(String manege){
+        ArrayList date=new ArrayList<>(); 
         try{
-        statement.executeUpdate("INSERT INTO Ticket (Nom_manege,date) VALUES ('nom_manege','date');");
+        resultat = statement.executeQuery( "SELECT *FROM Manege;" );
+        
+        
+        
+        while(resultat.next()){
+             
+          if(resultat.getString("date").compareTo(manege)==0){
+              date.add(resultat.getString("date"));
+          }
+              
+               
+           
+        }
+        
+        
+        
+    }catch(SQLException e){
+            
+        }
+         finally{
+        return date;
+    }
+    
+}
+    public void ajouter_manege_date(String nom_manege,String datem) {///ajoute le customer dans la base de donnée mémoire vive et sql
+       
+        
+        try{
+        statement.executeUpdate("INSERT INTO Ticket (Nom_manege,date) VALUES ('"+nom_manege+"','"+datem+"');");
         resultat = statement.executeQuery("SELECT NOW();");
         
         println(date_action(resultat)+" :  "+nom_manege+" est réservé   ");///rapport de l'action
