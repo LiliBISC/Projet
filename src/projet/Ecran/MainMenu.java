@@ -39,11 +39,7 @@ public class MainMenu extends javax.swing.JFrame implements MouseListener ,Serve
         
         Icon i= new ImageIcon(this.getClass().getResource("KIDSLAND (1).gif"));
         jLabel5.setIcon(i);
-<<<<<<< HEAD
-       
-        
-=======
->>>>>>> master
+
         
         addWindowListener(new WindowAdapter(){///close serv if close jframe
     public void windowClosing(WindowEvent e){data.deconnection();}});

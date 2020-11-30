@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static projet.Serveur.data;
+import static projet.Sousprogrammes.*;
 
 /**
  *
@@ -39,9 +40,10 @@ public class ChooseDate extends javax.swing.JFrame {
         date.getDayChooser().ColoDay("20");
         date.getDayChooser().ColoDay("25");
         
-        ArrayList dates=data.get_dates(manege);
+        ArrayList dates=data.get_dates(m);
+      
         for(int i=0;i<dates.size();i++){
-            
+            println(dates.get(i));
         }
         
         group.add(A0);
