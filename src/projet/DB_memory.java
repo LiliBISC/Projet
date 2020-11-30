@@ -303,16 +303,16 @@ return resultat.getString(1);
            return a;
           
       }
-    public ArrayList get_dates(String manege){
+   public ArrayList get_dates(String manege){
         ArrayList date=new ArrayList<>(); 
         try{
-        resultat = statement.executeQuery( "SELECT *FROM Manege;" );
+        resultat = statement.executeQuery( "SELECT *FROM Ticket;" );
         
-        
+       
         
         while(resultat.next()){
              
-          if(resultat.getString("date").compareTo(manege)==0){
+          if(resultat.getString("Nom_manege").compareTo(manege)==0){
               date.add(resultat.getString("date"));
           }
               
