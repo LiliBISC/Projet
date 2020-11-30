@@ -34,14 +34,13 @@ public class ChooseDate extends javax.swing.JFrame {
         
         ButtonGroup group=new ButtonGroup();
         ButtonGroup group1=new ButtonGroup();
-        ArrayList vect= new ArrayList<>();
-        vect=data.get_dates(manege);
-        println(vect);
-        for(int i=0;i<vect.size();i++)
+        ArrayList dates=data.get_dates(m);
+        
+        for(int i=0;i<dates.size();i++)
         {  
-            Object a=vect.get(i);
-            println(a);
-            date.getDayChooser().ColoDay((String) a); 
+            
+            println(dates.get(i));
+        
            
         }
         
