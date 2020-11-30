@@ -10,6 +10,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import static projet.Serveur.data;
 import static projet.Sousprogrammes.println;
@@ -25,6 +27,8 @@ public class Chargement extends javax.swing.JFrame {
      */
     public Chargement() {
         initComponents();
+        Icon i= new ImageIcon(this.getClass().getResource("KIDSLAND (1).gif"));
+        l1.setIcon(i);
         setLocationRelativeTo(null);
        
         getContentPane().setBackground(Color.WHITE);
@@ -45,6 +49,7 @@ public class Chargement extends javax.swing.JFrame {
         loading = new javax.swing.JProgressBar();
         pourcentage = new javax.swing.JLabel();
         l = new javax.swing.JLabel();
+        l1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,49 +65,60 @@ public class Chargement extends javax.swing.JFrame {
         l.setForeground(new java.awt.Color(0, 153, 255));
         l.setText("Loading...");
 
+        l1.setBackground(new java.awt.Color(255, 255, 255));
+        l1.setFont(new java.awt.Font("Verdana", 0, 16)); // NOI18N
+        l1.setForeground(new java.awt.Color(0, 153, 255));
+        l1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pourcentage)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(loading, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(l)
-                        .addGap(183, 183, 183))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(pourcentage)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(l1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(26, 26, 26))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(loading, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(282, 282, 282)
+                .addComponent(l)
+                .addContainerGap(317, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(l1, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(l)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(loading, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(pourcentage)
-                .addContainerGap())
+                .addGap(38, 38, 38))
         );
 
-        setSize(new java.awt.Dimension(463, 164));
+        setSize(new java.awt.Dimension(703, 443));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     public void charg()
     {
-        
-       
+ 
           
             for(int i=0;i<=100;i++)
         {
         try {
                  
-                    Thread.sleep(30);
+                Thread.sleep(30);
                 } catch (InterruptedException ex) {
                     println(ex.getMessage());
                 }
@@ -119,6 +135,7 @@ public class Chargement extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel l;
+    private javax.swing.JLabel l1;
     public static javax.swing.JProgressBar loading;
     public static javax.swing.JLabel pourcentage;
     // End of variables declaration//GEN-END:variables
