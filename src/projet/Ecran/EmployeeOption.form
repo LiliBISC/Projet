@@ -94,6 +94,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CheckPopularActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="UnavailableRides">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Show the unavailable dates of rides"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UnavailableRidesActionPerformed"/>
+              </Events>
+            </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="AvailableRides">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Update the currently available rides"/>

@@ -186,6 +186,34 @@ statement = connexion.createStatement();
         
     }   
       
+      public boolean recherche_manege_date(String nom_colonne1,String champ1, String nom_colonne2, String champ2) {//retourne vrai si le client avec cette valeur de colonne éxiste
+      boolean t=false;
+        try{
+        resultat = statement.executeQuery( "SELECT *FROM Ticket;" );
+        
+        
+        
+        while(resultat.next()&&t==false){
+             
+           if( resultat.getString(nom_colonne1).compareTo(champ1)==0&&resultat.getString(nom_colonne2).compareTo(champ2)==0){
+              
+               t= true;
+               
+           }
+        }
+        
+       
+        }
+        catch(SQLException e){
+            println(e.getMessage(),RED);
+            }
+        finally{
+           return t;
+        
+        }
+        
+    }   
+      
       public double get_prix_manege(String nom){///tu mets le nom du manege ça retourne son prix
           double prix=-1; 
           try{
@@ -343,5 +371,24 @@ return resultat.getString(1);
             println(e.getMessage(),RED);
         }
     }
+    
+    public void supprimer_manege_date(String manege, String date)  {
+       
+       
+        boolean b=recherche_manege_date("Nom_manege",manege, "date", date);
+        if(b==true){
+           try{
+              statement.executeUpdate("DELETE FROM Ticket WHERE Nom_manege='"+manege+"' AND date='"+date+"';");
+            println(manege+" "+date+" a été supprimé",GREEN);}
+           catch(SQLException e){
+               println(e.getMessage(),RED);
+           }
+           
+        }
+        else{
+            println("N'existe pas",RED);
+        }
+        
+        }
 }
 
