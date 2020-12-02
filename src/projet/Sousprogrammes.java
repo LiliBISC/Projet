@@ -10,10 +10,6 @@ import java.util.Random;
  * and open the template in the editor.
  */
 
-/**
- *
- * @author trani
- */
 public class Sousprogrammes {
     
     
@@ -31,7 +27,9 @@ public static final String PURPLE = "\u001B[35m";
 public static final String CYAN = "\u001B[36m";
 public static final String WHITE = "\u001B[37m";
     
-    static String motaleatoire(int nlettre){
+    static String motaleatoire(int nlettre)
+   
+    {
          Random rnd = new Random();
       String a="abcdefghijklmnopqrstuvwxyz123456789";
       String mot="";
