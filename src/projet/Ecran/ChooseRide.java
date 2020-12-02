@@ -241,6 +241,8 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
             ChooseDate j=new ChooseDate(discount_child,discount_adult, manege);
             j.setVisible(true);
             setVisible(false);
+            int a=((int) data.GetChampTable("Manege", "nom", manege, "n_res"));
+            data.SetChampTable("Manege", "nom",manege, "n_res", a+1);
         }
         String imgUrl_ride3="build/classes/projet/ImageFrame/Capture1.PNG";
         String imgUrl_ride1="build/classes/projet/ImageFrame/Capture3.PNG";
@@ -248,24 +250,17 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         String imgUrl_ride4="build/classes/projet/ImageFrame/OIP (1).jpg";
         String imgUrl_ride6="build/classes/projet/ImageFrame/OIP (2).jpg";
         String imgUrl_ride5="build/classes/projet/ImageFrame/Capture.JPG";
-
-
         if(me.getSource()==ride1)
         {
             Icon icone=new ImageIcon(imgUrl_ride1);
             manege="Boat";
-            photo.setIcon(icone);
-            int a=((int) data.GetChampTable("Manege", "nom", manege, "n_res"));
-            data.SetChampTable("Manege", "nom",manege, "n_res", a+1);
-
+            photo.setIcon(icone);                        
         }
         else if(me.getSource()==ride2)
         {
             Icon icone=new ImageIcon(imgUrl_ride2);
             manege="The Flying Chairs";
             photo.setIcon(icone);
-            int a=((int) data.GetChampTable("Manege", "nom", manege, "n_res"));
-            data.SetChampTable("Manege", "nom",manege, "n_res", a+1);
 
         }
         else if(me.getSource()==ride3)
@@ -273,16 +268,12 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
             Icon icone=new ImageIcon(imgUrl_ride3);
             manege="Roller Coaster";
             photo.setIcon(icone);
-            int a=((int)data.GetChampTable("Manege", "nom", manege, "n_res"));
-            data.SetChampTable("Manege", "nom",manege, "n_res", a+1);
         }
         else if(me.getSource()==ride4)
         {
             Icon icone=new ImageIcon(imgUrl_ride4);
             manege="Roue";
             photo.setIcon(icone);
-            int a=((int) data.GetChampTable("Manege", "nom", manege, "n_res"));
-            data.SetChampTable("Manege", "nom",manege, "n_res", a+1);
 
         }
         else if(me.getSource()==ride5)
@@ -290,8 +281,6 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
             Icon icone=new ImageIcon(imgUrl_ride5);
             manege="MegaTron";
             photo.setIcon(icone);
-            int a=((int) data.GetChampTable("Manege", "nom", manege, "n_res"));
-            data.SetChampTable("Manege", "nom",manege, "n_res", a+1);
 
         }
         else if(me.getSource()==ride6)
@@ -299,8 +288,6 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
             Icon icone=new ImageIcon(imgUrl_ride6);
             manege="Poney";
             photo.setIcon(icone);
-            int a=((int) data.GetChampTable("Manege", "nom", manege, "n_res"));
-            data.SetChampTable("Manege", "nom",manege, "n_res", a+1);
         }
     }
 

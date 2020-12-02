@@ -9,9 +9,11 @@ package projet.Ecran;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static projet.Serveur.data;
+import static projet.Sousprogrammes.println;
 
 /**
  *
@@ -33,10 +35,15 @@ public class ChooseDate extends javax.swing.JFrame {
         ButtonGroup group=new ButtonGroup();
         ButtonGroup group1=new ButtonGroup();
         
-        date.getDayChooser().ColoDay("10");
-        date.getDayChooser().ColoDay("15");
-        date.getDayChooser().ColoDay("20");
-        date.getDayChooser().ColoDay("25");
+        ArrayList dates=new ArrayList<>();
+        dates=data.get_dates(m);
+        
+        for(int i=0;i<dates.size();i++)
+        {  
+            date.getDayChooser().ColoDay((String) dates.get(i));
+            //println(dates.get(i));
+           
+        }
         
         group.add(A0);
         group.add(A1);
@@ -567,14 +574,27 @@ public class ChooseDate extends javax.swing.JFrame {
         SimpleDateFormat date_format = new SimpleDateFormat("yyyy/MM/dd");
         String date_ = date_format.format(date.getDate());
         
-        
-        int a=JOptionPane.showConfirmDialog(this,"Are you sure you want to book on this date : "+date_);  
-        if(a==JOptionPane.YES_OPTION){  
+        SimpleDateFormat date1 = new SimpleDateFormat("dd");
+        String date_1 = date1.format(date.getDate());
+        int b=0;
+        for(int i =0;i<data.get_dates(manege).size();i++)
+        {
+            if(date_1.equals(data.get_dates(manege).get(i)))
+            {
+                JOptionPane.showMessageDialog(this, "This date is reserved, please choose another date");
+                b=1;
+            }
+        }
+        if(b==0)
+        {
+            int a=JOptionPane.showConfirmDialog(this,"Are you sure you want to book on this date : "+date_);  
+            if(a==JOptionPane.YES_OPTION){ 
+            data.ajouter_manege_date(manege, date_1);
             Bill j=new Bill(total_price,discount_child, discount_adult, manege);
             j.setVisible(true);
             setVisible(false);
         }
-
+        } 
     }//GEN-LAST:event_doneActionPerformed
 
     private void A1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A1ActionPerformed

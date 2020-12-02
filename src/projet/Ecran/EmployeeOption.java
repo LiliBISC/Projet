@@ -9,7 +9,6 @@ import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
-import java.util.Locale;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.jfree.chart.ChartFactory;
@@ -97,6 +96,31 @@ public class EmployeeOption extends javax.swing.JFrame {
             }
     }
     
+    
+    public void init_tableau_unavailable(){
+        String[] columnNames = {"id","manege","date"};
+        DefaultTableModel d = (DefaultTableModel)Table.getModel();
+        d.setRowCount(0);
+        d.setColumnIdentifiers(columnNames);
+        
+        try{
+            data.resultat = data.statement.executeQuery( "SELECT *FROM Ticket;" );
+            
+            
+            while(data.resultat.next())
+            {
+               //on ajoute les colonnes
+               Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("Nom_manege"),data.resultat.getString("date"),};
+                d.addRow(newRowData);///on ajoute la ligne
+                
+            }
+            
+        }
+            catch(SQLException e){
+            println(e.getMessage(),RED);
+            }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -121,6 +145,7 @@ public class EmployeeOption extends javax.swing.JFrame {
         AdultDiscount = new javax.swing.JMenuItem();
         rides = new javax.swing.JMenu();
         CheckPopular = new javax.swing.JMenuItem();
+        UnavailableRides = new javax.swing.JMenuItem();
         AvailableRides = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -247,6 +272,14 @@ public class EmployeeOption extends javax.swing.JFrame {
         });
         rides.add(CheckPopular);
 
+        UnavailableRides.setText("Show the unavailable dates of rides");
+        UnavailableRides.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UnavailableRidesActionPerformed(evt);
+            }
+        });
+        rides.add(UnavailableRides);
+
         AvailableRides.setText("Update the currently available rides");
         AvailableRides.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,20 +338,18 @@ public class EmployeeOption extends javax.swing.JFrame {
         P.setSectionPaint("Roue",Color.darkGray);
         P.setSectionPaint("The Flying Chairs", Color.LIGHT_GRAY);
         P.setBackgroundAlpha(TOP_ALIGNMENT);
+        
         ChartFrame frame=new ChartFrame("Popularity", b);
         frame.setSize(684,489);
         frame.setLocationRelativeTo(null);
         frame.setBackground(Color.white);
         frame.setVisible(true);
-        
-       
     }//GEN-LAST:event_CheckPopularActionPerformed
 
     private void DeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerActionPerformed
         // TODO add your handling code here:
         String email ="";
         email=JOptionPane.showInputDialog("Enter his email : ");
-     
         data.supprimer_client(email);
         
     }//GEN-LAST:event_DeleteCustomerActionPerformed
@@ -333,6 +364,21 @@ public class EmployeeOption extends javax.swing.JFrame {
 
     private void AvailableRidesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvailableRidesActionPerformed
         // TODO add your handling code here:
+        String choix[]={"remove an unavailable date","add an unavailable date"};
+        String b;
+        b = (String) JOptionPane.showInputDialog(this, "What do you want to do ?","Choice",JOptionPane.QUESTION_MESSAGE, null, choix, choix[0]);
+        if(b.equals(choix[0]))
+        {
+            String a=JOptionPane.showInputDialog(this,"Ride : " );
+            String c=JOptionPane.showInputDialog(this,"Date : " ); 
+            data.supprimer_manege_date(a, c);
+        }
+        else if(b.equals(choix[1]))
+        {
+            String a=JOptionPane.showInputDialog(this,"Ride : " );
+            String c=JOptionPane.showInputDialog(this,"Date : " );    
+            data.ajouter_manege_date(a, c);
+        }
     }//GEN-LAST:event_AvailableRidesActionPerformed
 
     private void ShowContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowContactActionPerformed
@@ -349,6 +395,11 @@ public class EmployeeOption extends javax.swing.JFrame {
         j.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_boutonMenuActionPerformed
+
+    private void UnavailableRidesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UnavailableRidesActionPerformed
+        // TODO add your handling code here:
+        init_tableau_unavailable();
+    }//GEN-LAST:event_UnavailableRidesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -394,6 +445,7 @@ public class EmployeeOption extends javax.swing.JFrame {
     private javax.swing.JMenuItem DeleteCustomer;
     private javax.swing.JMenuItem ShowContact;
     private javax.swing.JTable Table;
+    private javax.swing.JMenuItem UnavailableRides;
     private javax.swing.JButton boutonMenu;
     private javax.swing.JMenu customers;
     private javax.swing.JMenu discounts;
