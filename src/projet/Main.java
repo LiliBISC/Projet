@@ -1,18 +1,18 @@
 
 package projet;
 
-import projet.Ecran.MainMenu;
+import Vue_Controller.MainMenu;
 import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import projet.Ecran.Chargement;
+import Vue_Controller.Chargement;
 import static projet.Sousprogrammes.*;;
 
 
 
 
 
-public class Main implements Serveur{
+public class Main implements DAO_Connection{
 
    
     public static void main(String[] args)  {
