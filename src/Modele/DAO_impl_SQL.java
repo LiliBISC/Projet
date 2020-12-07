@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projet;
+package Modele;
 
 import java.sql.*;
 import java.text.SimpleDateFormat;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static projet.Sousprogrammes.*;
+import static Modele.Sousprogrammes.*;
 
 
 public final class DAO_impl_SQL {

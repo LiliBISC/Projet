@@ -9,8 +9,8 @@ import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
-import projet.DAO_Connection;
-import static projet.DAO_Connection.data;
+import Modele.DAO_Connection;
+import static Modele.DAO_Connection.data;
 
 /**
  *

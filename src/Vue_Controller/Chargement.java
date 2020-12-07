@@ -13,8 +13,8 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import static projet.DAO_Connection.data;
-import static projet.Sousprogrammes.println;
+import static Modele.DAO_Connection.data;
+import static Modele.Sousprogrammes.println;
 
 /**
  *

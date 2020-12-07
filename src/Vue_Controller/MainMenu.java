@@ -13,9 +13,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import projet.DAO_Connection;
-import projet.Main;
-import static projet.Sousprogrammes.println;
+import Modele.DAO_Connection;
+import Modele.Main;
+import static Modele.Sousprogrammes.println;
 /**
  *
  * @author lilia

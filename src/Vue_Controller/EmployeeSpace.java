@@ -10,8 +10,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import static projet.DAO_Connection.data;
-import static projet.Sousprogrammes.println;
+import static Modele.DAO_Connection.data;
+import static Modele.Sousprogrammes.println;
 
 /**
  *

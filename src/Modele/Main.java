@@ -1,12 +1,12 @@
 
-package projet;
+package Modele;
 
 import Vue_Controller.MainMenu;
 import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import Vue_Controller.Chargement;
-import static projet.Sousprogrammes.*;;
+import static Modele.Sousprogrammes.*;;
 
 
 

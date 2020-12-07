@@ -15,10 +15,10 @@ import java.util.*;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
-import projet.DAO_impl_SQL;
-import projet.DAO_Connection;
-import static projet.DAO_Connection.data;
-import static projet.Sousprogrammes.*;
+import Modele.DAO_impl_SQL;
+import Modele.DAO_Connection;
+import static Modele.DAO_Connection.data;
+import static Modele.Sousprogrammes.*;
 
 /**
  *

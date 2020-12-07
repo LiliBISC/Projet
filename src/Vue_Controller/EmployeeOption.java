@@ -16,9 +16,9 @@ import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
-import static projet.DAO_Connection.data;
-import static projet.Sousprogrammes.RED;
-import static projet.Sousprogrammes.println;
+import static Modele.DAO_Connection.data;
+import static Modele.Sousprogrammes.RED;
+import static Modele.Sousprogrammes.println;
 
 /**
  *

@@ -8,8 +8,8 @@ package Vue_Controller;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.sql.SQLException;
-import static projet.Sousprogrammes.*;
-import static projet.DAO_Connection.data;
+import static Modele.Sousprogrammes.*;
+import static Modele.DAO_Connection.data;
 
 
 /**
