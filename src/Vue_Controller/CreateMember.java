@@ -5,11 +5,9 @@
  */
 package Vue_Controller;
 
-import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
-import Modele.DAO_Connection;
 import static Modele.DAO_Connection.data;
 
 /**
@@ -22,8 +20,8 @@ public class CreateMember extends javax.swing.JFrame  {
      * Creates new form CreateMember
      */
     public CreateMember() {
-        initComponents();
-        setLocationRelativeTo(null);
+        initComponents();//Initialize the components
+        setLocationRelativeTo(null);//Display the frame at the center of the screen
         addWindowListener(new WindowAdapter(){///close serv if close jframe
     public void windowClosing(WindowEvent e){data.deconnection();}});
     }
@@ -300,45 +298,45 @@ public class CreateMember extends javax.swing.JFrame  {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//If the done action if performed
     private void doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneActionPerformed
         // TODO add your handling code here:
-        String nam=name.getText();
-        String surn=surname.getText();
-        int a=Integer.parseInt(age.getText());
-        String pw=password.getText();
-        String cpw=confirmPassword.getText();
-        String em=email.getText();
-        String cem=confirmEmail.getText();
+        String nam=name.getText();//get the text of name
+        String surn=surname.getText();//get the text of surname
+        int a=Integer.parseInt(age.getText());//get the text of age
+        String pw=password.getText();//get the text of password
+        String cpw=confirmPassword.getText();//get the text of confirmpassword
+        String em=email.getText();//get the text of email
+        String cem=confirmEmail.getText();//get the text of confirmemail
         
-        if (!em.equals(cem))
+        if (!em.equals(cem))//If the email and the confirmemail are different 
         {
-            JOptionPane.showMessageDialog(done, "The emails are not the same !");
+            JOptionPane.showMessageDialog(done, "The emails are not the same !");//Error message
         }
-        else if(!pw.equals(cpw))
+        else if(!pw.equals(cpw))//if the password and the confirmpassword are different 
         {
-            JOptionPane.showMessageDialog(done, "The passwords are not the same !");
+            JOptionPane.showMessageDialog(done, "The passwords are not the same !");//Error message
         }
-        else if(em.equals("") || pw.equals(""))
+        else if(em.equals("") || pw.equals(""))//If the fields are empty
         {
-            JOptionPane.showMessageDialog(done, "Password or Login empty !");
+            JOptionPane.showMessageDialog(done, "Password or Login empty !");//Error message
         }
-        else if(em.equals(cem) && pw.equals(cpw))
+        else if(em.equals(cem) && pw.equals(cpw))//If all is ok
         {   
             
-            data.ajouter_client(em, pw,surn,nam,a);//ajoute le client
+            data.ajouter_client(em, pw,surn,nam,a);//add the customer in the table
             
             new Thread(new Runnable() {
         public void run(){
             Chargement c=new Chargement();
-            c.setVisible(true);
-            c.charg();
-            c.setVisible(false);
-            if( c.loading.getValue()==100)
+            c.setVisible(true);//Display the loading
+            c.charg();//load
+            c.setVisible(false);//Close the loading
+            if( c.loading.getValue()==100)//When the loading is closed
             {
                 ChooseRide j=new ChooseRide(data.get_reduc("enfant"),data.get_reduc("adulte"));
-                j.setVisible(true);
-                setVisible(false);
+                j.setVisible(true);//Display the next jframe
+                setVisible(false);//Close this jframe
             }
            } }).start();
         }
@@ -350,12 +348,12 @@ public class CreateMember extends javax.swing.JFrame  {
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordActionPerformed
-
+//Undo function
     private void arrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arrowActionPerformed
         // TODO add your handling code here:
         MainMenu j=new MainMenu();
-        j.setVisible(true);
-        setVisible(false);
+        j.setVisible(true);//Display the menu
+        setVisible(false);//Close this jframe
     }//GEN-LAST:event_arrowActionPerformed
 
    

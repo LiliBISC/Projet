@@ -14,6 +14,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import static Modele.DAO_Connection.data;
 import static Modele.Sousprogrammes.println;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -26,18 +27,19 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
      * Creates new form jFrame4
      */
     public ChooseRide(double dC, double dA) {
-        initComponents();
-        getContentPane().setBackground(Color.WHITE);
-        ride3.addMouseListener(this);
-        ride1.addMouseListener(this);
-        ride2.addMouseListener(this);
-        ride4.addMouseListener(this);
-        ride5.addMouseListener(this);
-        ride6.addMouseListener(this);
-        photo.addMouseListener(this);
+        initComponents();//Initialize the components
+        getContentPane().setBackground(Color.WHITE);//set the color of the background in white
+        ride3.addMouseListener(this);//Add the button at the mouseListener
+        ride1.addMouseListener(this);//Add the button at the mouseListener
+        ride2.addMouseListener(this);//Add the button at the mouseListener
+        ride4.addMouseListener(this);//Add the button at the mouseListener
+        ride5.addMouseListener(this);//Add the button at the mouseListener
+        ride6.addMouseListener(this);//Add the button at the mouseListener
+        photo.addMouseListener(this);//Add the button at the mouseListener
         this.discount_child=dC;
         this.discount_adult=dA;
-        setLocationRelativeTo(null);
+        this.manege="";
+        setLocationRelativeTo(null);//Display the frame at the center of the screen
         addWindowListener(new WindowAdapter(){///close serv if close jframe
         public void windowClosing(WindowEvent e){data.deconnection();}});
     }
@@ -207,12 +209,12 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//If the menu button is pressed
     private void menueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menueActionPerformed
         // TODO add your handling code here:
         MainMenu j=new MainMenu();
-        j.setVisible(true);
-        setVisible(false);
+        j.setVisible(true);//Display the menu
+        setVisible(false);//Close the frame
     }//GEN-LAST:event_menueActionPerformed
 
 
@@ -236,58 +238,73 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if(me.getSource()==photo)
+        try{
+        if(me.getSource()==photo)//If he click on the photo
         {
+            if(manege.equals(""))//If the field manege is empty
+        { try{
+                JOptionPane.showMessageDialog(this, "You have not clicked on a ride !");//Error message
+                }
+         catch(Exception e)
+                {
+                    
+                }}
             ChooseDate j=new ChooseDate(discount_child,discount_adult, manege);
-            j.setVisible(true);
-            setVisible(false);
-            int a=((int) data.GetChampTable("Manege", "nom", manege, "n_res"));
-            data.SetChampTable("Manege", "nom",manege, "n_res", a+1);
+            j.setVisible(true);//Display the frame choosedate
+            setVisible(false);//Close the frame
+            int a=((int) data.GetChampTable("Manege", "nom", manege, "n_res"));//Get the number of book of this ride
+            data.SetChampTable("Manege", "nom",manege, "n_res", a+1);//Set the number of book of this ride
         }
-        String imgUrl_ride3="build/classes/projet/ImageFrame/Capture1.PNG";
-        String imgUrl_ride1="build/classes/projet/ImageFrame/Capture3.PNG";
-        String imgUrl_ride2="build/classes/projet/ImageFrame/Capture2.PNG";
-        String imgUrl_ride4="build/classes/projet/ImageFrame/OIP (1).jpg";
-        String imgUrl_ride6="build/classes/projet/ImageFrame/OIP (2).jpg";
-        String imgUrl_ride5="build/classes/projet/ImageFrame/Capture.JPG";
-        if(me.getSource()==ride1)
+        }catch(Exception e)
+                {
+                    
+                }
+        
+        
+        String imgUrl_ride3="build/classes/projet/ImageFrame/Capture1.PNG";//Url of the image
+        String imgUrl_ride1="build/classes/projet/ImageFrame/Capture3.PNG";//Url of the image
+        String imgUrl_ride2="build/classes/projet/ImageFrame/Capture2.PNG";//Url of the image
+        String imgUrl_ride4="build/classes/projet/ImageFrame/OIP (1).jpg";//Url of the image
+        String imgUrl_ride6="build/classes/projet/ImageFrame/OIP (2).jpg";//Url of the image
+        String imgUrl_ride5="build/classes/projet/ImageFrame/Capture.JPG";//Url of the image
+        if(me.getSource()==ride1)//If he click on this ride
         {
-            Icon icone=new ImageIcon(imgUrl_ride1);
-            manege="Boat";
-            photo.setIcon(icone);                        
+            Icon icone=new ImageIcon(imgUrl_ride1);//Create a new icon
+            manege="Boat";//Set manege
+            photo.setIcon(icone); //Set a new Icon                        
         }
-        else if(me.getSource()==ride2)
+        else if(me.getSource()==ride2)//If he click on this ride
         {
-            Icon icone=new ImageIcon(imgUrl_ride2);
-            manege="The Flying Chairs";
-            photo.setIcon(icone);
+            Icon icone=new ImageIcon(imgUrl_ride2);//Create a new icon
+            manege="The Flying Chairs";//Set manege
+            photo.setIcon(icone);//Set a new Icon
 
         }
-        else if(me.getSource()==ride3)
+        else if(me.getSource()==ride3)//If he click on this ride
         {
-            Icon icone=new ImageIcon(imgUrl_ride3);
-            manege="Roller Coaster";
-            photo.setIcon(icone);
+            Icon icone=new ImageIcon(imgUrl_ride3);//Create a new icon
+            manege="Roller Coaster";//Set manege
+            photo.setIcon(icone);//Set a new Icon
         }
-        else if(me.getSource()==ride4)
+        else if(me.getSource()==ride4)//If he click on this ride
         {
-            Icon icone=new ImageIcon(imgUrl_ride4);
-            manege="Roue";
-            photo.setIcon(icone);
+            Icon icone=new ImageIcon(imgUrl_ride4);//Create a new icon
+            manege="Roue";//Set manege
+            photo.setIcon(icone);//Set a new Icon
 
         }
-        else if(me.getSource()==ride5)
+        else if(me.getSource()==ride5)//If he click on this ride
         {
-            Icon icone=new ImageIcon(imgUrl_ride5);
-            manege="MegaTron";
-            photo.setIcon(icone);
+            Icon icone=new ImageIcon(imgUrl_ride5);//Create a new icon
+            manege="MegaTron";//Set manege
+            photo.setIcon(icone);//Set a new Icon
 
         }
-        else if(me.getSource()==ride6)
+        else if(me.getSource()==ride6)//If he click on this ride
         {
-            Icon icone=new ImageIcon(imgUrl_ride6);
-            manege="Poney";
-            photo.setIcon(icone);
+            Icon icone=new ImageIcon(imgUrl_ride6);//Create a new icon
+            manege="Poney";//Set manege
+            photo.setIcon(icone);//Set a new Icon
         }
     }
 

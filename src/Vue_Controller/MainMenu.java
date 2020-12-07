@@ -5,41 +5,27 @@
  */
 package Vue_Controller;
 
-import java.awt.Color;
 import java.awt.event.*;
-import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import Modele.DAO_Connection;
-import Modele.Main;
-import static Modele.Sousprogrammes.println;
 /**
  *
  * @author lilia
  */
 public class MainMenu extends javax.swing.JFrame implements MouseListener ,DAO_Connection{
-
     /**
      * Creates new form NewJFrame
      */
     public MainMenu() {
-        
-        
-        initComponents();
-        //getContentPane().setBackground(Color.WHITE);
-        lb1.addMouseListener(this);
-        lb2.addMouseListener(this);
-        lb3.addMouseListener(this);
-        createMember.addMouseListener(this);
-        setLocationRelativeTo(null);
-        
-        
-        Icon i= new ImageIcon(this.getClass().getResource("KIDSLAND (1).gif"));
-        jLabel5.setIcon(i);
-        
+        initComponents();//Initialize the components
+        lb1.addMouseListener(this);//Add in the mouse listener
+        lb2.addMouseListener(this);//Add in the mouse listener
+        lb3.addMouseListener(this);//Add in the mouse listener
+        createMember.addMouseListener(this);//Add in the mouse listener
+        setLocationRelativeTo(null);//Display the frmae at the center of the screen
+        Icon i= new ImageIcon(this.getClass().getResource("KIDSLAND (1).gif"));//create the icon with the logo 
+        jLabel5.setIcon(i);//Display the logo
         addWindowListener(new WindowAdapter(){///close serv if close jframe
     public void windowClosing(WindowEvent e){data.deconnection();}});
         
@@ -167,31 +153,30 @@ public class MainMenu extends javax.swing.JFrame implements MouseListener ,DAO_C
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        
-        if(me.getSource()==lb1)
+        if(me.getSource()==lb1)//If lb1 is clicked
         {
             MemberPlace j=new MemberPlace();
-            j.setVisible(true);
-            setVisible(false);
+            j.setVisible(true);//Display the member space frame
+            setVisible(false);//Close this frame
         }
-        else if(me.getSource()==lb2)
+        else if(me.getSource()==lb2)//If lb1 is clicked
         {
-            ChooseRide j= new ChooseRide(1,1);
-            j.setVisible(true);
-            setVisible(false);
+            ChooseRide j= new ChooseRide(1,1);//Display the choose ride frame
+            j.setVisible(true);//Display the member space frame
+            setVisible(false);//Close this frame
         }
-        else if(me.getSource()==createMember)
+        else if(me.getSource()==createMember)//If createmember is clicked
         {
-            CreateMember j=new CreateMember();
-            j.setVisible(true);
-            setVisible(false);
+            CreateMember j=new CreateMember();//Display the creat member frame
+            j.setVisible(true);//Display the member space frame
+            setVisible(false);//Close this frame
             
         }
-        else if(me.getSource()==lb3)
+        else if(me.getSource()==lb3)//If lb3 is clicked
         {
-            EmployeeSpace j=new EmployeeSpace();
+            EmployeeSpace j=new EmployeeSpace();//Display the employee space frame
             j.setVisible(true);
-            setVisible(false);
+            setVisible(false);//Close this frame
         }
             
     }

@@ -26,12 +26,12 @@ public class Chargement extends javax.swing.JFrame {
      * Creates new form Chargement
      */
     public Chargement() {
-        initComponents();
-        Icon i= new ImageIcon(this.getClass().getResource("KIDSLAND (1).gif"));
+        initComponents();//initialize the components
+        Icon i= new ImageIcon(this.getClass().getResource("KIDSLAND (1).gif"));//Display the logo 
         l1.setIcon(i);
         setLocationRelativeTo(null);
        
-        getContentPane().setBackground(Color.WHITE);
+        getContentPane().setBackground(Color.WHITE);//Set the color of the background in white
          setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);/// il ne se passe rien quand on la ferme
        
     }
@@ -109,7 +109,7 @@ public class Chargement extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(703, 443));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
+    //Loading function
     public void charg()
     {
  
@@ -118,13 +118,13 @@ public class Chargement extends javax.swing.JFrame {
         {
         try {
                  
-                Thread.sleep(30);
+                Thread.sleep(30);//Put 30s
                 } catch (InterruptedException ex) {
-                    println(ex.getMessage());
+                    println(ex.getMessage());//Exception
                 }
                 
-            pourcentage.setText(Integer.toString(i)+"%");
-            loading.setValue(i);
+            pourcentage.setText(Integer.toString(i)+"%");//set the text of pourcentage
+            loading.setValue(i);//set the value of loading
                
         }
             

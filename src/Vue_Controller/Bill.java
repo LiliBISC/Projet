@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Vue_Controller;
-
+//All the libraries
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -30,9 +30,9 @@ public class Bill extends javax.swing.JFrame implements MouseListener,DAO_Connec
      * Creates new form jFrame3
      */
     public Bill(double b, double c, double a, String m) {
-        initComponents();
-        getContentPane().setBackground(Color.WHITE);
-        ButtonGroup g=new ButtonGroup();
+        initComponents();//Initialize the components
+        getContentPane().setBackground(Color.WHITE);//Set the color of the background in white
+        ButtonGroup g=new ButtonGroup();//Creat a group of button
         this.total_price=b;
         this.discount_adult=a;
         this.discount_child=c;
@@ -41,10 +41,10 @@ public class Bill extends javax.swing.JFrame implements MouseListener,DAO_Connec
         g.add(J2);
         g.add(J3);
         g.add(J4);
-        TotalBill.setText(""+total_price+"$");
+        TotalBill.setText(""+total_price+"$");//Set the text of the totalBill
         arrow.addMouseListener(this);
         show.addMouseListener(this);
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null);//Put the window at the center of the screen
         addWindowListener(new WindowAdapter(){///close serv if close jframe
     public void windowClosing(WindowEvent e){data.deconnection();}});
     }
@@ -321,7 +321,7 @@ public class Bill extends javax.swing.JFrame implements MouseListener,DAO_Connec
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         // TODO add your handling code here:
-       
+       //If the fields are empty
         if(name.getText().equals("") || cardNumber.getText().equals("")|| cryptogram.getText().equals("")||expiry.getText().equals("") )
         {
             error.setText("One of the fields is empty !");
@@ -333,20 +333,20 @@ public class Bill extends javax.swing.JFrame implements MouseListener,DAO_Connec
            Chargement j=new Chargement();
             j.setVisible(true);
            
-            j.charg();//charge jauge
+            j.charg();//Display the loading
             
+            j.setVisible(false);//close the window
             
+            int a=JOptionPane.showConfirmDialog(null, "Thanks for your order mr "+name.getText()+" ! Do you want to book an other ride ?");//display a window where there are choices
             
-            int a=JOptionPane.showConfirmDialog(null, "Thanks for your order mr "+name.getText()+" ! Do you want to book an other ride ?");///si c'est un membre
-            j.setVisible(false);
-            if(a==JOptionPane.YES_OPTION){
-                ChooseRide c=new ChooseRide(discount_child,discount_adult);
+            if(a==JOptionPane.YES_OPTION){//If he want to book another ride
+                ChooseRide c=new ChooseRide(discount_child,discount_adult);//Display the window where he can book another ride 
                 c.setVisible(true);
                 setVisible(false);
             }
             else{
             setVisible(false);
-            MainMenu c=new MainMenu();
+            MainMenu c=new MainMenu();//Display the menu
             c.setVisible(true);
             }
              } }).start();
@@ -426,7 +426,7 @@ public class Bill extends javax.swing.JFrame implements MouseListener,DAO_Connec
     
     @Override
     public void mouseClicked(MouseEvent me) {
-        if(me.getSource()==arrow)
+        if(me.getSource()==arrow)//Undo
         {
             MainMenu j=new MainMenu();
             j.setVisible(true);
@@ -434,8 +434,9 @@ public class Bill extends javax.swing.JFrame implements MouseListener,DAO_Connec
         }
         else if(me.getSource()==show)
         {
-            Date aujourdhui = new Date();
+            Date aujourdhui = new Date();//Get the date of today
             DateFormat mediumDateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM,DateFormat.MEDIUM);
+            //Display the bill of the book
             billTicket.setText(billTicket.getText()+"\n");
             billTicket.setText(billTicket.getText()+"\n");
             billTicket.setText(billTicket.getText()+"********************************************************************************************************\n");
