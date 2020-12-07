@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static Modele.DAO_Connection.data;
-import static Modele.Sousprogrammes.println;
+import static Modele.Sousprogrammes.*;
 
 /**
  *
@@ -65,7 +65,7 @@ public class ChooseDate extends javax.swing.JFrame {
         this.manege=m;
         
         //double prix_manège=10;//A la place faut une fonction qui prend le prix du manege
-        Object prix_manège=data.GetChampTable("Manege", "nom", manege, "prix");
+        prix_manège=(double) data.GetChampTable("Manege", "nom", manege, "prix");
         //Affichage du prix du manège
         title.setText("The price of this ride is : "+prix_manège+"$ by head");
 
@@ -571,6 +571,7 @@ public class ChooseDate extends javax.swing.JFrame {
 
     private void doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneActionPerformed
         // TODO add your handling code here:
+        try{
         SimpleDateFormat date_format = new SimpleDateFormat("yyyy/MM/dd");
         String date_ = date_format.format(date.getDate());
         
@@ -581,160 +582,160 @@ public class ChooseDate extends javax.swing.JFrame {
         {
             if(date_1.equals(data.get_dates(manege).get(i)))
             {
+                try{
                 JOptionPane.showMessageDialog(this, "This date is reserved, please choose another date");
                 b=1;
+                }
+                catch (Exception e){
+                    
+                }
             }
         }
         if(b==0)
         {
+            try{
             int a=JOptionPane.showConfirmDialog(this,"Are you sure you want to book on this date : "+date_);  
             if(a==JOptionPane.YES_OPTION){ 
             data.ajouter_manege_date(manege, date_1);
             Bill j=new Bill(total_price,discount_child, discount_adult, manege);
             j.setVisible(true);
             setVisible(false);
+            }
+            }catch (Exception e){
+            
+            
         }
         } 
+        }catch (Exception e){
+            
+        }
     }//GEN-LAST:event_doneActionPerformed
 
     private void A1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A1ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbAdult=Double.parseDouble(A1.getText());
-        price_adult=nbAdult*prix_manège;
-        Aprice.setText("Price : "+price_adult+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_adult=nbAdult*prix_manège*(1-discount_adult);
+        Aprice.setText("Price : "+nombre(price_adult)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_A1ActionPerformed
 
     private void A3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A3ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbAdult=Double.parseDouble(A3.getText());
-        price_adult=nbAdult*prix_manège;
-        Aprice.setText("Price : "+price_adult+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_adult=nbAdult*prix_manège*(1-discount_adult);
+        
+        Aprice.setText("Price : "+nombre(price_adult)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_A3ActionPerformed
 
     private void C1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C1ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbChild=Double.parseDouble(C1.getText());
-        price_child=nbChild*prix_manège*discount_child;
-        Cprice.setText("Price : "+price_child+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_child=nbChild*prix_manège*(1-discount_child);
+        Cprice.setText("Price : "+nombre(price_child)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_C1ActionPerformed
 
     private void C3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C3ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
 
         double nbChild=Double.parseDouble(C3.getText());
-        price_child=nbChild*prix_manège*discount_child;
-        Cprice.setText("Price : "+price_child+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_child=nbChild*prix_manège*(1-discount_child);
+        Cprice.setText("Price : "+nombre(price_child)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_C3ActionPerformed
 
     private void A0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A0ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbAdult=Double.parseDouble(A0.getText());
-        price_adult=nbAdult*prix_manège;
-        Aprice.setText("Price : "+price_adult+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_adult=nbAdult*prix_manège*(1-discount_adult);
+        Aprice.setText("Price : "+nombre(price_adult)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_A0ActionPerformed
 
     private void A2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A2ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbAdult=Double.parseDouble(A2.getText());
-        price_adult=nbAdult*prix_manège;
-        Aprice.setText("Price : "+price_adult+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_adult=nbAdult*prix_manège*(1-discount_adult);
+        Aprice.setText("Price : "+nombre(price_adult)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_A2ActionPerformed
 
     private void A4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A4ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbAdult=Double.parseDouble(A4.getText());
-        price_adult=nbAdult*prix_manège;
-        Aprice.setText("Price : "+price_adult+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_adult=nbAdult*prix_manège*(1-discount_adult);
+        Aprice.setText("Price : "+nombre(price_adult)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_A4ActionPerformed
 
     private void A5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A5ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbAdult=Double.parseDouble(A5.getText());
-        price_adult=nbAdult*prix_manège;
-        Aprice.setText("Price : "+price_adult+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_adult=nbAdult*prix_manège*(1-discount_adult);
+        Aprice.setText("Price : "+nombre(price_adult)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_A5ActionPerformed
 
     private void A6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A6ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbAdult=Double.parseDouble(A6.getText());
-        price_adult=nbAdult*prix_manège;
-        Aprice.setText("Price : "+price_adult+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_adult=nbAdult*prix_manège*(1-discount_adult);
+        Aprice.setText("Price : "+nombre(price_adult)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_A6ActionPerformed
 
     private void C0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C0ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbChild=Double.parseDouble(C0.getText());
-        price_child=nbChild*prix_manège*discount_child;
-        Cprice.setText("Price : "+price_child+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_child=nbChild*prix_manège*(1-discount_child);
+        Cprice.setText("Price : "+nombre(price_child)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_C0ActionPerformed
 
     private void C2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C2ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbChild=Double.parseDouble(C2.getText());
-        price_child=nbChild*prix_manège*discount_child;
-        Cprice.setText("Price : "+price_child+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_child=nbChild*prix_manège*(1-discount_child);
+        Cprice.setText("Price : "+nombre(price_child)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_C2ActionPerformed
 
     private void C4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C4ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbChild=Double.parseDouble(C4.getText());
-        price_child=nbChild*prix_manège*discount_child;
-        Cprice.setText("Price : "+price_child+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_child=nbChild*prix_manège*(1-discount_child);
+        Cprice.setText("Price : "+nombre(price_child)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_C4ActionPerformed
 
     private void C5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C5ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbChild=Double.parseDouble(C5.getText());
-        price_child=nbChild*prix_manège*discount_child;
-        Cprice.setText("Price : "+price_child+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_child=nbChild*prix_manège*(1-discount_child);
+        Cprice.setText("Price : "+nombre(price_child)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_C5ActionPerformed
 
     private void C6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_C6ActionPerformed
         // TODO add your handling code here:
-        double prix_manège=10;
         double nbChild=Double.parseDouble(C6.getText());
-        price_child=nbChild*prix_manège*discount_child;
-        Cprice.setText("Price : "+price_child+"$");
-        Tprice.setText("Total price : "+(price_adult+price_child)+"$");
+        price_child=nbChild*prix_manège*(1-discount_child);
+        Cprice.setText("Price : "+nombre(price_child)+"$");
+        Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");
         total_price=price_adult+price_child;
     }//GEN-LAST:event_C6ActionPerformed
 
@@ -752,6 +753,7 @@ public class ChooseDate extends javax.swing.JFrame {
     private double discount_child;
     private double discount_adult;
     private String manege;
+    private double prix_manège;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JToggleButton A0;
     private javax.swing.JToggleButton A1;

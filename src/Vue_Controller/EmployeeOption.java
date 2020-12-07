@@ -314,9 +314,14 @@ public class EmployeeOption extends javax.swing.JFrame {
 
     private void ChildDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChildDiscountActionPerformed
         // TODO add your handling code here:
+        try{
         String b=JOptionPane.showInputDialog(this, "Enter the new discount :");
         double r_e=Double.parseDouble(b);
-        data.set_reduction_enfant(r_e);
+        data.set_reduction_enfant(r_e);}
+        catch(Exception e)
+        {
+            
+        }
     }//GEN-LAST:event_ChildDiscountActionPerformed
 
     private void CheckPopularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckPopularActionPerformed
@@ -324,7 +329,7 @@ public class EmployeeOption extends javax.swing.JFrame {
         DefaultPieDataset barchart_ride=new DefaultPieDataset();
         barchart_ride.setValue("Boat", new Integer((int)data.GetChampTable("Manege", "nom", "Boat", "n_res")));
         barchart_ride.setValue("MegaTron", new Integer((int)data.GetChampTable("Manege", "nom","MegaTron" , "n_res")));
-        //barchart_ride.setValue("Poney", new Integer((int)data.GetChampTable("Manege", "nom","Poney" , "n_res")));
+        barchart_ride.setValue("Poney", new Integer((int)data.GetChampTable("Manege", "nom","Poney" , "n_res")));
         barchart_ride.setValue("Roller Coaster", new Integer((int)data.GetChampTable("Manege", "nom","Roller Coaster" , "n_res")));
         barchart_ride.setValue("Roue", new Integer((int)data.GetChampTable("Manege", "nom","Roue" , "n_res")));         
         barchart_ride.setValue("The Flying Chairs", new Integer((int)data.GetChampTable("Manege", "nom","The Flying Chairs" , "n_res")));         
@@ -337,6 +342,7 @@ public class EmployeeOption extends javax.swing.JFrame {
         P.setSectionPaint("Roller Coaster",Color.CYAN);
         P.setSectionPaint("Roue",Color.darkGray);
         P.setSectionPaint("The Flying Chairs", Color.LIGHT_GRAY);
+        P.setSectionPaint("The Poney", Color.pink);
         P.setBackgroundAlpha(TOP_ALIGNMENT);
         
         ChartFrame frame=new ChartFrame("Popularity", b);
@@ -348,36 +354,62 @@ public class EmployeeOption extends javax.swing.JFrame {
 
     private void DeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerActionPerformed
         // TODO add your handling code here:
+        try{
         String email ="";
         email=JOptionPane.showInputDialog("Enter his email : ");
         data.supprimer_client(email);
+        }
+        catch(Exception e)
+        {
+            
+        }
         
     }//GEN-LAST:event_DeleteCustomerActionPerformed
 
     private void AdultDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdultDiscountActionPerformed
         // TODO add your handling code here:
+        try{
         String b=JOptionPane.showInputDialog(this, "Enter the new discount :");
         double r_a=Double.parseDouble(b);
-        data.set_reduction_adulte(r_a);
+        data.set_reduction_adulte(r_a);}
+        catch(Exception e)
+        {
+            
+        }
         
     }//GEN-LAST:event_AdultDiscountActionPerformed
 
     private void AvailableRidesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AvailableRidesActionPerformed
         // TODO add your handling code here:
-        String choix[]={"remove an unavailable date","add an unavailable date"};
+        try
+        {String choix[]={"remove an unavailable date","add an unavailable date"};
         String b;
         b = (String) JOptionPane.showInputDialog(this, "What do you want to do ?","Choice",JOptionPane.QUESTION_MESSAGE, null, choix, choix[0]);
         if(b.equals(choix[0]))
         {
+            try{
             String a=JOptionPane.showInputDialog(this,"Ride : " );
             String c=JOptionPane.showInputDialog(this,"Date : " ); 
-            data.supprimer_manege_date(a, c);
+            data.supprimer_manege_date(a, c);}
+            catch(Exception e)
+        {
+            
+        }
         }
         else if(b.equals(choix[1]))
         {
+            try{
             String a=JOptionPane.showInputDialog(this,"Ride : " );
             String c=JOptionPane.showInputDialog(this,"Date : " );    
-            data.ajouter_manege_date(a, c);
+            data.ajouter_manege_date(a, c);}
+            catch(Exception e)
+        {
+            
+        }
+        }}
+        catch(Exception e)
+        {
+            
         }
     }//GEN-LAST:event_AvailableRidesActionPerformed
 
