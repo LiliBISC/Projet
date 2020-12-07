@@ -456,7 +456,7 @@ public class Bill extends javax.swing.JFrame implements MouseListener,DAO_Connec
             billTicket.setText(billTicket.getText()+"\n");
             billTicket.setText(billTicket.getText()+"********************************************************************************************************\n");
             billTicket.setText(billTicket.getText()+"\n");
-            billTicket.setText(billTicket.getText()+"                                                          Total price : "+"\t"+total_price+"$\n");
+            billTicket.setText(billTicket.getText()+"                                                          Total price : "+"\t"+nombre(total_price)+"$\n");
             billTicket.setText(billTicket.getText()+"\n");        
             billTicket.setText(billTicket.getText()+"********************************************************************************************************\n");  
         }

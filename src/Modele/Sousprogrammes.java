@@ -1,7 +1,9 @@
 package Modele;
 
 
+import java.math.RoundingMode;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
 import java.util.Random;
 
 /*
@@ -55,5 +57,13 @@ public static final String WHITE = "\u001B[37m";
     }
     public static void main(String[] args) {
         println(motaleatoire(5));
+    }
+    
+    public static String nombre(double d){
+DecimalFormat format = new DecimalFormat("0.0");
+format.setMaximumFractionDigits(5);
+format.setRoundingMode(RoundingMode.FLOOR);
+    return format.format(d);
+
     }
 }
