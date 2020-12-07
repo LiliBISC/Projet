@@ -6,8 +6,6 @@
 package Vue_Controller;
 
 import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import static Modele.DAO_Connection.data;
@@ -23,10 +21,8 @@ public class EmployeeSpace extends javax.swing.JFrame {
      * Creates new form EmployeeSpace
      */
     public EmployeeSpace()  {
-        initComponents();
-        getContentPane().setBackground(Color.WHITE);
-        
-        setLocationRelativeTo(null);
+        initComponents();//Initialize the components
+        setLocationRelativeTo(null);//display the frmae at the center of the screen
        addWindowListener(new WindowAdapter(){///close serv if close jframe
     public void windowClosing(WindowEvent e){data.deconnection();}});
     }
@@ -165,30 +161,29 @@ public class EmployeeSpace extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//If the confirm button is performed
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         // TODO add your handling code here:
-        //DB_memory data=new DAO_impl_SQL(nom_DB,ip,port, "root", "A44fichaux");
-        String l=login.getText();
-        String p=password.getText();
-        boolean result=data.recherche_identifiants_employe(l, p);
-        if(result==true)
+        String l=login.getText();//Get the text of login
+        String p=password.getText();//Get the text of password
+        boolean result=data.recherche_identifiants_employe(l, p);//Research if the employee exist
+        if(result==true)//If he exist
         {
-            println(l+" s'est connecté(Employe)");
+            println(l+" s'est connecté(Employe)");//Print in the output 
             EmployeeOption j=new EmployeeOption();
-            j.setVisible(true);
-            setVisible(false);
+            j.setVisible(true);//Display the next jframe
+            setVisible(false);//close this jframe
         }
         else{
-            Erreur.setText("Password or login incorrect !");
+            Erreur.setText("Password or login incorrect !");//display an error
         }
     }//GEN-LAST:event_confirmActionPerformed
-
+//Function undo
     private void arrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arrowActionPerformed
         // TODO add your handling code here:
         MainMenu j=new MainMenu();
-        j.setVisible(true);
-        setVisible(false);
+        j.setVisible(true);//Display the previous jframe
+        setVisible(false);//Close this jframe
     }//GEN-LAST:event_arrowActionPerformed
 
     

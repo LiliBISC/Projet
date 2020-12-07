@@ -30,34 +30,29 @@ public class EmployeeOption extends javax.swing.JFrame {
      * Creates new form EmployeeOption
      */
     public EmployeeOption() {
-        initComponents();
-        getContentPane().setBackground(Color.WHITE);
+        initComponents();//Initialize the components
+        getContentPane().setBackground(Color.WHITE);//Set te color of the background in white
        
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null);//Display the frame at the center of the screen
         addWindowListener(new WindowAdapter(){///close serv if close jframe
     @Override
     public void windowClosing(WindowEvent e){data.deconnection();}});
     }
 
-    
+    //Function which initialize the customer table
     public void init_tableau_client(){
-        String[] columnNames = {"id","type","email","nom","prenom","age","date_inscription"};
+        String[] columnNames = {"id","type","email","nom","prenom","age","date_inscription"};//Set the column name
         DefaultTableModel d = (DefaultTableModel)Table.getModel();
         d.setRowCount(0);
-
-        d.setColumnIdentifiers(columnNames);///titre des colonnes
-       
-        
+        d.setColumnIdentifiers(columnNames);///set the title of the columns
         try{
-            data.resultat = data.statement.executeQuery( "SELECT *FROM User;" );
-            
-            
+            data.resultat = data.statement.executeQuery( "SELECT *FROM User;" );//Select all the user table
             while(data.resultat.next())
             {
-               //on ajoute les colonnes
+               //Add the columns
                 Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
                 data.resultat.getString("prenom"),data.resultat.getString("age"),data.resultat.getString("date_inscription")};
-                d.addRow(newRowData);///on ajoute la ligne
+                d.addRow(newRowData);///add at the line
                 
             }
             
@@ -72,22 +67,15 @@ public class EmployeeOption extends javax.swing.JFrame {
           String[] columnNames = {"id","type","email","nom","prenom"};
         DefaultTableModel d = (DefaultTableModel)Table.getModel();
         d.setRowCount(0);
-
-       // d.setColumnCount(7);
         d.setColumnIdentifiers(columnNames);///titre des colonnes
-       
-        
         try{
             data.resultat = data.statement.executeQuery( "SELECT *FROM Employe;" );
-            
-            
             while(data.resultat.next())
             {
                //on ajoute les colonnes
                Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
                 data.resultat.getString("prenom")};
                 d.addRow(newRowData);///on ajoute la ligne
-                
             }
             
         }
@@ -305,19 +293,19 @@ public class EmployeeOption extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//If the alldisplay button is performed
     private void AllDisplayCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AllDisplayCustomerActionPerformed
         // TODO add your handling code here:
         init_tableau_client();
      
     }//GEN-LAST:event_AllDisplayCustomerActionPerformed
-
+//If the child disocunt is performed
     private void ChildDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChildDiscountActionPerformed
         // TODO add your handling code here:
         try{
         String b=JOptionPane.showInputDialog(this, "Enter the new discount :");
         double r_e=Double.parseDouble(b);
-        data.set_reduction_enfant(r_e);}
+        data.set_reduction_enfant(r_e);}//Set the new discount in the table
         catch(Exception e)
         {
             
@@ -361,9 +349,7 @@ public class EmployeeOption extends javax.swing.JFrame {
         }
         catch(Exception e)
         {
-            
         }
-        
     }//GEN-LAST:event_DeleteCustomerActionPerformed
 
     private void AdultDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdultDiscountActionPerformed

@@ -304,6 +304,7 @@ return resultat.getString(1);
     public void set_reduction_adulte(double reduction){
         try{
        statement.executeUpdate(" UPDATE Reduction SET adulte = '"+reduction+"';");
+        println("New adult discount : "+reduction);
         }catch(SQLException e){
             println(e.getMessage());
         }
@@ -312,6 +313,7 @@ return resultat.getString(1);
     public void set_reduction_enfant(double reduction){
         try{
        statement.executeUpdate(" UPDATE Reduction SET enfant = '"+reduction+"';");
+        println("New child discount : "+reduction);
         }catch(SQLException e){
             println(e.getMessage());
         }

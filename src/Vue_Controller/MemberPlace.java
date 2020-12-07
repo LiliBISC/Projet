@@ -7,7 +7,6 @@ package Vue_Controller;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.sql.SQLException;
 import static Modele.Sousprogrammes.*;
 import static Modele.DAO_Connection.data;
 
@@ -23,8 +22,8 @@ public class MemberPlace extends javax.swing.JFrame   {
      */
     public MemberPlace() {
         
-        initComponents();
-        setLocationRelativeTo(null);
+        initComponents();//Initialize the components
+        setLocationRelativeTo(null);//Display the frame at the center of the screen
        addWindowListener(new WindowAdapter(){///close serv if close jframe
     public void windowClosing(WindowEvent e){data.deconnection();}});
     }
@@ -165,40 +164,31 @@ public class MemberPlace extends javax.swing.JFrame   {
 
     private void confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmActionPerformed
         // TODO add your handling code here:
-        String l=login.getText();
-        String p=password.getText();
-       
-        
-        boolean result=data.recherche_identifiants_client(l, p);
-        int age=0;
-        try {
-            data.resultat.previous();
-            age = data.resultat.getInt("age");
-        } catch (SQLException ex) {
-            
-        }
-        if(result==true)
-        {println(l+" s'est connecte(Client)");
-            discount_child_member=data.get_reduc("enfant");
-            discount_adult_member=data.get_reduc("adulte");
+        String l=login.getText();//get the text of the login
+        String p=password.getText();//get the text of the password
+        boolean result=data.recherche_identifiants_client(l, p);//Research if the customer exists
+        if(result==true)//If he exists
+        {println(l+" s'est connecte(Client)");//Print the customer in the output
+            discount_child_member=data.get_reduc("enfant");//get the discount of the child
+            discount_adult_member=data.get_reduc("adulte");//get the discount of the adult
             ChooseRide j=new ChooseRide(discount_child_member,discount_adult_member);
-            j.setVisible(true);
-            setVisible(false);
+            j.setVisible(true);//Display the next frame
+            setVisible(false);//Close this frame
         }
-        if(result==false)
+        if(result==false)//If he don't exists
         {
-            Erreur.setText("Login or password incorrect !");
+            Erreur.setText("Login or password incorrect !");//Display an error message
         }
         
         //Customer c= new Customer(l,p);
         
     }//GEN-LAST:event_confirmActionPerformed
-
+// function undo
     private void arrowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arrowActionPerformed
         // TODO add your handling code here:
             MainMenu j=new MainMenu();
-            j.setVisible(true);
-            setVisible(false);
+            j.setVisible(true);//display the menu
+            setVisible(false);//Close this frame
     }//GEN-LAST:event_arrowActionPerformed
 
     
