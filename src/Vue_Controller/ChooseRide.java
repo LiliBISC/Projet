@@ -238,22 +238,29 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
 
     @Override
     public void mouseClicked(MouseEvent me) {
-        if(me.getSource()==photo&& !manege.equals(""))//If he click on the photo
+        try{
+        if(me.getSource()==photo)//If he click on the photo
         {
+            if(manege.equals(""))//If the field manege is empty
+        { try{
+                JOptionPane.showMessageDialog(this, "You have not clicked on a ride !");//Error message
+                }
+         catch(Exception e)
+                {
+                    
+                }}
             ChooseDate j=new ChooseDate(discount_child,discount_adult, manege);
             j.setVisible(true);//Display the frame choosedate
             setVisible(false);//Close the frame
             int a=((int) data.GetChampTable("Manege", "nom", manege, "n_res"));//Get the number of book of this ride
             data.SetChampTable("Manege", "nom",manege, "n_res", a+1);//Set the number of book of this ride
         }
-        //If the field manege is empty
-         try{
-                JOptionPane.showMessageDialog(this, "You have not clicked on a ride !");//Error message
-                }
-         catch(Exception e)
+        }catch(Exception e)
                 {
                     
                 }
+        
+        
         String imgUrl_ride3="build/classes/projet/ImageFrame/Capture1.PNG";//Url of the image
         String imgUrl_ride1="build/classes/projet/ImageFrame/Capture3.PNG";//Url of the image
         String imgUrl_ride2="build/classes/projet/ImageFrame/Capture2.PNG";//Url of the image
