@@ -18,10 +18,6 @@ public interface DAO_Connection {
     public static final String user="218790";
     public static final String mdp="A44fichaux!";
     
-     
-     
-     
-    //boolean recherche_identifiants_employe(String email,String mdp);
-     //public boolean recherche_client(String nom_colonne,String champ);
-     final static DAO_impl_SQL data=new DAO_impl_SQL(nom_DB,ip,port,user,mdp);
+ 
+     final static DAO_interface data=new DAO_impl_SQL(nom_DB,ip,port,user,mdp);//ici on declare l'objet DAO en appelant le constructeur sql
 }

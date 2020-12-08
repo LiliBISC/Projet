@@ -46,12 +46,17 @@ public class EmployeeOption extends javax.swing.JFrame {
         d.setRowCount(0);
         d.setColumnIdentifiers(columnNames);///set the title of the columns
         try{
-            data.resultat = data.statement.executeQuery( "SELECT *FROM User;" );//Select all the user table
-            while(data.resultat.next())
+            
+            while(data.get_resultat().next())
             {
                //Add the columns
+<<<<<<< HEAD
                 Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
                 data.resultat.getString("prenom"),data.resultat.getString("age"),data.resultat.getString("date_inscription")};//get all of the table
+=======
+                Object [] newRowData = {data.get_resultat().getString("id"),data.get_resultat().getString("user_type"),data.get_resultat().getString("email"),data.get_resultat().getString("nom"),
+                data.get_resultat().getString("prenom"),data.get_resultat().getString("age"),data.get_resultat().getString("date_inscription")};
+>>>>>>> aie
                 d.addRow(newRowData);///add at the line
                 
             }
@@ -69,13 +74,22 @@ public class EmployeeOption extends javax.swing.JFrame {
         d.setRowCount(0);
         d.setColumnIdentifiers(columnNames);///set the title of the columns
         try{
-            data.resultat = data.statement.executeQuery( "SELECT *FROM Employe;" );
-            while(data.resultat.next())
+            
+            data.set_resultat(data.get_statement().executeQuery("SELECT *FROM Employe;"));
+            while(data.get_resultat().next())
             {
+<<<<<<< HEAD
                //add the columns
                Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
                 data.resultat.getString("prenom")};//get all of the table
                 d.addRow(newRowData);///add at the line
+=======
+               //on ajoute les colonnes
+               Object [] newRowData = {data.get_resultat().getString("id"),data.get_resultat().getString("user_type"),data.get_resultat().getString("email"),
+                   data.get_resultat().getString("nom"),
+                data.get_resultat().getString("prenom")};
+                d.addRow(newRowData);///on ajoute la ligne
+>>>>>>> aie
             }
             
         }
@@ -92,13 +106,13 @@ public class EmployeeOption extends javax.swing.JFrame {
         d.setColumnIdentifiers(columnNames);
         
         try{
-            data.resultat = data.statement.executeQuery( "SELECT *FROM Ticket;" );
+           
+            data.set_resultat(data.get_statement().executeQuery("SELECT *FROM Ticket;"));
             
-            
-            while(data.resultat.next())
+            while(data.get_resultat().next())
             {
                //on ajoute les colonnes
-               Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("Nom_manege"),data.resultat.getString("date"),};
+               Object [] newRowData = {data.get_resultat().getString("id"),data.get_resultat().getString("Nom_manege"),data.get_resultat().getString("date"),};
                 d.addRow(newRowData);///on ajoute la ligne
                 
             }
