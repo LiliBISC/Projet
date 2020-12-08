@@ -14,7 +14,6 @@ import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 import static Modele.DAO_Connection.data;
 import static Modele.Sousprogrammes.*;
-import javax.swing.JButton;
 import javax.swing.JToggleButton;
 
 /**
@@ -618,19 +617,22 @@ public class ChooseDate extends javax.swing.JFrame {
     //Fonction which calculate the adult price
     private void Price_A(JToggleButton A)
     {
-        if(discount_adult<1){//If he has a discount
+        if(discount_adult!=1){//If he has a discount
         double nbAdult=Double.parseDouble(A.getText());//Get the text of the button
         price_adult=nbAdult*prix_manège*(1-discount_adult);//Set the price of adult
+        println(1-discount_adult);
         Aprice.setText("Price : "+nombre(price_adult)+"$");//Set the text
         Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");//set the text
         total_price=price_adult+price_child;//Set the total price
         }
+        else
+        {
         double nbAdult=Double.parseDouble(A.getText());//Get the text of the button
         price_adult=nbAdult*prix_manège*(discount_adult);//Set the price of adult
         Aprice.setText("Price : "+nombre(price_adult)+"$");//Set the text
         Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");//set the text
         total_price=price_adult+price_child;//Set the total price
-        
+        }
     }
     //Fonction which calculate the child price
     private void Price_C(JToggleButton A)
@@ -642,11 +644,13 @@ public class ChooseDate extends javax.swing.JFrame {
         Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");//Set the text
         total_price=price_adult+price_child;//Set the total price
         }
+        else{
         double nbChild=Double.parseDouble(A.getText());//Get the text of the button
         price_child=nbChild*prix_manège;//Set the price of child
         Cprice.setText("Price : "+nombre(price_child)+"$");//Set the text
         Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");//Set the text
         total_price=price_adult+price_child;//Set the total price
+        }
         
     }
     
