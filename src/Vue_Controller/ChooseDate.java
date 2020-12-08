@@ -620,7 +620,6 @@ public class ChooseDate extends javax.swing.JFrame {
         if(discount_adult!=1){//If he has a discount
         double nbAdult=Double.parseDouble(A.getText());//Get the text of the button
         price_adult=nbAdult*prix_manège*(1-discount_adult);//Set the price of adult
-        println(1-discount_adult);
         Aprice.setText("Price : "+nombre(price_adult)+"$");//Set the text
         Tprice.setText("Total price : "+nombre(price_adult+price_child)+"$");//set the text
         total_price=price_adult+price_child;//Set the total price
