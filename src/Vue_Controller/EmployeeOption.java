@@ -50,13 +50,10 @@ public class EmployeeOption extends javax.swing.JFrame {
             while(data.get_resultat().next())
             {
                //Add the columns
-<<<<<<< HEAD
-                Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
-                data.resultat.getString("prenom"),data.resultat.getString("age"),data.resultat.getString("date_inscription")};//get all of the table
-=======
+
                 Object [] newRowData = {data.get_resultat().getString("id"),data.get_resultat().getString("user_type"),data.get_resultat().getString("email"),data.get_resultat().getString("nom"),
                 data.get_resultat().getString("prenom"),data.get_resultat().getString("age"),data.get_resultat().getString("date_inscription")};
->>>>>>> aie
+
                 d.addRow(newRowData);///add at the line
                 
             }
@@ -78,18 +75,13 @@ public class EmployeeOption extends javax.swing.JFrame {
             data.set_resultat(data.get_statement().executeQuery("SELECT *FROM Employe;"));
             while(data.get_resultat().next())
             {
-<<<<<<< HEAD
-               //add the columns
-               Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
-                data.resultat.getString("prenom")};//get all of the table
-                d.addRow(newRowData);///add at the line
-=======
+
                //on ajoute les colonnes
                Object [] newRowData = {data.get_resultat().getString("id"),data.get_resultat().getString("user_type"),data.get_resultat().getString("email"),
                    data.get_resultat().getString("nom"),
                 data.get_resultat().getString("prenom")};
                 d.addRow(newRowData);///on ajoute la ligne
->>>>>>> aie
+
             }
             
         }
