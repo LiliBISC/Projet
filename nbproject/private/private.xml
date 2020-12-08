@@ -2,25 +2,20 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/MemberPlace.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Modele/DAO_impl_SQL.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/CreateMember.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/ChooseRide.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/KIDSLAND%20(1).gif</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/Bill.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/Chargement.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Modele/DAO_interface.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/EmployeeSpace.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Modele/Sousprogrammes.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/MainMenu.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Modele/DAO_Connection.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/EmployeeOption.java</file>
-            <file>file:/C:/Users/lilia/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/ChooseDate.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/ChooseRide.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Modele/DAO_Connection.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/MainMenu.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/CreateMember.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/Chargement.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Modele/Sousprogrammes.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Modele/Main.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Modele/DAO_interface.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/ChooseDate.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/EmployeeSpace.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/Bill.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Vue_Controller/EmployeeOption.java</file>
+            <file>file:/C:/Users/trani/OneDrive/Documents/GitHub/Projet/src/Modele/DAO_impl_SQL.java</file>
         </group>
->>>>>>> master
     </open-files>
 </project-private>

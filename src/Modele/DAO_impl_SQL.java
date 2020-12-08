@@ -14,15 +14,15 @@ import java.util.logging.Logger;
 import static Modele.Sousprogrammes.*;
 
 
-public final class DAO_impl_SQL {
-    public Connection connexion;
+public final class DAO_impl_SQL implements DAO_interface{
+   public Connection connexion;
     public Statement statement;
     public ResultSet resultat;
     
-    public DAO_impl_SQL(String nom_database,String ip,String port,String user,String mdp){
+    public DAO_impl_SQL(String nom_database,String ip,String port,String user,String mdp){///constructeur
         
         try{
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");//DRIVER
             println("Driver initialisé");
         }
         catch(Exception e){
@@ -31,7 +31,7 @@ public final class DAO_impl_SQL {
         
         try {
    
-connexion= DriverManager.getConnection("jdbc:mysql://"+ip+":"+port+"/"+nom_database+"?verifyServerCertificate=false&useSSL=true",user,mdp);
+connexion= DriverManager.getConnection("jdbc:mysql://"+ip+":"+port+"/"+nom_database+"?verifyServerCertificate=false&useSSL=true",user,mdp);//CONNECTION A LA DATABASE
 println("CONNECTION établie a "+nom_database,GREEN);
 statement = connexion.createStatement();
 
@@ -43,6 +43,18 @@ statement = connexion.createStatement();
         
     }
     
+    public Connection get_connection(){
+        return connexion;
+    }
+    public Statement get_statement(){
+        return statement;
+    }
+    public ResultSet get_resultat(){
+        return resultat;
+    }
+    public void set_resultat(ResultSet a){
+        resultat=a;
+    }
     
     public void ajouter_client(String email,String mdp,String nom,String prenom,int age) {///ajoute le customer dans la base de donnée mémoire vive et sql
         try{
@@ -214,7 +226,7 @@ statement = connexion.createStatement();
         
     }   
       
-      public double get_prix_manege(String nom){///tu mets le nom du manege ça retourne son prix
+      public double get_prix_manege(String nom){///prends le nom du manege ça retourne son prix
           double prix=-1; 
           try{
         resultat = statement.executeQuery( "SELECT *FROM Manege;" );
@@ -360,7 +372,7 @@ return resultat.getString(1);
     }
     
 }
-    public void ajouter_manege_date(String nom_manege,String datem) {///ajoute le customer dans la base de donnée mémoire vive et sql
+    public void ajouter_manege_date(String nom_manege,String datem) {///ajoute le customer dans la base de donnée  sql
        
         
         try{
