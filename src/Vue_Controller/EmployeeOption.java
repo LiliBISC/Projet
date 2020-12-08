@@ -51,7 +51,7 @@ public class EmployeeOption extends javax.swing.JFrame {
             {
                //Add the columns
                 Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
-                data.resultat.getString("prenom"),data.resultat.getString("age"),data.resultat.getString("date_inscription")};
+                data.resultat.getString("prenom"),data.resultat.getString("age"),data.resultat.getString("date_inscription")};//get all of the table
                 d.addRow(newRowData);///add at the line
                 
             }
@@ -62,20 +62,20 @@ public class EmployeeOption extends javax.swing.JFrame {
             }
         
     }
-    
+    //Function which initialize the employee table
     public void init_tableau_contact(){
-          String[] columnNames = {"id","type","email","nom","prenom"};
+          String[] columnNames = {"id","type","email","nom","prenom"};//Set the column name
         DefaultTableModel d = (DefaultTableModel)Table.getModel();
         d.setRowCount(0);
-        d.setColumnIdentifiers(columnNames);///titre des colonnes
+        d.setColumnIdentifiers(columnNames);///set the title of the columns
         try{
             data.resultat = data.statement.executeQuery( "SELECT *FROM Employe;" );
             while(data.resultat.next())
             {
-               //on ajoute les colonnes
+               //add the columns
                Object [] newRowData = {data.resultat.getString("id"),data.resultat.getString("user_type"),data.resultat.getString("email"),data.resultat.getString("nom"),
-                data.resultat.getString("prenom")};
-                d.addRow(newRowData);///on ajoute la ligne
+                data.resultat.getString("prenom")};//get all of the table
+                d.addRow(newRowData);///add at the line
             }
             
         }
@@ -84,7 +84,7 @@ public class EmployeeOption extends javax.swing.JFrame {
             }
     }
     
-    
+    //Function which initialize the unvailable rides table
     public void init_tableau_unavailable(){
         String[] columnNames = {"id","manege","date"};
         DefaultTableModel d = (DefaultTableModel)Table.getModel();
@@ -303,7 +303,7 @@ public class EmployeeOption extends javax.swing.JFrame {
     private void ChildDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ChildDiscountActionPerformed
         // TODO add your handling code here:
         try{
-        String b=JOptionPane.showInputDialog(this, "Enter the new discount :");
+        String b=JOptionPane.showInputDialog(this, "Enter the new discount :");//Ask the Employee to write the new discount
         double r_e=Double.parseDouble(b);
         data.set_reduction_enfant(r_e);}//Set the new discount in the table
         catch(Exception e)
@@ -314,38 +314,38 @@ public class EmployeeOption extends javax.swing.JFrame {
 
     private void CheckPopularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CheckPopularActionPerformed
         // TODO add your handling code here:
-        DefaultPieDataset barchart_ride=new DefaultPieDataset();
-        barchart_ride.setValue("Boat", new Integer((int)data.GetChampTable("Manege", "nom", "Boat", "n_res")));
-        barchart_ride.setValue("MegaTron", new Integer((int)data.GetChampTable("Manege", "nom","MegaTron" , "n_res")));
-        barchart_ride.setValue("Poney", new Integer((int)data.GetChampTable("Manege", "nom","Poney" , "n_res")));
-        barchart_ride.setValue("Roller Coaster", new Integer((int)data.GetChampTable("Manege", "nom","Roller Coaster" , "n_res")));
-        barchart_ride.setValue("Roue", new Integer((int)data.GetChampTable("Manege", "nom","Roue" , "n_res")));         
-        barchart_ride.setValue("The Flying Chairs", new Integer((int)data.GetChampTable("Manege", "nom","The Flying Chairs" , "n_res")));         
+        DefaultPieDataset barchart_ride=new DefaultPieDataset();//Construct the pie chart
+        barchart_ride.setValue("Boat", new Integer((int)data.GetChampTable("Manege", "nom", "Boat", "n_res")));//set the value
+        barchart_ride.setValue("MegaTron", new Integer((int)data.GetChampTable("Manege", "nom","MegaTron" , "n_res")));////set the value
+        barchart_ride.setValue("Poney", new Integer((int)data.GetChampTable("Manege", "nom","Poney" , "n_res")));//set the value
+        barchart_ride.setValue("Roller Coaster", new Integer((int)data.GetChampTable("Manege", "nom","Roller Coaster" , "n_res")));//set the value
+        barchart_ride.setValue("Roue", new Integer((int)data.GetChampTable("Manege", "nom","Roue" , "n_res")));         //set the value
+        barchart_ride.setValue("The Flying Chairs", new Integer((int)data.GetChampTable("Manege", "nom","The Flying Chairs" , "n_res")));//set the value         
         
-        JFreeChart b= ChartFactory.createPieChart3D("Popularity", barchart_ride, true,true, false);
+        JFreeChart b= ChartFactory.createPieChart3D("Popularity", barchart_ride, true,true, false);//Create a pie chart in 3D
         
         PiePlot P=(PiePlot)b.getPlot();
-        P.setSectionPaint("Boat", Color.gray);
-        P.setSectionPaint("MegaTron",Color.BLUE );
-        P.setSectionPaint("Roller Coaster",Color.CYAN);
-        P.setSectionPaint("Roue",Color.darkGray);
-        P.setSectionPaint("The Flying Chairs", Color.LIGHT_GRAY);
-        P.setSectionPaint("The Poney", Color.pink);
+        P.setSectionPaint("Boat", Color.gray);//Display the section
+        P.setSectionPaint("MegaTron",Color.BLUE );//Display the section
+        P.setSectionPaint("Roller Coaster",Color.CYAN);//Display the section
+        P.setSectionPaint("Roue",Color.darkGray);//Display the section
+        P.setSectionPaint("The Flying Chairs", Color.LIGHT_GRAY);//Display the section
+        P.setSectionPaint("The Poney", Color.pink);//Display the section
         P.setBackgroundAlpha(TOP_ALIGNMENT);
         
-        ChartFrame frame=new ChartFrame("Popularity", b);
-        frame.setSize(684,489);
-        frame.setLocationRelativeTo(null);
-        frame.setBackground(Color.white);
-        frame.setVisible(true);
+        ChartFrame frame=new ChartFrame("Popularity", b);//Create a new frame for the pie chart
+        frame.setSize(684,489);//Set his size
+        frame.setLocationRelativeTo(null);//Set his location
+        frame.setBackground(Color.white);//Set his color of his background
+        frame.setVisible(true);//Display the frame
     }//GEN-LAST:event_CheckPopularActionPerformed
 
     private void DeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCustomerActionPerformed
         // TODO add your handling code here:
         try{
         String email ="";
-        email=JOptionPane.showInputDialog("Enter his email : ");
-        data.supprimer_client(email);
+        email=JOptionPane.showInputDialog("Enter his email : ");//Ask the employee to write the email of the customer
+        data.supprimer_client(email);//delete the customer
         }
         catch(Exception e)
         {
@@ -355,9 +355,9 @@ public class EmployeeOption extends javax.swing.JFrame {
     private void AdultDiscountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AdultDiscountActionPerformed
         // TODO add your handling code here:
         try{
-        String b=JOptionPane.showInputDialog(this, "Enter the new discount :");
+        String b=JOptionPane.showInputDialog(this, "Enter the new discount :");//Ask the Employee to write the new discount
         double r_a=Double.parseDouble(b);
-        data.set_reduction_adulte(r_a);}
+        data.set_reduction_adulte(r_a);}//set the new discount
         catch(Exception e)
         {
             
@@ -370,13 +370,13 @@ public class EmployeeOption extends javax.swing.JFrame {
         try
         {String choix[]={"remove an unavailable date","add an unavailable date"};
         String b;
-        b = (String) JOptionPane.showInputDialog(this, "What do you want to do ?","Choice",JOptionPane.QUESTION_MESSAGE, null, choix, choix[0]);
-        if(b.equals(choix[0]))
+        b = (String) JOptionPane.showInputDialog(this, "What do you want to do ?","Choice",JOptionPane.QUESTION_MESSAGE, null, choix, choix[0]);//Ask the employee if he wants to reove or add
+        if(b.equals(choix[0]))//If he wants to remove
         {
             try{
-            String a=JOptionPane.showInputDialog(this,"Ride : " );
-            String c=JOptionPane.showInputDialog(this,"Date : " ); 
-            data.supprimer_manege_date(a, c);}
+            String a=JOptionPane.showInputDialog(this,"Ride : " );//Ask the name of the ride
+            String c=JOptionPane.showInputDialog(this,"Date : " );//ask the date
+            data.supprimer_manege_date(a, c);}//delete the ride and the date in the table
             catch(Exception e)
         {
             
@@ -385,9 +385,9 @@ public class EmployeeOption extends javax.swing.JFrame {
         else if(b.equals(choix[1]))
         {
             try{
-            String a=JOptionPane.showInputDialog(this,"Ride : " );
-            String c=JOptionPane.showInputDialog(this,"Date : " );    
-            data.ajouter_manege_date(a, c);}
+            String a=JOptionPane.showInputDialog(this,"Ride : " );//Ask the name of the ride
+            String c=JOptionPane.showInputDialog(this,"Date : "); //ask the date  
+            data.ajouter_manege_date(a, c);}//Add the ride and the date in the table
             catch(Exception e)
         {
             
@@ -410,7 +410,7 @@ public class EmployeeOption extends javax.swing.JFrame {
     private void boutonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boutonMenuActionPerformed
         // TODO add your handling code here:
         MainMenu j=new MainMenu();
-        j.setVisible(true);
+        j.setVisible(true);//display the menu
         setVisible(false);
     }//GEN-LAST:event_boutonMenuActionPerformed
 

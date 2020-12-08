@@ -243,7 +243,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         {
             if(manege.equals(""))//If the field manege is empty
         { try{
-                JOptionPane.showMessageDialog(this, "You have not clicked on a ride !");//Error message
+                JOptionPane.showMessageDialog(this, "You do not have clicked on a ride !");//Error message
                 }
          catch(Exception e)
                 {
@@ -263,7 +263,7 @@ public class ChooseRide extends javax.swing.JFrame implements MouseListener{
         
         String imgUrl_ride3="build/classes/projet/ImageFrame/Capture1.PNG";//Url of the image
         String imgUrl_ride1="build/classes/projet/ImageFrame/Capture3.PNG";//Url of the image
-        String imgUrl_ride2="build/classes/projet/ImageFrame/Capture2.PNG";//Url of the image
+        String imgUrl_ride2="build/classes/projet/ImageFrame/chaise.JPG";//Url of the image
         String imgUrl_ride4="build/classes/projet/ImageFrame/OIP (1).jpg";//Url of the image
         String imgUrl_ride6="build/classes/projet/ImageFrame/OIP (2).jpg";//Url of the image
         String imgUrl_ride5="build/classes/projet/ImageFrame/Capture.JPG";//Url of the image

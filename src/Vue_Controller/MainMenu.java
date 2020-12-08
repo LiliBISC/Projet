@@ -58,6 +58,7 @@ public class MainMenu extends javax.swing.JFrame implements MouseListener ,DAO_C
         });
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lb3.setBackground(new java.awt.Color(204, 204, 204));
         lb3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -65,6 +66,7 @@ public class MainMenu extends javax.swing.JFrame implements MouseListener ,DAO_C
         lb3.setText("Employee Space");
         lb3.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 153, 255)));
         lb3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(lb3, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 483, 195, -1));
 
         lb1.setBackground(new java.awt.Color(204, 204, 204));
         lb1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -72,56 +74,24 @@ public class MainMenu extends javax.swing.JFrame implements MouseListener ,DAO_C
         lb1.setText("Member Customer");
         lb1.setBorder(javax.swing.BorderFactory.createMatteBorder(2, 2, 2, 2, new java.awt.Color(0, 153, 255)));
         lb1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(lb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 333, 195, -1));
 
         lb2.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         lb2.setForeground(new java.awt.Color(0, 153, 255));
         lb2.setText("Guest Customer");
         lb2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 153, 255), 2));
         lb2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel1.add(lb2, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 406, 195, -1));
 
         jLabel5.setBackground(new java.awt.Color(215, 215, 235));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 0, 479, 315));
 
         createMember.setFont(new java.awt.Font("Verdana", 3, 12)); // NOI18N
         createMember.setForeground(new java.awt.Color(255, 0, 0));
         createMember.setText("Create a member account ");
         createMember.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(createMember))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(253, 253, 253)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lb3, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lb1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lb2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(0, 130, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lb1)
-                .addGap(46, 46, 46)
-                .addComponent(lb2)
-                .addGap(50, 50, 50)
-                .addComponent(lb3)
-                .addGap(28, 28, 28)
-                .addComponent(createMember)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel1.add(createMember, new org.netbeans.lib.awtextra.AbsoluteConstraints(543, 538, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

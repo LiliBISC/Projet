@@ -309,6 +309,7 @@ public class CreateMember extends javax.swing.JFrame  {
         String em=email.getText();//get the text of email
         String cem=confirmEmail.getText();//get the text of confirmemail
         
+        try{
         if (!em.equals(cem))//If the email and the confirmemail are different 
         {
             JOptionPane.showMessageDialog(done, "The emails are not the same !");//Error message
@@ -317,9 +318,9 @@ public class CreateMember extends javax.swing.JFrame  {
         {
             JOptionPane.showMessageDialog(done, "The passwords are not the same !");//Error message
         }
-        else if(em.equals("") || pw.equals(""))//If the fields are empty
+        else if(em.equals("") || pw.equals("") ||nam.equals("")||surn.equals(""))//If the fields are empty
         {
-            JOptionPane.showMessageDialog(done, "Password or Login empty !");//Error message
+            JOptionPane.showMessageDialog(done, "One of your fields is empty !");//Error message
         }
         else if(em.equals(cem) && pw.equals(cpw))//If all is ok
         {   
@@ -340,6 +341,11 @@ public class CreateMember extends javax.swing.JFrame  {
             }
            } }).start();
         }
+        }
+        catch(Exception e){
+                
+                }
+        
          
         
         
