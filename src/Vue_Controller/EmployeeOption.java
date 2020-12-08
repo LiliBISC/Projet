@@ -46,7 +46,7 @@ public class EmployeeOption extends javax.swing.JFrame {
         d.setRowCount(0);
         d.setColumnIdentifiers(columnNames);///set the title of the columns
         try{
-            
+            data.set_resultat(data.get_statement().executeQuery("SELECT *FROM User;"));
             while(data.get_resultat().next())
             {
                //Add the columns
