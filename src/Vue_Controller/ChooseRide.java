@@ -5,6 +5,7 @@
  */
 package Vue_Controller;
 
+import Modele.DAO_Connection;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -12,8 +13,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import static Modele.DAO_Connection.data;
-import static Modele.Sousprogrammes.println;
+
+
 import javax.swing.JOptionPane;
 
 
@@ -21,7 +22,7 @@ import javax.swing.JOptionPane;
  *
  * @author lilia
  */
-public class ChooseRide extends javax.swing.JFrame implements MouseListener{
+public class ChooseRide extends javax.swing.JFrame implements MouseListener,DAO_Connection{
 
     /**
      * Creates new form jFrame4

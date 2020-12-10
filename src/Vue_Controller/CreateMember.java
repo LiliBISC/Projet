@@ -5,6 +5,8 @@
  */
 package Vue_Controller;
 
+
+import Modele.DAO_Connection;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
@@ -14,7 +16,7 @@ import static Modele.DAO_Connection.data;
  *
  * @author lilia
  */
-public class CreateMember extends javax.swing.JFrame  {
+public class CreateMember extends javax.swing.JFrame implements DAO_Connection {
 
     /**
      * Creates new form CreateMember

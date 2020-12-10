@@ -5,6 +5,7 @@
  */
 package Vue_Controller;
 
+import Modele.DAO_Connection;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -16,7 +17,7 @@ import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PiePlot;
 import org.jfree.data.general.DefaultPieDataset;
-import static Modele.DAO_Connection.data;
+//import static Modele.DAO_Connection.data;
 import static Modele.Sousprogrammes.RED;
 import static Modele.Sousprogrammes.println;
 
@@ -24,7 +25,7 @@ import static Modele.Sousprogrammes.println;
  *
  * @author lilia
  */
-public class EmployeeOption extends javax.swing.JFrame {
+public class EmployeeOption extends javax.swing.JFrame implements DAO_Connection{
 
     /**
      * Creates new form EmployeeOption

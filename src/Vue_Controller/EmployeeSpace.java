@@ -5,6 +5,7 @@
  */
 package Vue_Controller;
 
+import Modele.DAO_Connection;
 import java.awt.Color;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -15,7 +16,7 @@ import static Modele.Sousprogrammes.println;
  *
  * @author lilia
  */
-public class EmployeeSpace extends javax.swing.JFrame {
+public class EmployeeSpace extends javax.swing.JFrame implements DAO_Connection {
 
     /**
      * Creates new form EmployeeSpace

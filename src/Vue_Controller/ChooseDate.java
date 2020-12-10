@@ -6,14 +6,15 @@
 package Vue_Controller;
 
 
+import Modele.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
-import static Modele.DAO_Connection.data;
-import static Modele.Sousprogrammes.*;
+
+import  static Modele.Sousprogrammes.*;
 import javax.swing.JToggleButton;
 
 /**
@@ -21,7 +22,7 @@ import javax.swing.JToggleButton;
  * @author lilia
  */
  
-public class ChooseDate extends javax.swing.JFrame {
+public class ChooseDate extends javax.swing.JFrame implements DAO_Connection {
 
     /**
      * Creates new form ChooseDate
