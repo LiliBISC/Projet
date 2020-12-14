@@ -6,7 +6,9 @@ import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import Vue_Controller.Chargement;
-import static Modele.Sousprogrammes.*;;
+import static Modele.Sousprogrammes.*;import java.util.InputMismatchException;
+import java.util.Scanner;
+;
 
 
 
@@ -35,7 +37,17 @@ public class Main implements DAO_Connection{
                 new MainMenu().setVisible(true);
             }
         });}
-     
         
+       /* System.out.println("Please enter a number");
+
+        Scanner scan = new Scanner(System.in);
+        
+        try {
+
+        int i = scan.nextInt();
+        
+    } catch (InputMismatchException e) {
+        System.out.println("pas bon");}*/
+  
     }}
    

@@ -11,6 +11,8 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import javax.swing.JOptionPane;
 import static Modele.DAO_Connection.data;
+import static Modele.Sousprogrammes.println;
+import java.util.InputMismatchException;
 
 /**
  *
@@ -305,6 +307,8 @@ public class CreateMember extends javax.swing.JFrame implements DAO_Connection {
         // TODO add your handling code here:
         String nam=name.getText();//get the text of name
         String surn=surname.getText();//get the text of surname
+        try {
+
         int a=Integer.parseInt(age.getText());//get the text of age
         String pw=password.getText();//get the text of password
         String cpw=confirmPassword.getText();//get the text of confirmpassword
@@ -345,8 +349,15 @@ public class CreateMember extends javax.swing.JFrame implements DAO_Connection {
         }
         }
         catch(Exception e){
-                
+                println("ok");
                 }
+        
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(done, "Incorrect entry for age !");//Error message;
+    }
+        //int a=Integer.parseInt(age.getText());//get the text of age
+        //int a=0;
+        
         
          
         
