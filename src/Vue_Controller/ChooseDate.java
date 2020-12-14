@@ -586,14 +586,12 @@ public class ChooseDate extends javax.swing.JFrame implements DAO_Connection {
         {
             if(date_1.equals(data.get_dates(manege).get(i)))//if the date is booked
             {
-                try{
-                JOptionPane.showMessageDialog(this, "This date is reserved, please choose another date");//Display that the date is booked
+                
+                JOptionPane.showMessageDialog(this, "This date is already reserved or expired, please select a date in blue");//Display that the date is booked
                 b=1;
-                }
-                catch (Exception e){
-                    
-                }
+                
             }
+            
         }
         if(b==0)
         {
