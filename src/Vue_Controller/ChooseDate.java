@@ -582,14 +582,23 @@ public class ChooseDate extends javax.swing.JFrame implements DAO_Connection {
         SimpleDateFormat date1 = new SimpleDateFormat("dd");
         String date_1 = date1.format(date.getDate());
         int b=0;
+        int day=Integer.parseInt(date_1);
+        java.util.Date date = new java.util.Date();
+
+        String k=date1.format( date );
+        int c=Integer.parseInt(k);
+        if(day<c)//if the date is booked
+            {
+                JOptionPane.showMessageDialog(this, "This date is already reserved or expired, please select a date in blue");//Display that the date is booked
+                b=1;   
+            }
+        
         for(int i =0;i<data.get_dates(manege).size();i++)//
         {
             if(date_1.equals(data.get_dates(manege).get(i)))//if the date is booked
             {
-                
                 JOptionPane.showMessageDialog(this, "This date is already reserved or expired, please select a date in blue");//Display that the date is booked
-                b=1;
-                
+                b=1;   
             }
             
         }
