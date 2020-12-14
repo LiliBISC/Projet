@@ -15,6 +15,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JOptionPane;
 
 import  static Modele.Sousprogrammes.*;
+import java.util.Calendar;
 import javax.swing.JToggleButton;
 
 /**
@@ -574,6 +575,7 @@ public class ChooseDate extends javax.swing.JFrame implements DAO_Connection {
 
     private void doneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doneActionPerformed
         // TODO add your handling code here:
+       //System.out.println(calendar.get(Calendar.DAY_OF_MONTH));
         try{
         //First type of date
         SimpleDateFormat date_format = new SimpleDateFormat("yyyy/MM/dd");
@@ -581,6 +583,7 @@ public class ChooseDate extends javax.swing.JFrame implements DAO_Connection {
         //Second type of date
         SimpleDateFormat date1 = new SimpleDateFormat("dd");
         String date_1 = date1.format(date.getDate());
+        
         int b=0;
         for(int i =0;i<data.get_dates(manege).size();i++)//
         {

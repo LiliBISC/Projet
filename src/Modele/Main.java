@@ -6,7 +6,8 @@ import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import Vue_Controller.Chargement;
-import static Modele.Sousprogrammes.*;;
+import static Modele.Sousprogrammes.*;import java.util.Calendar;
+;
 
 
 
@@ -28,6 +29,7 @@ public class Main implements DAO_Connection{
         //data.SetChampTable("User","id","125","email","");
         //data.SetChampTable("Manege","nom","Roue","n_res",2);
         //println(data.GetChampTable("Reduction","id","0","adulte"));
+      
         if(data.get_connection()!=null){
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
